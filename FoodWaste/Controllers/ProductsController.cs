@@ -40,28 +40,15 @@ namespace FoodWaste.Controllers
                 products = products.Where(s => s.Name.Contains(searchString));
             }
 
-            switch (sortOrder)
+            products = sortOrder switch
             {
-                case "Name_desc":
-                    products = products.OrderByDescending(p => p.Name);
-                    break;
-                case "Date":
-                    products = products.OrderBy(p => p.ExpiryDate);
-                    break;
-                case "Date_desc":
-                    products = products.OrderByDescending(p => p.ExpiryDate);
-                    break;
-                case "State":
-                    products = products.OrderBy(p => p.State);
-                    break;
-                case "State_desc":
-                    products = products.OrderByDescending(p => p.State);
-                    break;
-                default:
-                    products = products.OrderBy(p => p.Name);
-                    break;
-            }
-
+                "Name_desc" => products.OrderByDescending(p => p.Name),
+                "Date" => products.OrderBy(p => p.ExpiryDate),
+                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate),
+                "State" => products.OrderBy(p => p.State),
+                "State_desc" => products.OrderByDescending(p => p.State),
+                _ => products.OrderBy(p => p.Name),
+            };
             return View(await products.AsNoTracking().ToListAsync());
         }
 
