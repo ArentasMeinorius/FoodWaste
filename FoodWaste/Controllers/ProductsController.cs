@@ -22,27 +22,40 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string sortOrder)
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
 
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "Date_desc" : "Date";
+            ViewData["StateSortParm"] = sortOrder == "State" ? "State_desc" : "State";
+            ViewData["CurrentFilter"] = searchString;
 
             var products = from p in _context.Product
                            select p;
 
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.Name.Contains(searchString));
+            }
+
             switch (sortOrder)
             {
-                case "name_desc":
+                case "Name_desc":
                     products = products.OrderByDescending(p => p.Name);
                     break;
                 case "Date":
                     products = products.OrderBy(p => p.ExpiryDate);
                     break;
-                case "date_desc":
+                case "Date_desc":
                     products = products.OrderByDescending(p => p.ExpiryDate);
+                    break;
+                case "State":
+                    products = products.OrderBy(p => p.State);
+                    break;
+                case "State_desc":
+                    products = products.OrderByDescending(p => p.State);
                     break;
                 default:
                     products = products.OrderBy(p => p.Name);
