@@ -15,7 +15,6 @@ namespace FoodWaste.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
@@ -47,14 +46,14 @@ namespace FoodWaste.Controllers
                 if (product.State == Product.ProductState.Listed)
                 {
                     product.State = Product.ProductState.Reserved;
-                    product.ReservedUserId = GetCurrentUserId();
+                    product.Restaurant_id = GetCurrentUserId();
                 }
                 else if (product.State == Product.ProductState.Reserved)
                 {
-                    if (product.ReservedUserId == GetCurrentUserId())
+                    if (product.Restaurant_id == GetCurrentUserId())
                     {
                         product.State = Product.ProductState.Listed;
-                        product.ReservedUserId = null;
+                        product.Restaurant_id = null;
                     }
                 }
                 try
@@ -85,7 +84,7 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
             var result = from p in _context.Product
-                         join r in _context.Restaurant on p.RestaurantUserId equals r.UserId into details
+                         join r in _context.Restaurant on p.Restaurant_id equals r.User_Id into details
                          from r in details.DefaultIfEmpty()
                          select new ProductViewModel { Product = p, Restaurant = r };
 
@@ -103,7 +102,7 @@ namespace FoodWaste.Controllers
         [Authorize]
         public IActionResult Create()
         {
-            var res = _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(GetCurrentUserId()));
+            var res = _context.Restaurant.SingleOrDefaultAsync(r => r.User_Id.Equals(GetCurrentUserId()));
 
             return View();
         }
@@ -114,12 +113,12 @@ namespace FoodWaste.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
                 product.State = Product.ProductState.Listed;
-                product.RestaurantUserId = GetCurrentUserId();
+                product.Restaurant_id = GetCurrentUserId();
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -148,7 +147,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)//nepriimt userid
         {
             if (id != product.Id)
             {
@@ -178,7 +177,7 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)// jei be id kreiptusi tai notfound grazintu be nullable
         {
             if (id == null)
             {
@@ -211,23 +210,24 @@ namespace FoodWaste.Controllers
             return _context.Product.Any(e => e.Id == id);
         }
 
-        private string GetCurrentUserId()
+        private int? GetCurrentUserId()
         {
+            
             if (User.Identity.IsAuthenticated)
             {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                return 1;//User.FindFirst(ClaimTypes.NameIdentifier);
             }
             return null;
         }
 
-        public bool IsCurrentUserRestaurant()
+        public bool IsCurrentUserRestaurant()//base klase sitiems
         {
             var userId = GetCurrentUserId();
             if (userId == null)
             {
                 return false;
             }
-            return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)) != null;
+            return _context.Restaurant.SingleOrDefault(r => r.User_Id.Equals(userId)) != null;
         }
     }
 }

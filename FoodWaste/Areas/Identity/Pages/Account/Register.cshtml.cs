@@ -107,7 +107,33 @@ namespace FoodWaste.Areas.Identity.Pages.Account
                     {
                         var restaurant = new Restaurant
                         {
-                            UserId = user.Id,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            User_Id = Int32.Parse(user.Id),
                             Name = Input.RestaurantName,
                             Address = Input.RestaurantAddress,
                             PhoneNumber = Input.RestaurantPhoneNumber

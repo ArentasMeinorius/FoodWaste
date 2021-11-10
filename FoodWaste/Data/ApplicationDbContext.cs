@@ -7,7 +7,7 @@ using FoodWaste.Models;
 
 namespace FoodWaste.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext//pa=iuret dokumentacija del sql
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
