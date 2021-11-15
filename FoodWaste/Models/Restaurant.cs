@@ -9,9 +9,8 @@ namespace FoodWaste.Models
     public class Restaurant
     {
         [Key]
-        [StringLength(450)]
         public int Id { get; set; }
-        public int? User_Id { get; set; }
+        public int User_Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
