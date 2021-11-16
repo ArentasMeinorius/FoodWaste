@@ -16,8 +16,9 @@ namespace FoodWaste.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private const string NotFoundPage = "/Products/NotFound";
         private static string SearchString = "";
-
+        
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
@@ -35,31 +36,37 @@ namespace FoodWaste.Controllers
             ViewData["DateSortParm"] = getSortOrder(sortOrder, "Date");
             ViewData["StateSortParm"] = getSortOrder(sortOrder, "State");
             ViewData["CurrentFilter"] = searchString;
-
-            var products = await DataBaseOperations.GetProduct();
-
-            if (!String.IsNullOrEmpty(searchString))
+            try
             {
-                SearchString = searchString;
+                var products = await DataBaseOperations.GetProduct();
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    SearchString = searchString;
+                }
+
+                if (clearFilter)
+                {
+                    SearchString = "";
+                }
+
+                products = products.Where(s => s.Name.Contains(SearchString)).ToList();
+
+                products = sortOrder switch
+                {
+                    "Name_desc" => products.OrderByDescending(p => p.Name).ToList(),
+                    "Date" => products.OrderBy(p => p.ExpiryDate).ToList(),
+                    "Date_desc" => products.OrderByDescending(p => p.ExpiryDate).ToList(),
+                    "State" => products.OrderBy(p => p.State).ToList(),
+                    "State_desc" => products.OrderByDescending(p => p.State).ToList(),
+                    _ => products.OrderBy(p => p.Name).ToList(),
+                };
+                return View(products);
             }
-            
-            if (clearFilter)
+            catch (Exception ex)
             {
-                SearchString = "";
+                return LocalRedirect(NotFoundPage);
             }
-
-            products = products.Where(s => s.Name.Contains(SearchString)).ToList();
-
-            products = sortOrder switch
-            {
-                "Name_desc" => products.OrderByDescending(p => p.Name).ToList(),
-                "Date" => products.OrderBy(p => p.ExpiryDate).ToList(),
-                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate).ToList(),
-                "State" => products.OrderBy(p => p.State).ToList(),
-                "State_desc" => products.OrderByDescending(p => p.State).ToList(),
-                _ => products.OrderBy(p => p.Name).ToList(),
-            };
-            return View(products);
         }
 
         [Authorize]
@@ -73,39 +80,46 @@ namespace FoodWaste.Controllers
             {
                 //var product = await _context.Product
                 //    .FirstOrDefaultAsync(m => m.Id == id);
-                var result = await DataBaseOperations.GetProduct();
-                var product = result.FirstOrDefault(m => m.Id == id);
-                if (product == null)
-                {
-                    return NotFound();
-                }
-                if (product.State == Product.ProductState.Listed)
-                {
-                    product.State = Product.ProductState.Reserved;
-                    product.UserId = GetCurrentUserId();
-                }
-                else if (product.State == Product.ProductState.Reserved)
-                {
-                    if (product.UserId == GetCurrentUserId())
-                    {
-                        product.State = Product.ProductState.Listed;
-                        product.UserId = null;
-                    }
-                }
                 try
                 {
-                    await DataBaseOperations.PutProduct(product);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (! await ProductExists(product.Id))
+                    var result = await DataBaseOperations.GetProduct();
+                    var product = result.FirstOrDefault(m => m.Id == id);
+                    if (product == null)
                     {
                         return NotFound();
                     }
-                    else
+                    if (product.State == Product.ProductState.Listed)
                     {
-                        throw;
+                        product.State = Product.ProductState.Reserved;
+                        product.UserId = GetCurrentUserId();
                     }
+                    else if (product.State == Product.ProductState.Reserved)
+                    {
+                        if (product.UserId == GetCurrentUserId())
+                        {
+                            product.State = Product.ProductState.Listed;
+                            product.UserId = null;
+                        }
+                    }
+                    try
+                    {
+                        await DataBaseOperations.PutProduct(product);
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (!await ProductExists(product.Id))
+                        {
+                            return NotFound();
+                        }
+                        else
+                        {
+                            throw;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LocalRedirect(NotFoundPage);
                 }
             }
             return RedirectToAction(nameof(Index));
@@ -122,19 +136,26 @@ namespace FoodWaste.Controllers
             //             join r in _context.Restaurant on p.Restaurant_id equals r.User_Id into details
             //             from r in details.DefaultIfEmpty()
             //             select new ProductViewModel { Product = p, Restaurant = r };
-            var pResult = await DataBaseOperations.GetProduct();
-            var rResult = await DataBaseOperations.GetRestaurant();
-            var result = from p in pResult
-                         join r in rResult on p.RestaurantId equals r.UserId into details
-                         from r in details.DefaultIfEmpty()
-                         select new ProductViewModel { Product = p, Restaurant = r };
-            var product = result.FirstOrDefault(m => m.Product.Id == id);
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
+                var pResult = await DataBaseOperations.GetProduct();
+                var rResult = await DataBaseOperations.GetRestaurant();
+                var result = from p in pResult
+                             join r in rResult on p.RestaurantId equals r.UserId into details
+                             from r in details.DefaultIfEmpty()
+                             select new ProductViewModel { Product = p, Restaurant = r };
+                var product = result.FirstOrDefault(m => m.Product.Id == id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
 
-            return View(product);
+                return View(product);
+            }
+            catch (Exception ex)
+            {
+                return LocalRedirect(NotFoundPage);
+            }
         }
 
         // GET: Products/Create
@@ -161,8 +182,15 @@ namespace FoodWaste.Controllers
                 product.RestaurantId = GetCurrentUserId();
                 //_context.Add(product);
                 //await _context.SaveChangesAsync();
-                await DataBaseOperations.PostProduct(product);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    await DataBaseOperations.PostProduct(product);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (Exception ex)
+                {
+                    return LocalRedirect(NotFoundPage);
+                }
             }
             return View(product);
         }
@@ -176,14 +204,21 @@ namespace FoodWaste.Controllers
             }
 
             //var product = await _context.Product.FindAsync(id);
-            var result = await DataBaseOperations.GetProduct();
-            var product = result.FirstOrDefault(m => m.Id == id);
-
-            if (product == null)
+            try
             {
-                return NotFound();
+                var result = await DataBaseOperations.GetProduct();
+                var product = result.FirstOrDefault(m => m.Id == id);
+
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                return View(product);
             }
-            return View(product);
+            catch (Exception ex)
+            {
+                return LocalRedirect(NotFoundPage);
+            }
         }
 
         // POST: Products/Edit/5
@@ -231,14 +266,21 @@ namespace FoodWaste.Controllers
 
             //var product = await _context.Product
             //    .FirstOrDefaultAsync(m => m.Id == id);
-            var result = await DataBaseOperations.GetProduct();
-            var product = result.FirstOrDefault(m => m.Id == id);
-            if (product == null)
+            try
             {
-                return NotFound();
-            }
+                var result = await DataBaseOperations.GetProduct();
+                var product = result.FirstOrDefault(m => m.Id == id);
+                if (product == null)
+                {
+                    return NotFound();
+                }
 
-            return View(product);
+                return View(product);
+            }
+            catch (Exception ex)
+            {
+                return LocalRedirect(NotFoundPage);
+            }
         }
 
         // POST: Products/Delete/5
@@ -249,17 +291,35 @@ namespace FoodWaste.Controllers
             //var product = await _context.Product.FindAsync(id);
             //_context.Product.Remove(product);
             //await _context.SaveChangesAsync();
-            var result = await DataBaseOperations.GetProduct();
-            var product = result.FirstOrDefault(m => m.Id == id);
-            await DataBaseOperations.DeleteProduct(id);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var result = await DataBaseOperations.GetProduct();
+                var product = result.FirstOrDefault(m => m.Id == id);
+                await DataBaseOperations.DeleteProduct(id);
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                return LocalRedirect(NotFoundPage);
+            }
         }
 
         private async Task<bool> ProductExists(int id)
         {
-            var result = await DataBaseOperations.GetProduct();
-            // return _context.Product.Any(e => e.Id == id);
-            return result.Any(e => e.Id == id);
+            try
+            {
+                var result = await DataBaseOperations.GetProduct();
+                // return _context.Product.Any(e => e.Id == id);
+                return result.Any(e => e.Id == id);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public async Task<IActionResult> NotFound(int? id) 
+        {
+            return View();
         }
 
         private int GetCurrentUserId()
