@@ -26,20 +26,17 @@ namespace FoodWaste.Controllers
         }
         public static async Task<List<Product>> UpdateProducts()
         {
-            List<Product> products = new List<Product>();
-
-            ObservableCollection<Product> myproducts = new ObservableCollection<Product>();
-            myproducts.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(
+            ObservableCollection<Product> products = new ObservableCollection<Product>();
+            products.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(
             delegate (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
             {
-                if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Reset)
+                if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
                 {
-
-                    foreach (Product prod in myproducts)
+                    foreach (Product prod in products)
                     {
                         if (prod.ExpiryDate < DateTime.Today)
                         {
-                            prod.State.Equals("Expired");
+                            prod.State = Product.ProductState.Expired;
                             PutProduct(prod);
                         }
                     }
@@ -55,7 +52,11 @@ namespace FoodWaste.Controllers
                     using (var response = await httpClient.GetAsync(ProductUri))
                     {
                         string apiResponse = await response.Content.ReadAsStringAsync();
-                        products = JsonConvert.DeserializeObject<List<Product>>(apiResponse);
+                        var productResponse = JsonConvert.DeserializeObject<ObservableCollection<Product>>(apiResponse);
+                        foreach(var p in productResponse)
+                        {
+                            products.Add(p);
+                        }
                     }
                 }
             }
@@ -63,7 +64,7 @@ namespace FoodWaste.Controllers
             {
                 throw new Exception("List is empty");
             }
-            return products;
+            return products.ToList();
         }
         public static async Task<string> PostProduct(Product product)
         {
