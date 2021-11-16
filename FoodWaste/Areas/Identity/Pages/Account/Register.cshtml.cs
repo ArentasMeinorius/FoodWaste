@@ -107,7 +107,7 @@ namespace FoodWaste.Areas.Identity.Pages.Account
                     {
                         var restaurant = new Restaurant
                         {
-                            User_Id = user.Id,
+                            UserId = user.Id,
                             Name = Input.RestaurantName,
                             Address = Input.RestaurantAddress,
                             PhoneNumber = Input.RestaurantPhoneNumber

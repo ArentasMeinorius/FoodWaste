@@ -49,19 +49,18 @@ namespace FoodWaste.Controllers
                 if (product.State == Product.ProductState.Listed)
                 {
                     product.State = Product.ProductState.Reserved;
-                    product.User_id = GetCurrentUserId();
+                    product.UserId = GetCurrentUserId();
                 }
                 else if (product.State == Product.ProductState.Reserved)
                 {
-                    if (product.User_id == GetCurrentUserId())
+                    if (product.UserId == GetCurrentUserId())
                     {
                         product.State = Product.ProductState.Listed;
-                        product.User_id = null;
+                        product.UserId = null;
                     }
                 }
                 try
                 {
-                    
                     await DataBaseOperations.PutProduct(product);
                 }
                 catch (DbUpdateConcurrencyException)
@@ -93,7 +92,7 @@ namespace FoodWaste.Controllers
             var pResult = await DataBaseOperations.GetProduct();
             var rResult = await DataBaseOperations.GetRestaurant();
             var result = from p in pResult
-                         join r in rResult on p.Restaurant_id equals r.User_Id into details
+                         join r in rResult on p.RestaurantId equals r.UserId into details
                          from r in details.DefaultIfEmpty()
                          select new ProductViewModel { Product = p, Restaurant = r };
             var product = result.FirstOrDefault(m => m.Product.Id == id);
@@ -110,7 +109,7 @@ namespace FoodWaste.Controllers
         public async Task<IActionResult> Create()
         {
             var result = await DataBaseOperations.GetRestaurant();
-            var res = result.FirstOrDefault(r => r.User_Id.Equals(GetCurrentUserId()));
+            var res = result.FirstOrDefault(r => r.UserId.Equals(GetCurrentUserId()));
 
             return View();
         }
@@ -121,12 +120,12 @@ namespace FoodWaste.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,User_id,Restaurant_id")] Product product)//nepriimt userid
+        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
                 product.State = Product.ProductState.Listed;
-                product.Restaurant_id = GetCurrentUserId();
+                product.RestaurantId = GetCurrentUserId();
                 //_context.Add(product);
                 //await _context.SaveChangesAsync();
                 await DataBaseOperations.PostProduct(product);
@@ -159,7 +158,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)//nepriimt userid
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
             if (id != product.Id)
             {
@@ -169,8 +168,9 @@ namespace FoodWaste.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await DataBaseOperations.PutProduct(product);
+                    //_context.Update(product);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -247,7 +247,8 @@ namespace FoodWaste.Controllers
                 return false;
             }
             var result = await DataBaseOperations.GetRestaurant();
-            return result.FirstOrDefault(r => r.User_Id == userId) != null;
+            var rez = result.FirstOrDefault(r => r.UserId == userId);
+            return result.FirstOrDefault(r => r.UserId == userId) != null;
         }
     }
 }

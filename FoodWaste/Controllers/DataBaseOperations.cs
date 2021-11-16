@@ -38,8 +38,8 @@ namespace FoodWaste.Controllers
             values.Add("name", product.Name);
             values.Add("expirydate", product.ExpiryDate);
             values.Add("state", product.State.ToString());
-            values.Add("restaurant_id", product.Restaurant_id);
-            values.Add("user_id", product.User_id);
+            values.Add("restaurantid", product.RestaurantId);
+            values.Add("userid", product.UserId);
             HttpContent content = new StringContent(values.ToString(), Encoding.UTF8, "application/json");
             using (var httpClientHandler = new HttpClientHandler())
             {
@@ -62,8 +62,8 @@ namespace FoodWaste.Controllers
             values.Add("name", product.Name);
             values.Add("expirydate", product.ExpiryDate);
             values.Add("state", product.State.ToString());
-            values.Add("restaurant_id", product.Restaurant_id);
-            values.Add("user_id", product.User_id);
+            values.Add("restaurantid", product.RestaurantId);
+            values.Add("userid", product.UserId);
             HttpContent content = new StringContent(values.ToString(), Encoding.UTF8, "application/json");
             using (var httpClientHandler = new HttpClientHandler())
             {
@@ -119,7 +119,7 @@ namespace FoodWaste.Controllers
             //values.Add("id", restaurant.Id);
             values.Add("name", restaurant.Name);
             values.Add("phonenumber", restaurant.PhoneNumber);
-            values.Add("user_id", restaurant.User_Id);
+            values.Add("userid", restaurant.UserId);
             values.Add("address", restaurant.Address);
             HttpContent content = new StringContent(values.ToString(), Encoding.UTF8, "application/json");
             using (var httpClientHandler = new HttpClientHandler())
@@ -142,7 +142,7 @@ namespace FoodWaste.Controllers
             values.Add("id", restaurant.Id);
             values.Add("name", restaurant.Name);
             values.Add("phonenumber", restaurant.PhoneNumber);
-            values.Add("user_id", restaurant.User_Id);
+            values.Add("userid", restaurant.UserId);
             values.Add("address", restaurant.Address);
             HttpContent content = new StringContent(values.ToString(), Encoding.UTF8, "application/json");
             using (var httpClientHandler = new HttpClientHandler())

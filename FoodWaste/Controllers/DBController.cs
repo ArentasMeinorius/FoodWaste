@@ -29,8 +29,8 @@ namespace FoodWaste.Controllers
                                 name as name, 
                                 expirydate as expiryDate, 
                                 state as state, 
-                                restaurant_id as restaurant_id, 
-                                users_id as user_id 
+                                restaurant_id as restaurantid, 
+                                users_id as userid 
                             from product
             ";
             DataTable table = new DataTable();
@@ -55,7 +55,7 @@ namespace FoodWaste.Controllers
         public JsonResult Post(Product product)
         {
             string query = @"insert into product (id, name,expirydate, state, restaurant_id, users_id)
-                             values (nextval('id_seq'), @name, @expiryDate, @state, @restaurant_id, @user_id)
+                             values (nextval('id_seq'), @name, @expiryDate, @state, @restaurantid, @userid)
             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -68,8 +68,8 @@ namespace FoodWaste.Controllers
                     myCommand.Parameters.AddWithValue("@name", product.Name);
                     myCommand.Parameters.AddWithValue("@expiryDate", product.ExpiryDate);
                     myCommand.Parameters.AddWithValue("@state", product.State.ToString());
-                    myCommand.Parameters.AddWithValue("@restaurant_id", product.Restaurant_id);
-                    myCommand.Parameters.AddWithValue("@user_id", (object)product.User_id ?? DBNull.Value);
+                    myCommand.Parameters.AddWithValue("@restaurantid", product.RestaurantId);
+                    myCommand.Parameters.AddWithValue("@userid", (object)product.UserId ?? DBNull.Value);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
@@ -87,8 +87,8 @@ namespace FoodWaste.Controllers
                                 name = @name, 
                                 expirydate = @expiryDate, 
                                 state = @state, 
-                                restaurant_id = @restaurant_id, 
-                                users_id = @user_id
+                                restaurant_id = @restaurantid, 
+                                users_id = @userid
                              where id = @id
             ";
             DataTable table = new DataTable();
@@ -103,8 +103,8 @@ namespace FoodWaste.Controllers
                     myCommand.Parameters.AddWithValue("@name", product.Name);
                     myCommand.Parameters.AddWithValue("@expiryDate", product.ExpiryDate);
                     myCommand.Parameters.AddWithValue("@state", product.State.ToString());
-                    myCommand.Parameters.AddWithValue("@restaurant_id", product.Restaurant_id);
-                    myCommand.Parameters.AddWithValue("@user_id", (object)product.User_id??DBNull.Value);
+                    myCommand.Parameters.AddWithValue("@restaurantid", product.RestaurantId);
+                    myCommand.Parameters.AddWithValue("@userid", (object)product.UserId??DBNull.Value);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -149,7 +149,7 @@ namespace FoodWaste.Controllers
                                 id as id, 
                                 name as name, 
                                 phonenumber as phoneNumber,  
-                                users_id as user_id,
+                                users_id as userid,
                                 address as address
                             from restaurant
             ";
@@ -175,7 +175,7 @@ namespace FoodWaste.Controllers
         public JsonResult PostRestaurant(Restaurant restaurant)
         {
             string query = @"insert into restaurant (id, name, phonenumber, users_id, address)
-                             values (nextval('id_seq'), @name, @phonenumber, @user_id, @address)
+                             values (nextval('id_seq'), @name, @phonenumber, @userid, @address)
             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("DefaultConnection");
@@ -187,7 +187,7 @@ namespace FoodWaste.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@name", restaurant.Name);
                     myCommand.Parameters.AddWithValue("@phonenumber", restaurant.PhoneNumber);
-                    myCommand.Parameters.AddWithValue("@user_id", restaurant.User_Id);
+                    myCommand.Parameters.AddWithValue("@userid", restaurant.UserId);
                     myCommand.Parameters.AddWithValue("@address", restaurant.Address);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -205,7 +205,7 @@ namespace FoodWaste.Controllers
             string query = @"update restaurant set
                                 name = @name, 
                                 phonenumber = @phonenumber, 
-                                users_id = @user_id,
+                                users_id = @userid,
                                 address = @address
                              where id = @id
             ";
@@ -220,7 +220,7 @@ namespace FoodWaste.Controllers
                     myCommand.Parameters.AddWithValue("@id", restaurant.Id);
                     myCommand.Parameters.AddWithValue("@name", restaurant.Name);
                     myCommand.Parameters.AddWithValue("@phonenumber", restaurant.PhoneNumber);
-                    myCommand.Parameters.AddWithValue("@user_id", restaurant.User_Id);
+                    myCommand.Parameters.AddWithValue("@userid", restaurant.UserId);
                     myCommand.Parameters.AddWithValue("@address", restaurant.Address);
 
                     myReader = myCommand.ExecuteReader();

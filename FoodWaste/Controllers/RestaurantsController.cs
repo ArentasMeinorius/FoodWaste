@@ -57,7 +57,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("User_Id,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
+        public async Task<IActionResult> Create([Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +93,7 @@ namespace FoodWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
         {
-            if (id != restaurant.User_Id)
+            if (id != restaurant.UserId)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace FoodWaste.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (! await RestaurantExists(restaurant.User_Id))
+                    if (! await RestaurantExists(restaurant.UserId))
                     {
                         return NotFound();
                     }
