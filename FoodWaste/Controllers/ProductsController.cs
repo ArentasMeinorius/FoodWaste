@@ -90,17 +90,13 @@ namespace FoodWaste.Controllers
             //             join r in _context.Restaurant on p.Restaurant_id equals r.User_Id into details
             //             from r in details.DefaultIfEmpty()
             //             select new ProductViewModel { Product = p, Restaurant = r };
-            var result = await DataBaseOperations.GetProduct();
-
-
-
-
-
-
-
-
-            //var product = result.FirstOrDefault(m => m.Product.Id == id);
-            var product = result.FirstOrDefault(m => m.Id == id);
+            var pResult = await DataBaseOperations.GetProduct();
+            var rResult = await DataBaseOperations.GetRestaurant();
+            var result = from p in pResult
+                         join r in rResult on p.Restaurant_id equals r.User_Id into details
+                         from r in details.DefaultIfEmpty()
+                         select new ProductViewModel { Product = p, Restaurant = r };
+            var product = result.FirstOrDefault(m => m.Product.Id == id);
             if (product == null)
             {
                 return NotFound();

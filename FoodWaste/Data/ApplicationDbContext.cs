@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace FoodWaste.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>,IdentityRole<int>, int>//pa=iuret dokumentacija del sql
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>,IdentityRole<int>, int>
     {//nhibernate dapper
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
