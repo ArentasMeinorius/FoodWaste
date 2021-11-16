@@ -16,13 +16,15 @@ namespace FoodWaste.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private static string SearchString = "";
+
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
         {
             ViewData["IsCurrentUserRestaurant"] = await IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
@@ -38,8 +40,15 @@ namespace FoodWaste.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                products = products.Where(s => s.Name.Contains(searchString)).ToList();
+                SearchString = searchString;
             }
+            
+            if (clearFilter)
+            {
+                SearchString = "";
+            }
+
+            products = products.Where(s => s.Name.Contains(SearchString)).ToList();
 
             products = sortOrder switch
             {
