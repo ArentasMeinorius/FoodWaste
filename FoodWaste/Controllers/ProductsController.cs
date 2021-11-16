@@ -16,6 +16,7 @@ namespace FoodWaste.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private const string NotFoundPage = "/Products/NotFound";
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
@@ -55,7 +56,7 @@ namespace FoodWaste.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/Products/NotFound");
+                return LocalRedirect(NotFoundPage);
             }
         }
 
@@ -109,7 +110,7 @@ namespace FoodWaste.Controllers
                 }
                 catch (Exception ex)
                 {
-                    LocalRedirect("/Products/NotFound");
+                    LocalRedirect(NotFoundPage);
                 }
             }
             return RedirectToAction(nameof(Index));
@@ -144,7 +145,7 @@ namespace FoodWaste.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/Products/NotFound");
+                return LocalRedirect(NotFoundPage);
             }
         }
 
@@ -179,7 +180,7 @@ namespace FoodWaste.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return LocalRedirect("/Products/NotFound");
+                    return LocalRedirect(NotFoundPage);
                 }
             }
             return View(product);
@@ -207,7 +208,7 @@ namespace FoodWaste.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/Products/NotFound");
+                return LocalRedirect(NotFoundPage);
             }
         }
 
@@ -269,7 +270,7 @@ namespace FoodWaste.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/Products/NotFound");
+                return LocalRedirect(NotFoundPage);
             }
         }
 
@@ -290,7 +291,7 @@ namespace FoodWaste.Controllers
             }
             catch (Exception ex)
             {
-                return LocalRedirect("/Products/NotFound");
+                return LocalRedirect(NotFoundPage);
             }
         }
 
