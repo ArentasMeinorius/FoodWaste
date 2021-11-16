@@ -22,11 +22,33 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Products
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
             ViewData["IsCurrentUserRestaurant"] = await IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
-            return View(await DataBaseOperations.GetProduct());
+
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewData["DateSortParm"] = sortOrder == "Date" ? "Date_desc" : "Date";
+            ViewData["StateSortParm"] = sortOrder == "State" ? "State_desc" : "State";
+            ViewData["CurrentFilter"] = searchString;
+
+            var products = await DataBaseOperations.GetProduct();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.Name.Contains(searchString));
+            }
+
+            products = sortOrder switch
+            {
+                "Name_desc" => products.OrderByDescending(p => p.Name),
+                "Date" => products.OrderBy(p => p.ExpiryDate),
+                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate),
+                "State" => products.OrderBy(p => p.State),
+                "State_desc" => products.OrderByDescending(p => p.State),
+                _ => products.OrderBy(p => p.Name),
+            };
+            return View(products);
         }
 
         [Authorize]
