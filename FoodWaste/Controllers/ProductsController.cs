@@ -36,23 +36,22 @@ namespace FoodWaste.Controllers
             try
             {
                 var products = await DataBaseOperations.GetProduct();
-            
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                products = products.Where(s => s.Name.Contains(searchString)).ToList();
-            }
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where(s => s.Name.Contains(searchString)).ToList();
+                }
 
-            products = sortOrder switch
-            {
-                "Name_desc" => products.OrderByDescending(p => p.Name).ToList(),
-                "Date" => products.OrderBy(p => p.ExpiryDate).ToList(),
-                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate).ToList(),
-                "State" => products.OrderBy(p => p.State).ToList(),
-                "State_desc" => products.OrderByDescending(p => p.State).ToList(),
-                _ => products.OrderBy(p => p.Name).ToList(),
-            };
-            return View(products);
+                products = sortOrder switch
+                {
+                    "Name_desc" => products.OrderByDescending(p => p.Name).ToList(),
+                    "Date" => products.OrderBy(p => p.ExpiryDate).ToList(),
+                    "Date_desc" => products.OrderByDescending(p => p.ExpiryDate).ToList(),
+                    "State" => products.OrderBy(p => p.State).ToList(),
+                    "State_desc" => products.OrderByDescending(p => p.State).ToList(),
+                    _ => products.OrderBy(p => p.Name).ToList(),
+                };
+                return View(products);
             }
             catch (Exception ex)
             {
