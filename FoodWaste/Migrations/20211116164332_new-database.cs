@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FoodWaste.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class newdatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -16,13 +16,15 @@ namespace FoodWaste.Controllers
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private static string SearchString = "";
+
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
         {
             ViewData["IsCurrentUserRestaurant"] = await IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
@@ -36,17 +38,24 @@ namespace FoodWaste.Controllers
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                products = products.Where(s => s.Name.Contains(searchString));
+                SearchString = searchString;
             }
+            
+            if (clearFilter)
+            {
+                SearchString = "";
+            }
+
+            products = products.Where(s => s.Name.Contains(SearchString)).ToList();
 
             products = sortOrder switch
             {
-                "Name_desc" => products.OrderByDescending(p => p.Name),
-                "Date" => products.OrderBy(p => p.ExpiryDate),
-                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate),
-                "State" => products.OrderBy(p => p.State),
-                "State_desc" => products.OrderByDescending(p => p.State),
-                _ => products.OrderBy(p => p.Name),
+                "Name_desc" => products.OrderByDescending(p => p.Name).ToList(),
+                "Date" => products.OrderBy(p => p.ExpiryDate).ToList(),
+                "Date_desc" => products.OrderByDescending(p => p.ExpiryDate).ToList(),
+                "State" => products.OrderBy(p => p.State).ToList(),
+                "State_desc" => products.OrderByDescending(p => p.State).ToList(),
+                _ => products.OrderBy(p => p.Name).ToList(),
             };
             return View(products);
         }
