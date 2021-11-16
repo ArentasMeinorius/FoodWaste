@@ -21,8 +21,8 @@ namespace FoodWaste.Models
         public string Name { get; set; }
         public DateTime ExpiryDate { get; set; }
         public ProductState State { get; set; }
-        public string ReservedUserId { get; set; }
-        public string RestaurantUserId { get; set; }
+        public int RestaurantId { get; set; }
+        public int? UserId { get; set; }
 
         public Product()
         {

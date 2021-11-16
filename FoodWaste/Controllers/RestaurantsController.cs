@@ -22,19 +22,22 @@ namespace FoodWaste.Controllers
         // GET: Restaurants
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Restaurant.ToListAsync());
+            //return View(await _context.Restaurant.ToListAsync());
+            return View(await DataBaseOperations.GetRestaurant());
         }
 
         // GET: Restaurants/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var restaurant = await _context.Restaurant
-                .FirstOrDefaultAsync(m => m.UserId == id);
+            //var restaurant = await _context.Restaurant
+            //    .FirstOrDefaultAsync(m => m.User_Id == id);
+            var result = await DataBaseOperations.GetRestaurant();
+            var restaurant = result.FirstOrDefault(m => m.Id == id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -54,7 +57,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)
+        public async Task<IActionResult> Create([Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
@@ -66,14 +69,16 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Restaurants/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var restaurant = await _context.Restaurant.FindAsync(id);
+            //var restaurant = await _context.Restaurant.FindAsync(id);
+            var result = await DataBaseOperations.GetRestaurant();
+            var restaurant = result.Find(m => m.Id == id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -86,7 +91,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)
+        public async Task<IActionResult> Edit(int? id, [Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
         {
             if (id != restaurant.UserId)
             {
@@ -102,7 +107,7 @@ namespace FoodWaste.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RestaurantExists(restaurant.UserId))
+                    if (! await RestaurantExists(restaurant.UserId))
                     {
                         return NotFound();
                     }
@@ -117,15 +122,17 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Restaurants/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var restaurant = await _context.Restaurant
-                .FirstOrDefaultAsync(m => m.UserId == id);
+            //var restaurant = await _context.Restaurant
+            //    .FirstOrDefaultAsync(m => m.User_Id == id);
+            var result = await DataBaseOperations.GetRestaurant();
+            var restaurant = result.FirstOrDefault(m => m.Id == id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -137,17 +144,22 @@ namespace FoodWaste.Controllers
         // POST: Restaurants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var restaurant = await _context.Restaurant.FindAsync(id);
-            _context.Restaurant.Remove(restaurant);
-            await _context.SaveChangesAsync();
+            //var restaurant = await _context.Restaurant.FindAsync(id);
+            //_context.Restaurant.Remove(restaurant);
+            //await _context.SaveChangesAsync();
+            var result = await DataBaseOperations.GetRestaurant();
+            var restaurant = result.FirstOrDefault(m => m.Id == id);
+            await DataBaseOperations.DeleteProduct(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RestaurantExists(string id)
+        private async Task<bool> RestaurantExists(int? id)
         {
-            return _context.Restaurant.Any(e => e.UserId == id);
+            //return _context.Restaurant.Any(e => e.User_Id == id);
+            var result = await DataBaseOperations.GetRestaurant();
+            return result.Any(e => e.Id == id);
         }
     }
 }

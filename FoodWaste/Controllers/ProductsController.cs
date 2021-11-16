@@ -9,13 +9,13 @@ using FoodWaste.Data;
 using FoodWaste.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using FoodWaste.Controllers;
 
 namespace FoodWaste.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
@@ -24,7 +24,7 @@ namespace FoodWaste.Controllers
         // GET: Products
         public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
+            ViewData["IsCurrentUserRestaurant"] = await IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
 
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
@@ -32,8 +32,7 @@ namespace FoodWaste.Controllers
             ViewData["StateSortParm"] = sortOrder == "State" ? "State_desc" : "State";
             ViewData["CurrentFilter"] = searchString;
 
-            var products = from p in _context.Product
-                           select p;
+            var products = await DataBaseOperations.GetProduct();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -49,7 +48,7 @@ namespace FoodWaste.Controllers
                 "State_desc" => products.OrderByDescending(p => p.State),
                 _ => products.OrderBy(p => p.Name),
             };
-            return View(await products.AsNoTracking().ToListAsync());
+            return View(products);
         }
 
         [Authorize]
@@ -59,10 +58,12 @@ namespace FoodWaste.Controllers
             {
                 return NotFound();
             }
-            if (!IsCurrentUserRestaurant())
+            if (! await IsCurrentUserRestaurant())
             {
-                var product = await _context.Product
-                    .FirstOrDefaultAsync(m => m.Id == id);
+                //var product = await _context.Product
+                //    .FirstOrDefaultAsync(m => m.Id == id);
+                var result = await DataBaseOperations.GetProduct();
+                var product = result.FirstOrDefault(m => m.Id == id);
                 if (product == null)
                 {
                     return NotFound();
@@ -70,24 +71,23 @@ namespace FoodWaste.Controllers
                 if (product.State == Product.ProductState.Listed)
                 {
                     product.State = Product.ProductState.Reserved;
-                    product.ReservedUserId = GetCurrentUserId();
+                    product.UserId = GetCurrentUserId();
                 }
                 else if (product.State == Product.ProductState.Reserved)
                 {
-                    if (product.ReservedUserId == GetCurrentUserId())
+                    if (product.UserId == GetCurrentUserId())
                     {
                         product.State = Product.ProductState.Listed;
-                        product.ReservedUserId = null;
+                        product.UserId = null;
                     }
                 }
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await DataBaseOperations.PutProduct(product);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (! await ProductExists(product.Id))
                     {
                         return NotFound();
                     }
@@ -107,13 +107,17 @@ namespace FoodWaste.Controllers
             {
                 return NotFound();
             }
-            var result = from p in _context.Product
-                         join r in _context.Restaurant on p.RestaurantUserId equals r.UserId into details
+            //var result = from p in _context.Product
+            //             join r in _context.Restaurant on p.Restaurant_id equals r.User_Id into details
+            //             from r in details.DefaultIfEmpty()
+            //             select new ProductViewModel { Product = p, Restaurant = r };
+            var pResult = await DataBaseOperations.GetProduct();
+            var rResult = await DataBaseOperations.GetRestaurant();
+            var result = from p in pResult
+                         join r in rResult on p.RestaurantId equals r.UserId into details
                          from r in details.DefaultIfEmpty()
                          select new ProductViewModel { Product = p, Restaurant = r };
-
             var product = result.FirstOrDefault(m => m.Product.Id == id);
-
             if (product == null)
             {
                 return NotFound();
@@ -124,9 +128,10 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Create
         [Authorize]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            var res = _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(GetCurrentUserId()));
+            var result = await DataBaseOperations.GetRestaurant();
+            var res = result.FirstOrDefault(r => r.UserId.Equals(GetCurrentUserId()));
 
             return View();
         }
@@ -137,14 +142,15 @@ namespace FoodWaste.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
                 product.State = Product.ProductState.Listed;
-                product.RestaurantUserId = GetCurrentUserId();
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                product.RestaurantId = GetCurrentUserId();
+                //_context.Add(product);
+                //await _context.SaveChangesAsync();
+                await DataBaseOperations.PostProduct(product);
                 return RedirectToAction(nameof(Index));
             }
             return View(product);
@@ -158,7 +164,10 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
+            //var product = await _context.Product.FindAsync(id);
+            var result = await DataBaseOperations.GetProduct();
+            var product = result.FirstOrDefault(m => m.Id == id);
+
             if (product == null)
             {
                 return NotFound();
@@ -171,7 +180,7 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,ReservedUsername,RestaurantUserId")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
             if (id != product.Id)
             {
@@ -181,12 +190,13 @@ namespace FoodWaste.Controllers
             {
                 try
                 {
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    await DataBaseOperations.PutProduct(product);
+                    //_context.Update(product);
+                    //await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (! await ProductExists(product.Id))
                     {
                         return NotFound();
                     }
@@ -201,15 +211,17 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id)// jei be id kreiptusi tai notfound grazintu be nullable
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //var product = await _context.Product
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+            var result = await DataBaseOperations.GetProduct();
+            var product = result.FirstOrDefault(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -223,34 +235,42 @@ namespace FoodWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
-            await _context.SaveChangesAsync();
+            //var product = await _context.Product.FindAsync(id);
+            //_context.Product.Remove(product);
+            //await _context.SaveChangesAsync();
+            var result = await DataBaseOperations.GetProduct();
+            var product = result.FirstOrDefault(m => m.Id == id);
+            await DataBaseOperations.DeleteProduct(id);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private async Task<bool> ProductExists(int id)
         {
-            return _context.Product.Any(e => e.Id == id);
+            var result = await DataBaseOperations.GetProduct();
+            // return _context.Product.Any(e => e.Id == id);
+            return result.Any(e => e.Id == id);
         }
 
-        private string GetCurrentUserId()
+        private int GetCurrentUserId()
         {
+            
             if (User.Identity.IsAuthenticated)
             {
-                return User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                return Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             }
-            return null;
+            return new int();
         }
 
-        public bool IsCurrentUserRestaurant()
+        public async Task<bool> IsCurrentUserRestaurant()//base klase sitiems
         {
             var userId = GetCurrentUserId();
-            if (userId == null)
+            if (userId == default)
             {
                 return false;
             }
-            return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)) != null;
+            var result = await DataBaseOperations.GetRestaurant();
+            var rez = result.FirstOrDefault(r => r.UserId == userId);
+            return result.FirstOrDefault(r => r.UserId == userId) != null;
         }
     }
 }
