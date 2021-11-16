@@ -27,9 +27,11 @@ namespace FoodWaste.Controllers
             ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
 
+            Func<string, string, string> getSortOrder = (x, orderby) => ((x == orderby) ? (orderby + "_desc") : orderby);
+
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
-            ViewData["DateSortParm"] = sortOrder == "Date" ? "Date_desc" : "Date";
-            ViewData["StateSortParm"] = sortOrder == "State" ? "State_desc" : "State";
+            ViewData["DateSortParm"] = getSortOrder(sortOrder, "Date");
+            ViewData["StateSortParm"] = getSortOrder(sortOrder, "State");
             ViewData["CurrentFilter"] = searchString;
 
             var products = from p in _context.Product
