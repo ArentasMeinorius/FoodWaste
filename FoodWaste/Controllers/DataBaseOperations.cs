@@ -8,6 +8,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace FoodWaste.Controllers
 {
@@ -26,6 +27,25 @@ namespace FoodWaste.Controllers
         public static async Task<List<Product>> UpdateProducts()
         {
             List<Product> products = new List<Product>();
+
+            ObservableCollection<Product> myproducts = new ObservableCollection<Product>();
+            myproducts.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(
+            delegate (object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+            {
+                if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Reset)
+                {
+
+                    foreach (Product prod in myproducts)
+                    {
+                        if (prod.ExpiryDate < DateTime.Today)
+                        {
+                            prod.State.Equals("Expired");
+                            PutProduct(prod);
+                        }
+                    }
+                }
+            }
+            );
             using (var httpClientHandler = new HttpClientHandler())
             {
                 httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
