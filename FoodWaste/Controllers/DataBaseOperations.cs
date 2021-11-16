@@ -13,6 +13,10 @@ namespace FoodWaste.Controllers
 {
     public static class DataBaseOperations//paduot json body
     {
+
+        private static string ProductUri = "https://localhost:44368/api/DB/product";
+        private static string RestaurantUri = "https://localhost:44368/api/DB/restaurant";
+
         public static async Task<List<Product>> GetProduct() 
         {
             List<Product> products = new List<Product>();
@@ -22,7 +26,7 @@ namespace FoodWaste.Controllers
                 httpClientHandler.SslProtocols = System.Security.Authentication.SslProtocols.Tls;
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.GetAsync("https://localhost:44368/api/DB/product"))
+                    using (var response = await httpClient.GetAsync(ProductUri))
                     {
                         string apiResponse = await response.Content.ReadAsStringAsync();
                         products = JsonConvert.DeserializeObject<List<Product>>(apiResponse);
@@ -48,7 +52,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.PostAsync("https://localhost:44368/api/DB/product", content))
+                    using (var response = await httpClient.PostAsync(ProductUri, content))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
@@ -72,7 +76,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.PutAsync("https://localhost:44368/api/DB/product", content))
+                    using (var response = await httpClient.PutAsync(ProductUri, content))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
@@ -88,7 +92,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.DeleteAsync("https://localhost:44368/api/DB/product?id="+id))
+                    using (var response = await httpClient.DeleteAsync(ProductUri + "/" + id))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
@@ -104,7 +108,7 @@ namespace FoodWaste.Controllers
                 httpClientHandler.SslProtocols = System.Security.Authentication.SslProtocols.Tls;
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.GetAsync("https://localhost:44368/api/DB/restaurant"))
+                    using (var response = await httpClient.GetAsync(RestaurantUri))
                     {
                         string apiResponse = await response.Content.ReadAsStringAsync();
                         restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(apiResponse);
@@ -129,7 +133,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.PostAsync("https://localhost:44368/api/DB/restaurant", content))
+                    using (var response = await httpClient.PostAsync(RestaurantUri, content))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
@@ -152,7 +156,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.PutAsync("https://localhost:44368/api/DB/restaurant", content))
+                    using (var response = await httpClient.PutAsync(RestaurantUri, content))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
@@ -168,7 +172,7 @@ namespace FoodWaste.Controllers
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
-                    using (var response = await httpClient.DeleteAsync("https://localhost:44368/api/DB/restaurant?id=" + id))
+                    using (var response = await httpClient.DeleteAsync(RestaurantUri + "/" + id))
                     {
                         return await response.Content.ReadAsStringAsync();
                     }
