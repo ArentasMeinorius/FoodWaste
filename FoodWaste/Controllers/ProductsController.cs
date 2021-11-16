@@ -18,6 +18,7 @@ namespace FoodWaste.Controllers
         private readonly ApplicationDbContext _context;
         private const string NotFoundPage = "/Products/NotFound";
         private static string SearchString = "";
+        
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
