@@ -33,6 +33,10 @@ namespace FoodWaste.Controllers
                     }
                 }
             }
+            if (products.Count == 0) 
+            {
+                throw new Exception("List is empty");
+            }
             return products;
         }
         public static async Task<string> PostProduct(Product product)
