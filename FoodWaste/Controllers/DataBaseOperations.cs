@@ -21,7 +21,7 @@ namespace FoodWaste.Controllers
         public static async Task<List<Product>> GetProduct()
         {
             ProductList = new Lazy<Task<List<Product>>>(() => UpdateProducts());
-            return (await ProductList.Value).ToList();
+            return await ProductList.Value;
         }
         public static async Task<List<Product>> UpdateProducts()
         {
