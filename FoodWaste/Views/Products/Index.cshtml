@@ -12,17 +12,26 @@
         <a asp-action="Create">Add a product</a>
     </p>
 }
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Index">Back to Full List</a>
+        </p>
+    </div>
+</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">@Html.DisplayNameFor(model => model.Name)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ExpiryDate)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.ExpiryDate)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.State)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["StateSortParm"]">@Html.DisplayNameFor(model => model.State)</a>
             </th>
             <th></th>
         </tr>
