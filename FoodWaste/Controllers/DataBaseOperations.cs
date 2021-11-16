@@ -13,11 +13,17 @@ namespace FoodWaste.Controllers
 {
     public static class DataBaseOperations//paduot json body
     {
-
         private static string ProductUri = "https://localhost:44368/api/DB/product";
         private static string RestaurantUri = "https://localhost:44368/api/DB/restaurant";
 
-        public static async Task<List<Product>> GetProduct() 
+        private static Lazy<Task<List<Product>>> ProductList = new Lazy<Task<List<Product>>>(() => UpdateProducts());
+
+        public static async Task<List<Product>> GetProduct()
+        {
+            ProductList = new Lazy<Task<List<Product>>>(() => UpdateProducts());
+            return (await ProductList.Value).ToList();
+        }
+        public static async Task<List<Product>> UpdateProducts()
         {
             List<Product> products = new List<Product>();
             using (var httpClientHandler = new HttpClientHandler())
