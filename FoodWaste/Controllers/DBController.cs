@@ -115,8 +115,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Updated successfully");
         }
-        [Route("product")]
-        [HttpDelete("{id}")]
+        [HttpDelete("product/{id}")]
         public JsonResult Delete(int id)
         {
             string query = @"delete from product 
@@ -232,8 +231,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Updated successfully");
         }
-        [Route("restaurant")]
-        [HttpDelete("{id}")]
+        [HttpDelete("restaurant/{id}")]
         public JsonResult DeleteRestaurant(int id)
         {
             string query = @"delete from restaurant 
