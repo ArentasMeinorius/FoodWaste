@@ -14,7 +14,7 @@ namespace FoodWaste.Data
             : base(options)
         {
         }
-        //public DbSet<FoodWaste.Models.Product> Product { get; set; }
-        //public DbSet<FoodWaste.Models.Restaurant> Restaurant { get; set; }
+        public DbSet<FoodWaste.Models.Product> Product { get; set; }
+        public DbSet<FoodWaste.Models.Restaurant> Restaurant { get; set; }
     }
 }
