@@ -131,7 +131,6 @@ namespace FoodWaste.Controllers
             {
                 return NotFound();
             }
-
             return View(product);
         }
 
@@ -139,8 +138,7 @@ namespace FoodWaste.Controllers
         [Authorize]
         public async Task<IActionResult> Create()
         {
-            var res = _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(GetCurrentUserId()));
-
+            var res = await _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(GetCurrentUserId()));
             return View();
         }
 
@@ -229,7 +227,6 @@ namespace FoodWaste.Controllers
             {
                 return NotFound();
             }
-
             return View(product);
         }
 
@@ -246,14 +243,11 @@ namespace FoodWaste.Controllers
 
         private bool ProductExists(int id)
         {
-
             return _context.Product.Any(e => e.Id == id);
-
         }
 
         private int GetCurrentUserId()
         {
-
             if (User.Identity.IsAuthenticated)
             {
                 return Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);

@@ -35,6 +35,7 @@ namespace FoodWaste.Controllers
 
             var restaurant = await _context.Restaurant
                 .FirstOrDefaultAsync(m => m.UserId == id);
+
             if (restaurant == null)
             {
                 return NotFound();
@@ -74,6 +75,7 @@ namespace FoodWaste.Controllers
             }
 
             var restaurant = await _context.Restaurant.FindAsync(id);
+
             if (restaurant == null)
             {
                 return NotFound();
@@ -130,7 +132,6 @@ namespace FoodWaste.Controllers
             {
                 return NotFound();
             }
-
             return View(restaurant);
         }
 
