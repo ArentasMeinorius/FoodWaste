@@ -22,8 +22,7 @@ namespace FoodWaste.Controllers
         // GET: Restaurants
         public async Task<IActionResult> Index()
         {
-            //return View(await _context.Restaurant.ToListAsync());
-            return View(await DataBaseOperations.GetRestaurant());
+            return View(await _context.Restaurant.ToListAsync());
         }
 
         // GET: Restaurants/Details/5
@@ -34,10 +33,8 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
 
-            //var restaurant = await _context.Restaurant
-            //    .FirstOrDefaultAsync(m => m.User_Id == id);
-            var result = await DataBaseOperations.GetRestaurant();
-            var restaurant = result.FirstOrDefault(m => m.Id == id);
+            var restaurant = await _context.Restaurant
+                .FirstOrDefaultAsync(m => m.UserId == id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -76,9 +73,7 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
 
-            //var restaurant = await _context.Restaurant.FindAsync(id);
-            var result = await DataBaseOperations.GetRestaurant();
-            var restaurant = result.Find(m => m.Id == id);
+            var restaurant = await _context.Restaurant.FindAsync(id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -107,7 +102,7 @@ namespace FoodWaste.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (! await RestaurantExists(restaurant.UserId))
+                    if (!RestaurantExists(restaurant.UserId))
                     {
                         return NotFound();
                     }
@@ -129,10 +124,8 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
 
-            //var restaurant = await _context.Restaurant
-            //    .FirstOrDefaultAsync(m => m.User_Id == id);
-            var result = await DataBaseOperations.GetRestaurant();
-            var restaurant = result.FirstOrDefault(m => m.Id == id);
+            var restaurant = await _context.Restaurant
+                .FirstOrDefaultAsync(m => m.UserId == id);
             if (restaurant == null)
             {
                 return NotFound();
@@ -146,20 +139,15 @@ namespace FoodWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            //var restaurant = await _context.Restaurant.FindAsync(id);
-            //_context.Restaurant.Remove(restaurant);
-            //await _context.SaveChangesAsync();
-            var result = await DataBaseOperations.GetRestaurant();
-            var restaurant = result.FirstOrDefault(m => m.Id == id);
-            await DataBaseOperations.DeleteProduct(id);
+            var restaurant = await _context.Restaurant.FindAsync(id);
+            _context.Restaurant.Remove(restaurant);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private async Task<bool> RestaurantExists(int? id)
+        private bool RestaurantExists(int? id)
         {
-            //return _context.Restaurant.Any(e => e.User_Id == id);
-            var result = await DataBaseOperations.GetRestaurant();
-            return result.Any(e => e.Id == id);
+            return _context.Restaurant.Any(e => e.UserId == id);
         }
     }
 }

@@ -113,9 +113,8 @@ namespace FoodWaste.Areas.Identity.Pages.Account
                             PhoneNumber = Input.RestaurantPhoneNumber
                         };
 
-                        //_context.Add(restaurant);
-                        //await _context.SaveChangesAsync();
-                        await DataBaseOperations.PostRestaurant(restaurant);
+                        _context.Add(restaurant);
+                        await _context.SaveChangesAsync();
                     }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

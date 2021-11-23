@@ -53,14 +53,14 @@ namespace FoodWaste.Controllers
                     {
                         string apiResponse = await response.Content.ReadAsStringAsync();
                         var productResponse = JsonConvert.DeserializeObject<ObservableCollection<Product>>(apiResponse);
-                        foreach(var p in productResponse)
+                        foreach (var p in productResponse)
                         {
                             products.Add(p);
                         }
                     }
                 }
             }
-            if (products.Count == 0) 
+            if (products.Count == 0)
             {
                 throw new Exception("List is empty");
             }
