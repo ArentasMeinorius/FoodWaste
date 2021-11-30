@@ -33,7 +33,7 @@ namespace FoodWaste.Controllers
             _logger.LogInformation("Start: Opening products page");
 
             ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
-            ViewData["CurrentUserId"] = GetCurrentUserId();
+            ViewData["CurrentRestaurantUserId"] = GetRestaurantId();
 
             Func<string, string, string> getSortOrder = (x, orderby) => ((x == orderby) ? (orderby + "_desc") : orderby);
 
@@ -134,7 +134,7 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
             var result = from p in _context.Product
-                         join r in _context.Restaurant on p.RestaurantId equals r.UserId into details
+                         join r in _context.Restaurant on p.RestaurantId equals r.Id into details
                          from r in details.DefaultIfEmpty()
                          select new ProductViewModel { Product = p, Restaurant = r };
 
@@ -172,6 +172,8 @@ namespace FoodWaste.Controllers
             {
                 product.State = Product.ProductState.Listed;
                 product.RestaurantId = GetCurrentUserId();
+                product.Restaurants = await _context.Restaurant
+                    .FirstOrDefaultAsync(m => m.UserId == GetCurrentUserId());
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Completed: posted product", product);
@@ -219,6 +221,8 @@ namespace FoodWaste.Controllers
                 try
                 {
                     product.RestaurantId = GetCurrentUserId();
+                    product.Restaurants = await _context.Restaurant
+                    .FirstOrDefaultAsync(m => m.UserId == GetCurrentUserId());
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -298,6 +302,15 @@ namespace FoodWaste.Controllers
                 return false;
             }
             return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)) != null;
+        }
+        private int? GetRestaurantId()
+        {
+            var userId = GetCurrentUserId();
+            if (userId == default)
+            {
+                return null;
+            }
+            return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)).Id;
         }
     }
 }
