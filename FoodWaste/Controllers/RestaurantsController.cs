@@ -55,7 +55,7 @@ namespace FoodWaste.Controllers
                 _ => restaurants.OrderBy(p => p.Name),
             };
 
-            return View(await _context.Restaurant.ToListAsync());
+            return View(restaurants);
         }
 
         // GET: Restaurants/Details/5
