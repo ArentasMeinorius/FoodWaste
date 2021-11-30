@@ -20,15 +20,17 @@ namespace FoodWaste.Controllers
         private readonly ILogger _logger;
         private const string NotFoundPage = "/Products/NotFound";
         private static string SearchString = "";
+        private const int PageSize = 5;
 
         public ProductsController(ApplicationDbContext context, ILogger<ProductsController> logger)
         {
             _logger = logger;
             _context = context;
+            ViewData["Page"] = 3;
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter, int page, int pageSwitch)
         {
             _logger.LogInformation("Start: Opening products page");
 
@@ -66,6 +68,16 @@ namespace FoodWaste.Controllers
                 "State_desc" => products.OrderByDescending(p => p.State),
                 _ => products.OrderBy(p => p.Name),
             };
+
+            int currentPage = page + pageSwitch;
+            if (currentPage <= 0)
+                currentPage = 0;
+            if (currentPage >= (products.Count() / PageSize))
+                currentPage = products.Count() / PageSize;
+            ViewData["Page"] = currentPage;
+
+            products = products.Skip(currentPage * PageSize);
+            products = products.Take(PageSize);
 
             _logger.LogInformation("Completed: Product page is opened");
 

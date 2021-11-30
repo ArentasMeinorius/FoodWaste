@@ -62,3 +62,11 @@
         }
     </tbody>
 </table>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            <a asp-action="Index" asp-route-page=@ViewData["Page"] asp-route-pageSwitch=-1>Previous page</a> | 
+            <a asp-action="Index" asp-route-page=@ViewData["Page"] asp-route-pageSwitch=1>Next page</a>
+        </p>
+    </div>
+</form>
