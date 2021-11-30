@@ -18,6 +18,7 @@ namespace FoodWaste.Controllers
         private readonly ApplicationDbContext _context;
         private const string NotFoundPage = "/Products/NotFound";
         private static string SearchString = "";
+        private const int PageSize = 5;
 
         public ProductsController(ApplicationDbContext context)
         {
@@ -63,16 +64,15 @@ namespace FoodWaste.Controllers
                 _ => products.OrderBy(p => p.Name),
             };
 
-            int pageSize = 5;
             int currentPage = page + pageSwitch;
             if (currentPage <= 0)
                 currentPage = 0;
-            if (currentPage >= (products.Count() / pageSize))
-                currentPage = products.Count() / pageSize;
+            if (currentPage >= (products.Count() / PageSize))
+                currentPage = products.Count() / PageSize;
             ViewData["Page"] = currentPage;
 
-            products = products.Skip(currentPage * pageSize);
-            products = products.Take(pageSize);
+            products = products.Skip(currentPage * PageSize);
+            products = products.Take(PageSize);
 
             return View(products);
         }
