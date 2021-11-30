@@ -8,7 +8,8 @@ namespace FoodWaste.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           
+            migrationBuilder.AddColumn<string>(name: "Discriminator",
+            table: "AspNetUsers", type: "text", nullable: false);
 
             migrationBuilder.CreateTable(
                 name: "Restaurant",
@@ -61,7 +62,7 @@ namespace FoodWaste.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            
+           
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
