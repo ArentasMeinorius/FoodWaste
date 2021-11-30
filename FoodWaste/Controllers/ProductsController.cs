@@ -22,10 +22,11 @@ namespace FoodWaste.Controllers
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
+            ViewData["Page"] = 3;
         }
 
         // GET: Products
-        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter, int page, int pageSwitch)
         {
             ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
             ViewData["CurrentUserId"] = GetCurrentUserId();
@@ -61,8 +62,19 @@ namespace FoodWaste.Controllers
                 "State_desc" => products.OrderByDescending(p => p.State),
                 _ => products.OrderBy(p => p.Name),
             };
-            return View(products);
 
+            int pageSize = 5;
+            int currentPage = page + pageSwitch;
+            if (currentPage <= 0)
+                currentPage = 0;
+            if (currentPage >= (products.Count() / pageSize))
+                currentPage = products.Count() / pageSize;
+            ViewData["Page"] = currentPage;
+
+            products = products.Skip(currentPage * pageSize);
+            products = products.Take(pageSize);
+
+            return View(products);
         }
 
         [Authorize]
