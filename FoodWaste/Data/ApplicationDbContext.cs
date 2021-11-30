@@ -10,6 +10,11 @@ namespace FoodWaste.Data
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>,IdentityRole<int>, int>
     {//nhibernate dapper
+        public class ApplicationUser : IdentityUser<int>
+        {
+            public virtual ICollection<Product> Products { get; set; }
+            public virtual ICollection<Restaurant> Restaurants { get; set; }
+        }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
