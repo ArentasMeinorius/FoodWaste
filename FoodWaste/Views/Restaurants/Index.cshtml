@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                Name
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Restaurant Name</a>
             </th>
             <th>
-                Address
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]">Address</a>
             </th>
             <th>
-                Phone Number
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NumberSortParm"]">Phone Number</a>
             </th>
             <th></th>
         </tr>
