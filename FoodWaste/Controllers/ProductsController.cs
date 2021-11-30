@@ -196,10 +196,10 @@ namespace FoodWaste.Controllers
 
             if (product == null)
             {
-                _logger.LogInformation("Completed: opening product editing page", product);
+                _logger.LogInformation("Completed: product not found for editing", product);
                 return NotFound();
             }
-            _logger.LogInformation("Completed: product not found for editing", product);
+            _logger.LogInformation("Completed: opening product editing page", product);
             return View(product);
         }
 
@@ -230,7 +230,7 @@ namespace FoodWaste.Controllers
                 {
                     if (ProductExists(product.Id))
                     {
-                        _logger.LogInformation("Completed: product already exist", product);
+                        _logger.LogInformation("Completed: product already exists with the following id", product.Id);
                         return NotFound();
                     }
                     else
