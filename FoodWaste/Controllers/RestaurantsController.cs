@@ -27,7 +27,7 @@ namespace FoodWaste.Controllers
 
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
             ViewData["AddressSortParm"] = getSortOrder(sortOrder, "Address");
-            ViewData["NumberSortParm"] = getSortOrder(sortOrder, "State");
+            ViewData["NumberSortParm"] = getSortOrder(sortOrder, "Number");
             ViewData["CurrentFilter"] = searchString;
 
             var restaurants = from r in _context.Restaurant
