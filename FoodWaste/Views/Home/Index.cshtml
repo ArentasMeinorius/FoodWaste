@@ -1,8 +1,91 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <title> @ViewData["Title"] - </title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body class="page-color-style-3 page-style-3">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div role="main" class="layout hd-mb30 no-of">
+
+        <div class="text hd-col-1-of-2 sd-all-cols">
+            <h1>
+                <strong style="font-weight: bold; color: #32b669 ">
+                    Share more.
+                </strong> Waste Less With Us!
+            </h1>
+            <ul>
+                <li>
+                    Find Surplus Food At Great Price
+                </li>
+                <li>
+                    Take Away Food From More Than 10 Businesses/Restaurants Across Lithuania
+                </li>
+                <li>
+                    Be A Part Of Food Waste Solution
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-form hd-col-1-of-2 hd-rows-2-to-3 hd-only">
+            <a href="Identity/Account/Register">
+                <button type="button" class="form-submitbutton form-button">
+                    <span> Register </span>
+                </button>
+            </a>
+        </div>
+
+        <div class="banner main-graphic hd-col-2-of-2 sd-all-cols hd-rows-1-to-3 sd-rows-2-to-3">
+            <img src="logo/vegetables.png" class="mainImg" alt="Save Our Nature">
+        </div>
+
+    </div>
+
+    <div role="contentinfo" class="bg-white">
+        <div class="layout">
+
+            <div class="footer-section alll-cols form-mobile sd-only">
+
+            </div>
+            <div class="all-cols extended-info">
+                <h2 style="font-weight: bold;">How To Use <strong> Our Site </strong>?</h2>
+                <div class="row">
+                    <a href="Identity/Account/Register"><img src="/logo/registerlogo.png" witdh="180" height="180" alt="Registracija"> </a>
+                    <div>
+                        <h3 style="font-weight: bold;">Register</h3>
+                        <ul>
+                            <li><strong>First Of All </strong> Register In Our Site Using Green Button That Is Displayed Above "Register"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="/logo/greenapple.png" witdh="180" height="180" alt="Products">
+                    <div>
+                        <h3 style="font-weight: bold;">Select Products You Like</h3>
+                        <p>After You Register For The Page You Ought To Go Find Products That Is For Sale.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="/logo/greencheck.png" witdh="180" , height="180" alt="Success">
+                    <div>
+                        <h3 style="font-weight: bold;">Find What You Been Looking For?</h3>
+                        <p>After You Succesfully Found What You Like To Purchase Add Product To Your Basket And Pay.</p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</body>
+
+</html>
