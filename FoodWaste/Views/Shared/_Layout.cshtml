@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body style="background-color:#FCF8F2">
     <header>
@@ -22,16 +23,16 @@
                     <ul class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-decoration: none; color: #333; font-size: 25px; font-weight: 500; letter-spacing: 1.5px; transition: color .3s;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark tab_names" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-decoration: none; color: #333; font-size: 25px; font-weight: 500; letter-spacing: 1.5px; transition: color .3s;" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark tab_names" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" style="text-decoration: none; color: #333; font-size: 25px; font-weight: 500; letter-spacing: 1.5px; transition: color .3s;" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+                            <a class="nav-link text-dark tab_names" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurants</a>
+                            <a class="nav-link text-dark tab_names" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurants</a>
                         </li>
                     </ul>
                 </div>
@@ -58,7 +59,7 @@
             </div>
             <div class="faq">
                 <div target="_blank" rel="noopener" class="link-block">
-                    <h3 style="font-weight:bold">Business Information</h3
+                    <h3 style="font-weight:bold">Business Information</h3>
                     <p  style="font-weight:normal">Adress: Vilnius<br /> Phone Number: +37088888888</p>
                 </div>
 
@@ -86,12 +87,7 @@
             </div>
         </div>
     </div>
-    <!--<footer class="border-top footer text-muted">
-            <div class="container">
-                &copy; 2021 - FoodWaste - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </div>
-        </footer>
-        -->
+ 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

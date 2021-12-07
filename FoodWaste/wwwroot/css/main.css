@@ -1426,3 +1426,11 @@ label a {
 .separator {
     border-top: 1px solid #d8d8d8
 }
+.tab_names {
+    text-decoration: none !important;
+    color: #333 !important;
+    font-size: 25px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.5px !important;
+    transition: color .3s !important;
+}
