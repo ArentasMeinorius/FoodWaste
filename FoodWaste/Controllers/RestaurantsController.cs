@@ -13,6 +13,7 @@ namespace FoodWaste.Controllers
     public class RestaurantsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private static string SearchString = "";
 
         public RestaurantsController(ApplicationDbContext context)
         {
@@ -20,9 +21,41 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Restaurants
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
         {
-            return View(await _context.Restaurant.ToListAsync());
+            Func<string, string, string> getSortOrder = (x, orderby) => ((x == orderby) ? (orderby + "_desc") : orderby);
+
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Name_desc" : "";
+            ViewData["AddressSortParm"] = getSortOrder(sortOrder, "Address");
+            ViewData["NumberSortParm"] = getSortOrder(sortOrder, "Number");
+            ViewData["CurrentFilter"] = searchString;
+
+            var restaurants = from r in _context.Restaurant
+                           select r;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                SearchString = searchString;
+            }
+
+            if (clearFilter)
+            {
+                SearchString = "";
+            }
+
+            restaurants = restaurants.Where(s => s.Name.Contains(SearchString));
+
+            restaurants = sortOrder switch
+            {
+                "Name_desc" => restaurants.OrderByDescending(r => r.Name),
+                "Address" => restaurants.OrderBy(r => r.Address),
+                "Address_desc" => restaurants.OrderByDescending(r => r.Address),
+                "Number" => restaurants.OrderBy(r => r.PhoneNumber),
+                "Number_desc" => restaurants.OrderByDescending(r => r.PhoneNumber),
+                _ => restaurants.OrderBy(p => p.Name),
+            };
+
+            return View(restaurants);
         }
 
         // GET: Restaurants/Details/5

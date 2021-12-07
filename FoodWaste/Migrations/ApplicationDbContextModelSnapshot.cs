@@ -43,6 +43,10 @@ namespace FoodWaste.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("RestaurantId");
+
+                    b.HasIndex("UserId");
+
                     b.ToTable("Product");
                 });
 
@@ -62,10 +66,12 @@ namespace FoodWaste.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("text");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Restaurant");
                 });
@@ -135,6 +141,10 @@ namespace FoodWaste.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
@@ -185,6 +195,8 @@ namespace FoodWaste.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser<int>");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
@@ -269,6 +281,39 @@ namespace FoodWaste.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("FoodWaste.Data.ApplicationDbContext+ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser<int>");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("FoodWaste.Models.Product", b =>
+                {
+                    b.HasOne("FoodWaste.Models.Restaurant", "Restaurants")
+                        .WithMany()
+                        .HasForeignKey("RestaurantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FoodWaste.Data.ApplicationDbContext+ApplicationUser", "ApplicationUser")
+                        .WithMany("Products")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Restaurants");
+                });
+
+            modelBuilder.Entity("FoodWaste.Models.Restaurant", b =>
+                {
+                    b.HasOne("FoodWaste.Data.ApplicationDbContext+ApplicationUser", "ApplicationUser")
+                        .WithMany("Restaurants")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
@@ -318,6 +363,13 @@ namespace FoodWaste.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FoodWaste.Data.ApplicationDbContext+ApplicationUser", b =>
+                {
+                    b.Navigation("Products");
+
+                    b.Navigation("Restaurants");
                 });
 #pragma warning restore 612, 618
         }
