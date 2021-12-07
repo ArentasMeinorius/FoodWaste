@@ -87,7 +87,7 @@ namespace FoodWaste.Controllers
         [Authorize]
         public async Task<IActionResult> Reserve(int? id)
         {
-            _logger.LogInformation("Start: Reserving product wit id {Id}", id);
+            _logger.LogInformation("Start: Reserving product with id {Id}", id);
             if (id == null)
             {
                 return NotFound();
