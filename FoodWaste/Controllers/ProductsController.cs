@@ -87,7 +87,7 @@ namespace FoodWaste.Controllers
         [Authorize]
         public async Task<IActionResult> Reserve(int? id)
         {
-            _logger.LogInformation("Start: Reserving product with id", id);
+            _logger.LogInformation("Start: Reserving product with id {Id}", id);
             if (id == null)
             {
                 return NotFound();
@@ -98,7 +98,7 @@ namespace FoodWaste.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id); ;
                 if (product == null)
                 {
-                    _logger.LogInformation("Completed: product not found", id);
+                    _logger.LogInformation("Completed: product not found {Id}", id);
                     return NotFound();
                 }
                 if (product.State == Product.ProductState.Listed)
@@ -123,7 +123,7 @@ namespace FoodWaste.Controllers
                 {
                     if (ProductExists(product.Id))
                     {
-                        _logger.LogInformation("Completed: product already exist", product);
+                        _logger.LogInformation("Completed: product already exist {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
                         return NotFound();
                     }
                     else
@@ -132,7 +132,7 @@ namespace FoodWaste.Controllers
                         throw;
                     }
                 }
-                _logger.LogInformation("Completed: product reserved",product);
+                _logger.LogInformation("Completed: product reserved {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             }
             return RedirectToAction(nameof(Index));
         }
@@ -140,7 +140,7 @@ namespace FoodWaste.Controllers
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            _logger.LogInformation("Start: opening product details", id);
+            _logger.LogInformation("Start: opening product details {Id}", id);
             if (id == null)
             {
                 return NotFound();
@@ -157,7 +157,7 @@ namespace FoodWaste.Controllers
                 _logger.LogInformation("Completed: product is not found");
                 return NotFound();
             }
-            _logger.LogInformation("Completed: opened product details", product);
+            _logger.LogInformation("Completed: opened product details {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return View(product);
         }
 
@@ -188,7 +188,7 @@ namespace FoodWaste.Controllers
                     .FirstOrDefaultAsync(m => m.UserId == GetCurrentUserId());
                 _context.Add(product);
                 await _context.SaveChangesAsync();
-                _logger.LogInformation("Completed: posted product", product);
+                _logger.LogInformation("Completed: posted product {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
                 return RedirectToAction(nameof(Index));
             }
             _logger.LogInformation("Completed: product is not valid");
@@ -208,10 +208,10 @@ namespace FoodWaste.Controllers
 
             if (product == null)
             {
-                _logger.LogInformation("Completed: product not found for editing", product);
+                _logger.LogInformation("Completed: product not found for editing {Id}", id);
                 return NotFound();
             }
-            _logger.LogInformation("Completed: opening product editing page", product);
+            _logger.LogInformation("Completed: opening product editing page {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return View(product);
         }
 
@@ -222,10 +222,10 @@ namespace FoodWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
-            _logger.LogInformation("Start: opened product details", product);
+            _logger.LogInformation("Start: opened product details {Product}", product);
             if (id != product.Id)
             {
-                _logger.LogInformation("Completed: product id does not match", id, product.Id);
+                _logger.LogInformation("Completed: product id does not match {Id} {Id}", id, product.Id);
                 return NotFound();
             }
             if (ModelState.IsValid)
@@ -242,7 +242,7 @@ namespace FoodWaste.Controllers
                 {
                     if (ProductExists(product.Id))
                     {
-                        _logger.LogInformation("Completed: product already exists with the following id", product.Id);
+                        _logger.LogInformation("Completed: product already exists with the following id {Id}", product.Id);
                         return NotFound();
                     }
                     else
@@ -251,20 +251,20 @@ namespace FoodWaste.Controllers
                         throw;
                     }
                 }
-                _logger.LogInformation("Completed: edited product", product);
+                _logger.LogInformation("Completed: edited product {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
                 return RedirectToAction(nameof(Index));
             }
-            _logger.LogInformation("Completed: product information is not valid", product);
+            _logger.LogInformation("Completed: product information is not valid {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return View(product);
         }
 
         // GET: Products/Delete/5
         public async Task<IActionResult> Delete(int? id)// jei be id kreiptusi tai notfound grazintu be nullable
         {
-            _logger.LogInformation("Start: getting for deleting deleting", id);
+            _logger.LogInformation("Start: getting for deleting deleting {Id}", id);
             if (id == null)
             {
-                _logger.LogInformation("Completed: id is not found", id);
+                _logger.LogInformation("Completed: id is not found {Id}", id);
                 return NotFound();
             }
 
@@ -272,10 +272,10 @@ namespace FoodWaste.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
-                _logger.LogInformation("Completed: product is not found", id);
+                _logger.LogInformation("Completed: product is not found {Id}", id);
                 return NotFound();
             }
-            _logger.LogInformation("Completed: product found for deleting", product);
+            _logger.LogInformation("Completed: product found for deleting {Id}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return View(product);
         }
 
@@ -284,11 +284,11 @@ namespace FoodWaste.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            _logger.LogInformation("Statrt: deleting product", id);
+            _logger.LogInformation("Statrt: deleting product {Id}", id);
             var product = await _context.Product.FindAsync(id);
             _context.Product.Remove(product);
             await _context.SaveChangesAsync();
-            _logger.LogInformation("Completed: product deleted", product);
+            _logger.LogInformation("Completed: product deleted {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return RedirectToAction(nameof(Index));
         }
 
