@@ -14,6 +14,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using FoodWaste.ActionFilters;
+using Microsoft.Extensions.Logging;
 
 namespace FoodWaste
 {
@@ -33,7 +35,8 @@ namespace FoodWaste
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyMethod().AllowAnyHeader());
             });
-
+            ConfigureLogger(services);
+            services.AddTransient<LogMethod>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -43,6 +46,13 @@ namespace FoodWaste
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddRazorPages();
+        }
+
+        public void ConfigureLogger(IServiceCollection services)
+        {
+            var serviceProvider = services.BuildServiceProvider();
+            var logger = serviceProvider.GetService<ILogger<LogMethod>>();
+            services.AddSingleton(typeof(ILogger), logger);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
