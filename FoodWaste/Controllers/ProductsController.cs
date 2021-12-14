@@ -322,7 +322,11 @@ namespace FoodWaste.Controllers
             {
                 return null;
             }
-            return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)).Id;
+            if (IsCurrentUserRestaurant())
+            {
+                return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)).Id;
+            }
+            return null;
         }
     }
 }
