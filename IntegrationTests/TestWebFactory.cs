@@ -11,8 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-//using Microsoft.Build.BuildEngine;
-using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace IntegrationTests
 {
@@ -34,24 +32,21 @@ namespace IntegrationTests
                 services.AddSingleton<TestData>();
                 var sp = services.BuildServiceProvider();
                 using (var scope = sp.CreateScope())
-                //using (var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>())
                 {
                     var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                     try
                     {
                         appContext.Database.EnsureCreated();
 
-                        appContext.Product.AddRange(TestData.products); // Add 3 test players
+                        appContext.Product.AddRange(TestData.products);
                         appContext.SaveChanges();
-                        appContext.Restaurant.Add(TestData.restaurant); // Add 3 test players
+                        appContext.Restaurant.Add(TestData.restaurant);
                         appContext.SaveChanges();
-                        appContext.Users.Add(TestData.user); // Add 3 test players
+                        appContext.Users.Add(TestData.user);
                         appContext.SaveChanges();
-
                     }
                     catch (Exception ex)
                     {
-                        //Log errors or do anything you think it's needed
                         throw;
                     }
                 }

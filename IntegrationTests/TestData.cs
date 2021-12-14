@@ -30,7 +30,6 @@ namespace IntegrationTests
 
         public static List<Product> products = new()
         {
-
             new Product
             {
                 Id = 11,
