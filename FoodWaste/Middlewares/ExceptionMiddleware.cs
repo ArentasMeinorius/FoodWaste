@@ -34,8 +34,6 @@ namespace FoodWaste.Middlewares
 
         private Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-
             context.Response.Headers.Add("Content-Type", "text/html");
             return context.Response.WriteAsync("<h1>An unexpected error occured</h1>");
         }
