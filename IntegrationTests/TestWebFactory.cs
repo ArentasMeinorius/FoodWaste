@@ -16,7 +16,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace IntegrationTests
 {
-    public class TestWebFactory<TEntryPoint> : WebApplicationFactory<Program> where TEntryPoint : Program
+    public class TestWebFactory<TStartup> : WebApplicationFactory<Startup> //where TEntryPoint : Program
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
@@ -31,14 +31,23 @@ namespace IntegrationTests
                 {
                     options.UseInMemoryDatabase("DefaultConnection");
                 });
-                //services.AddSingleton<TestData>();
+                services.AddSingleton<TestData>();
                 var sp = services.BuildServiceProvider();
                 using (var scope = sp.CreateScope())
-                using (var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>())
+                //using (var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>())
                 {
+                    var appContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                     try
                     {
                         appContext.Database.EnsureCreated();
+
+                        appContext.Product.AddRange(TestData.products); // Add 3 test players
+                        appContext.SaveChanges();
+                        appContext.Restaurant.Add(TestData.restaurant); // Add 3 test players
+                        appContext.SaveChanges();
+                        appContext.Users.Add(TestData.user); // Add 3 test players
+                        appContext.SaveChanges();
+
                     }
                     catch (Exception ex)
                     {
