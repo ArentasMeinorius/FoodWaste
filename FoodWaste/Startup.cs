@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using FoodWaste.ActionFilters;
 using Microsoft.Extensions.Logging;
+using FoodWaste.Middlewares;
 
 namespace FoodWaste
 {
@@ -68,7 +69,7 @@ namespace FoodWaste
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseMiddleware<ExceptionMiddleware>();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
