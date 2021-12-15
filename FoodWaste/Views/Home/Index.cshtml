@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    int prodCount = (int)ViewBag.pCount;
 }
 <!DOCTYPE html>
 <html>
@@ -63,7 +64,7 @@
                         <img src="/logo/greenapple.png" witdh="180" height="180" alt="Products">
                         <div>
                             <h3 style="font-weight: bold;">Select Products You Like</h3>
-                            <p>After You Register For The Page You Ought To Go Find Products That Is For Sale.</p>
+                            <p>After You Register For The Page You Ought To Go Find Products That Is For Sale. Right now there are @(prodCount) products listed.</p>
                         </div>
                     </div>
                     <div class="row">
