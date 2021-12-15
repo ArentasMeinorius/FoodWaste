@@ -1,4 +1,5 @@
-﻿using FoodWaste.Models;
+﻿using FoodWaste.Data;
+using FoodWaste.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,14 +13,19 @@ namespace FoodWaste.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            int ProductCount = (from p in _context.Product
+                                select p).Count();
+            ViewBag.pCount = ProductCount;
             return View();
         }
 
