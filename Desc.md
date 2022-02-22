@@ -40,33 +40,40 @@ header-includes:
 \setcounter{page}{0}
 # Išorinė analizė
 ## Vizija 
-- vartotojai lengvai susiranda pigesnius maisto produktus, taip tausodami gamtą?  
+- Sumažinti išmetamo maisto kiekį jį išdalinant
 
 ## Misija 
-- Suteikti galimybę visiems lengvai pasiekti restoranu, parduotuvių greitai besibaigiančius maisto produktus, taip mažindami išmetamo maisto kiekį.
+- Suteikti galimybę lengvai pasiekti skanų, visavertį maistą, kuris būtų išmestas.
 
 ## Vartotojai
-- Pardavėjai (Parduotuvės, restoranai)- paskelbtų savo besibaigiančių prekių sąrašą į **Food Waste** platformą
-- Pirkėjai - žmonės galėtų prisijungti į platformą, norėdami nusipirkti/ užsisakyti maisto iš esamų produktų sąrašo, kuris yra nuolat atnaujinamas.
+- Pardavėjai (parduotuvės, restoranai) - skelbtų galiojimo pabaigą greit pasieksiančių prekių sąrašą **Food Waste** platformoje
+- Pirkėjai - žmonės, norintys tvariau/pigiau maitintis
  
 ## Partneriai
 - Įvairūs restoranai (Gaspars, Drama burger, greitojo maisto restoranai - Hesburger, KFC ir pan.)
 - Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
-- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus.
+- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
 
-## Konkurentai  
-- Kadangi tokio tipo platformų/ produktų Lietuvos mastu nėra, mūsų platforma būtų pirmoji atliekanti maisto saugojimo paskirtį.
+## Konkurentai
+- Maisto bankas, kitos labdaros.
+- Kadangi **Food Waste** ne pelno siekianti organizacija - bendradarbiavimas su 'konkurentais' turėtų būti apsvarstytas.
 
 ## Ribos
-- Programa veiks Lietuvos mastu, bus pasiekiama interneto naršyklėje ir nesieks konkuruoti su jau esamomis maisto pristatymo programėlėmis. Programėlės tikslas vartotojus tik informuoti apie pigesnius maisto produktus ar patiekalus, kurie kitaip būtų išmesti. 
+- Programa veiks Lietuvos mastu, bus pasiekiama interneto naršyklėje. Programėlės tikslas vartotojus tik informuoti apie pigesnius maisto produktus ar patiekalus, kurie kitaip būtų išmesti.
+- Esant galimybei pristatymo integracija su kurjeriais (Bolt, Wolt)
+
+## Remėjai
+- Teiksime paraišką Europos Socialinio Fond Agentūrai (https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)[nuoroda]
 
 ## SWOT (kai gausime duombazę)
 ### Stiprybės  
+- Veikiantis MVP
 
 ### Silpnybės  
 - Šiuo metu mūsų infrastruktūra nėra pilnai išplėtota(neturime partnerių, tiekėjų).
 
 ### Galimybės  
+- Mažai konkurentų
 
 ### Grėsmės  
 - Ateityje tiekėjai gali atsisakyti mūsų produkto pakeisdami jį savo sukurtą produktą.
@@ -76,23 +83,26 @@ header-includes:
 ### Užsakovai:
 - Norimas funkcionalumas:
  - Pridėtas produktų pirkimas/nupirkto produkto statusas.
- - Padaryti, kad prisijungus su restoranu galima būtų keisti ir restorano duomenis.
- - Pridėti customer support.
+ - Restorano administratorius gali keisti įrašus.
+ - Pridėti klientų aptarnavimo skiltį.
 - Profesionalios įžvalgos sėkmingam projekto realizavimui užtikrinti.
 
 ### Darbuotojai:
-- Aktyviai prisidedama prie švaresnės aplinkos.
 - Atlyginimas.
+- Aktyviai prisidedama prie švaresnės aplinkos.
+
+### Savanoriai:
+- Savanoriavimo valandos (ypač aktualu moksleiviams).
+- Karmos taškai.
 
 ### Klientai:
 - Teikiamas kokybiškas maistas.
 - Išmetama mažiau maisto.
 - Tausojama aplinka - tiek mažiau teršiant, tiek mažiau vartojant.
+- Taupoma.
 
 ### Tiekėjai:
 - Gaunamas pelnas iš produktų, kuriuos paprastai išmetant būtų tik nuostolis.
 - Pasiekiama platesnė publika, labiau susidomėjusi ekologiškesnėmis alternatyvomis.
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
-
-
-
+- Gerinami viešieji ryšiai. (PR'as)
