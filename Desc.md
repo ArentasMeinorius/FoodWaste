@@ -106,3 +106,37 @@ header-includes:
 - Pasiekiama platesnė publika, labiau susidomėjusi ekologiškesnėmis alternatyvomis.
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
 - Gerinami viešieji ryšiai. (PR'as)
+
+
+# Reikalavimai
+
+## Funkciniai reikalavimai \
+* Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
+* Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
+* Renginių maisto produktų sąrašą galima filtruoti pagal: \
+‒ abėcėliškai; \
+‒ datą; \
+‒ kainą; \
+* Prisiregistravusiems vartotojams suteikiamos šios galimybės: \
+‒ galimybė rezervuoti maisto produktus, nurodant visą reikalingą informaciją; \ 
+
+* Pateikiama detali informaciją apie maisto produktą: \
+‒ maisto produkto data; \
+‒ maisto produkto kaina; \
+* Administratoriams suteikiamas šis funkcionalumas: \
+‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotoją; \
+‒ ištrinti parduotuves, maisto prekių parduotuves, redaguoti jų informaciją; \
+‒ šalinti kitus vartotojus;\
+
+## Nefunkciniai reikalavimai
+
+* Saugumas \
+‒ Apsaugos nuo SQL injekcijų. \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus (turi būti bent vienas skaitmuo, didžioji raidė ir bent 8 simboliai). \
+* Naudojimas \
+‒ Patogi ir aiški vartotojo sąsaja. \
+‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę. \
+‒ Vartotojo sąsaja nėra apkrauta, lengvai suprantama. \
+* Patikimumas \
+‒ 100% serverio veikimo laikas. \
+‒ Greitas užklausų apdorojimas. \
