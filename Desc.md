@@ -63,7 +63,7 @@ header-includes:
 - Esant galimybei pristatymo integracija su kurjeriais (Bolt, Wolt)
 
 ## Remėjai
-- Teiksime paraišką Europos Socialinio Fond Agentūrai (https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)[nuoroda]
+- Teiksime paraišką Europos Socialinio Fond Agentūrai [nuoroda](https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)
 
 ## SWOT (kai gausime duombazę)
 ### Stiprybės  
