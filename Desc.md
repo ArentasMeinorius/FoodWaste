@@ -140,3 +140,7 @@ header-includes:
 * Patikimumas \
 ‒ 100% serverio veikimo laikas. \
 ‒ Greitas užklausų apdorojimas. \
+
+# BPMN
+
+![Food waste BPMN](Diagrama.jpg "BPMN logo")
