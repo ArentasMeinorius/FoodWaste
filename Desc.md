@@ -108,8 +108,6 @@ header-includes:
 - Gerinami viešieji ryšiai. (PR'as)
 
 
-# Reikalavimai
-
 ## Funkciniai reikalavimai \
 * Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
 * Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
@@ -132,13 +130,13 @@ header-includes:
 
 * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
-‒ Slaptažodis privalo atitikti saugumo reikalavimus (turi būti bent vienas skaitmuo, didžioji raidė ir bent 8 simboliai). \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus. \
 * Naudojimas \
 ‒ Patogi ir aiški vartotojo sąsaja. \
 ‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę. \
 ‒ Vartotojo sąsaja nėra apkrauta, lengvai suprantama. \
 * Patikimumas \
-‒ 100% serverio veikimo laikas. \
+‒ Serveris turėtų veikti sklandžiai net ir didelės (1000 vartotojų) apkrovos metu. \
 ‒ Greitas užklausų apdorojimas. \
 
 # BPMN
