@@ -164,4 +164,28 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 
 # BPMN
 
-![Food waste BPMN](Diagrama.jpg "BPMN logo")
+![Food waste BPMN](BPMN.jpg "BPMN diagrama")
+
+# Žodynėlis
+
+&nbsp; Tiekėjas (Pardavėjas) - mums informaciją apie parduoti galimus produktus tiekianti kompanija. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
+
+&nbsp; Pristatytojas - produktus pirkėjams pristatanti kompanija. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
+
+&nbsp; Pirkėjas	 - asmuo ar įstaiga, norintys įsigyti mūsų produktų.
+
+&nbsp; Produktas- mūsų parduodamas maisto produktas.  Produktai  tiekiami ir sandėliuojami tiekėjo, pristatomi klientams pristatytojų.
+
+&nbsp; Pasiūlymas - produktas su specifine kaina, prieinamas klientams specifiniu laikotarpiu. Mūsų teikiami pasiūlymai yra pigesni nei vidutiniai rinkos pasiūlymai tiems patiems produktams, bet mūsų parduodami produktai turi trumpesnę galiojimo datą nei įprasta tokiems produktams.
+
+&nbsp; Užsakymas - pirkėjo suformuotas prašymas pristatyti pasirinktą kiekį pasirinktų prekių į pasirinktą vieta už mūsų pasiūlytą kainą.
+
+&nbsp; Galimas pristatymas - pristatymas, kurį gali įvykdyti pristatytojas. Paprastai ar pristatymas galimas priklauso nuo užsakymo atstumo iki artimiausio pristatytojo centro ir dabartinių užsakymų skaičiaus.
+
+&nbsp; Prieinamas produktas	- produktas, kuris turimas tiekėjo sandėlyje ir yra galimas pristatyti.
+
+&nbsp; Rezervuotas užsakymas	- užsakymas, kuris buvo patvirtintas tiek pirkėjo, tiek mūsų bei pristatytojų ir tiekėjo. Rezervuotas užsakymas visada sudarytas iš prieinamų produktų ir turi galimą pristatymą.
+
+# Klasių diagrama
+
+![Food waste klasių diagrama](KlasiuDiagrama.jpeg "Klasių diagrama")
