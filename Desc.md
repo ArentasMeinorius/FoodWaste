@@ -53,9 +53,15 @@ header-includes:
 - Esant galimybei pristatymo integracija su kurjeriais (Bolt, Wolt)
 
 ## Remėjai
+
 - Teiksime paraišką Europos Socialinio Fondo Agentūrai. 
 
 **[Nuoroda į socialinio fondo agentūros puslapį](https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)**
+
+## Tiekėjai/ partneriai
+- Įvairūs restoranai (Gaspars, Drama burger, greitojo maisto restoranai - Hesburger, KFC ir pan.)
+- Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
+- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
 
 # Porterio 5 jėgų analizė
 ## Konkurentai
@@ -66,10 +72,9 @@ header-includes:
 - Į šią rinką patekti sąlyginai lengva, tačiau yra daug labdaros organizacijų, kurios atlieka panašią funkciją, todėl produktui 
 reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų atveju, teks išleisti produkto reklamavimui.
 
-## Tiekėjai/ partneriai
-- Įvairūs restoranai (Gaspars, Drama burger, greitojo maisto restoranai - Hesburger, KFC ir pan.)
-- Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
-- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
+## Tiekėjai
+- Didesnės parduotuvės (Maxima, Lidl) keldamos savo produktus, konkuruotų viena su kita, taip negalėtų stipriai užkelti produktų kainų.
+- Daugiau išsiplėtojusios Wolt'o ir Bolt'o kompanijos kurios užima didžiąją dalį maisto tiekimo rinkos, galėtų lengviau veikti maisto produktu pristatymo į namus kainas
 
 ## Vartotojai
 - Pardavėjai (parduotuvės, restoranai) - skelbtų galiojimo pabaigą greit pasieksiančių prekių sąrašą **Food Waste** platformoje
@@ -79,54 +84,54 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 - Kompanijos Wolt, Bolt food ir pan. galėtų atsisakyti mūsų teikiamų paslaugų, sukurdami savo produktą. 
 
 
-
-# kazkas daugiau
--- zodynas important
--- klasiu diagrama
-## SWOT 
-### Stiprybės  // daugiau prideti prie siu aspektu
+# SWOT 
+## Stiprybės  // daugiau prideti prie siu aspektu
 - Veikiantis MVP
+- Platforma galėtų būtų remiama Europos Socialio fondo agentūros.
 
-### Silpnybės  
+## Silpnybės  
 - Šiuo metu mūsų infrastruktūra nėra pilnai išplėtota(neturime partnerių, tiekėjų).
+- Žmonės gali naudotis labdaros organizacijų teikiamomis paslaugomis, mat jos ilgiau gyvuoja ir jomis labiau pasitikima
 
-### Galimybės  
+## Galimybės  
 - Mažai konkurentų
+- Ši rinka nėra stipriai išplėtota, išsiplėsti nėra labai sunku
 
-### Grėsmės  
-- Ateityje tiekėjai gali atsisakyti mūsų produkto pakeisdami jį savo sukurtą produktą.
+## Grėsmės  
+- Ateityje maisto tiekėjai į namus gali atsisakyti mūsų produkto pakeisdami jį savo sukurtą produktą.
+- Kadangi ši rinka nėra stipriai išplėtota, kitos aplikacijos su originalesne, labiau pritraukiančia idėja gali pritraukti mūsų esamus vartotojus.
 
-## Suinteresuotosios šalys ir jų poreikiai
+# Suinteresuotosios šalys ir jų poreikiai
 
-### Užsakovai:
+## Užsakovai:
 - Norimas funkcionalumas:
  - Pridėtas produktų pirkimas/nupirkto produkto statusas.
  - Restorano administratorius gali keisti įrašus.
  - Pridėti klientų aptarnavimo skiltį.
 - Profesionalios įžvalgos sėkmingam projekto realizavimui užtikrinti.
 
-### Darbuotojai:
+## Darbuotojai:
 - Atlyginimas.
 - Aktyviai prisidedama prie švaresnės aplinkos.
 
-### Savanoriai:
+## Savanoriai:
 - Savanoriavimo valandos (ypač aktualu moksleiviams).
 - Karmos taškai.
 
-### Klientai:
+## Klientai:
 - Teikiamas kokybiškas maistas.
 - Išmetama mažiau maisto.
 - Tausojama aplinka - tiek mažiau teršiant, tiek mažiau vartojant.
 - Taupoma.
 
-### Tiekėjai:
+## Tiekėjai:
 - Gaunamas pelnas iš produktų, kuriuos paprastai išmetant būtų tik nuostolis.
 - Pasiekiama platesnė publika, labiau susidomėjusi ekologiškesnėmis alternatyvomis.
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
 - Gerinami viešieji ryšiai. (PR'as)
 
 
-## Funkciniai reikalavimai \
+# Funkciniai reikalavimai \
 * Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
 * Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
 * Renginių maisto produktų sąrašą galima filtruoti pagal: \
@@ -144,7 +149,7 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 ‒ ištrinti parduotuves, maisto prekių parduotuves, redaguoti jų informaciją; \
 ‒ šalinti kitus vartotojus;\
 
-## Nefunkciniai reikalavimai
+# Nefunkciniai reikalavimai
 
 * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
