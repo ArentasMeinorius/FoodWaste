@@ -11,6 +11,8 @@ header-includes:
 - \setlength\parindent{24pt}
 ---
 
+\setcounter{page}{1}
+\pagenumbering{arabic}
 \begin{titlepage}
    \begin{center}
        \vspace*{1cm}
@@ -34,39 +36,55 @@ header-includes:
 \end{titlepage}
 
 \tableofcontents
-\pagenumbering{roman}
 \clearpage
-\pagenumbering{arabic}
-\setcounter{page}{0}
-# Išorinė analizė
+# Kontekstas 
+## Įžanga
+ &nbsp;&nbsp;&nbsp;&nbsp; Šiuolaikiniame pasaulyje augant žmonių skaičiui, maisto poreikis stipriai auga. Kad patenkinti žmonių poreikius, statomos naujos maisto prekių parduotuvės,restoranai. Tačiau ne visas maistas yra parduodamas, dažnai yra nukainojamas, bet ne visada viskas būna išparduodama ir tenka likučius išmesti.
+ Taip parduotuvės, restoranai patiria gana didelius nuostolius. Bet to būtų galima išvengti, jei būtų viena bendra sistema, kurioje būtų rodomos maisto prekių parduotuvių, greitojo maisto restoranų besibaigiantys produktai. Turint vieną bendrą sistemą, besibaigiantys maisto produktai būtų pasiekiami didesnei vartotojų grupei, taip tausojant tausojant gamtą.
+
 ## Vizija 
-- Sumažinti išmetamo maisto kiekį jį išdalinant
+- Sumažinti išmetamo maisto kiekį jį išdalinant.
 
 ## Misija 
-- Suteikti galimybę lengvai pasiekti skanų, visavertį maistą, kuris būtų išmestas.
-
-## Vartotojai
-- Pardavėjai (parduotuvės, restoranai) - skelbtų galiojimo pabaigą greit pasieksiančių prekių sąrašą **Food Waste** platformoje
-- Pirkėjai - žmonės, norintys tvariau/pigiau maitintis
- 
-## Partneriai
-- Įvairūs restoranai (Gaspars, Drama burger, greitojo maisto restoranai - Hesburger, KFC ir pan.)
-- Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
-- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
-
-## Konkurentai
-- Maisto bankas, kitos labdaros.
-- Kadangi **Food Waste** ne pelno siekianti organizacija - bendradarbiavimas su 'konkurentais' turėtų būti apsvarstytas.
+- Suteikti galimybę lengvai pasiekti skanų, visavertį maistą, kuris būtų išmestas, nepardavus jo laiku.
 
 ## Ribos
 - Programa veiks Lietuvos mastu, bus pasiekiama interneto naršyklėje. Programėlės tikslas vartotojus tik informuoti apie pigesnius maisto produktus ar patiekalus, kurie kitaip būtų išmesti.
 - Esant galimybei pristatymo integracija su kurjeriais (Bolt, Wolt)
 
 ## Remėjai
-- Teiksime paraišką Europos Socialinio Fond Agentūrai (https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)[nuoroda]
+- Teiksime paraišką Europos Socialinio Fondo Agentūrai. 
 
-## SWOT (kai gausime duombazę)
-### Stiprybės  
+**[Nuoroda į socialinio fondo agentūros puslapį](https://www.esf.lt/lt/kuo-mes-galime-padeti/noriu-gauti-esf-parama/12)**
+
+# Porterio 5 jėgų analizė
+## Konkurentai
+- Maisto bankas, kitos labdaros - šios ne pelno siekiančios organizacijos siekia kovoti su maisto švaistymu ir paaukoti jį sunkiau gyvenantiems žmonėms. Žmonių ir kompanijų paaukotas maistas teikia jų sistemoje prisiregistravusiems juridiniams, fiziniams asmenims (fiziniams asmenins skiriama vienkartine parama, kitu atveju jis gaunamas iš savivaldybių socialines paramos skyrių). Minėtos labdaros organizacijos turi didelį remėjų kiekį: Lidl, Maxima, Iki ir t.t. 
+- Kadangi **Food Waste** ne pelno siekianti organizacija - bendradarbiavimas su 'konkurentais' turėtų būti apsvarstytas.
+
+## Naujų konkurentų grėsmė
+- Į šią rinką patekti sąlyginai lengva, tačiau yra daug labdaros organizacijų, kurios atlieka panašią funkciją, todėl produktui 
+reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų atveju, teks išleisti produkto reklamavimui.
+
+## Tiekėjai/ partneriai
+- Įvairūs restoranai (Gaspars, Drama burger, greitojo maisto restoranai - Hesburger, KFC ir pan.)
+- Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
+- Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
+
+## Vartotojai
+- Pardavėjai (parduotuvės, restoranai) - skelbtų galiojimo pabaigą greit pasieksiančių prekių sąrašą **Food Waste** platformoje
+- Pirkėjai - žmonės, norintys tvariau/pigiau maitintis
+ 
+## Pakaitų grėsmė
+- Kompanijos Wolt, Bolt food ir pan. galėtų atsisakyti mūsų teikiamų paslaugų, sukurdami savo produktą. 
+
+
+
+# kazkas daugiau
+-- zodynas important
+-- klasiu diagrama
+## SWOT 
+### Stiprybės  // daugiau prideti prie siu aspektu
 - Veikiantis MVP
 
 ### Silpnybės  
@@ -108,8 +126,6 @@ header-includes:
 - Gerinami viešieji ryšiai. (PR'as)
 
 
-# Reikalavimai
-
 ## Funkciniai reikalavimai \
 * Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
 * Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
@@ -132,11 +148,15 @@ header-includes:
 
 * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
-‒ Slaptažodis privalo atitikti saugumo reikalavimus (turi būti bent vienas skaitmuo, didžioji raidė ir bent 8 simboliai). \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus. \
 * Naudojimas \
 ‒ Patogi ir aiški vartotojo sąsaja. \
 ‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę. \
 ‒ Vartotojo sąsaja nėra apkrauta, lengvai suprantama. \
 * Patikimumas \
-‒ 100% serverio veikimo laikas. \
+‒ Serveris turėtų veikti sklandžiai net ir didelės (1000 vartotojų) apkrovos metu. \
 ‒ Greitas užklausų apdorojimas. \
+
+# BPMN
+
+![Food waste BPMN](Diagrama.jpg "BPMN logo")
