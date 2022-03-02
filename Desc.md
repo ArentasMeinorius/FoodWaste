@@ -157,7 +157,7 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 ‒ maisto produkto kaina; \
 1. * Administratoriams suteikiamas šis funkcionalumas: \
 ‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotojus; \
-‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus;
+‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus; \
 ‒ redaguoti profilius, skelbimus; \
 
 # Vartotojų naudojimosi scenarijai
