@@ -130,37 +130,50 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
 - Gerinami viešieji ryšiai. (PR'as)
 
-
-# Funkciniai reikalavimai \
-* Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
-* Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
-* Renginių maisto produktų sąrašą galima filtruoti pagal: \
-‒ abėcėliškai; \
-‒ datą; \
-‒ kainą; \
-* Prisiregistravusiems vartotojams suteikiamos šios galimybės: \
-‒ galimybė rezervuoti maisto produktus, nurodant visą reikalingą informaciją; \ 
-
-* Pateikiama detali informaciją apie maisto produktą: \
-‒ maisto produkto data; \
-‒ maisto produkto kaina; \
-* Administratoriams suteikiamas šis funkcionalumas: \
-‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotoją; \
-‒ ištrinti parduotuves, maisto prekių parduotuves, redaguoti jų informaciją; \
-‒ šalinti kitus vartotojus;\
-
 # Nefunkciniai reikalavimai
 
-* Saugumas \
+1. * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
-‒ Slaptažodis privalo atitikti saugumo reikalavimus. \
-* Naudojimas \
-‒ Patogi ir aiški vartotojo sąsaja. \
-‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę. \
-‒ Vartotojo sąsaja nėra apkrauta, lengvai suprantama. \
-* Patikimumas \
-‒ Serveris turėtų veikti sklandžiai net ir didelės (1000 vartotojų) apkrovos metu. \
-‒ Greitas užklausų apdorojimas. \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus. (NIST Password Guidelines) \
+1. * Naudojimas \
+‒ Patogi ir aiški vartotojo sąsaja (ne daugiau kaip 4 paspaudimai norint pasiekti specifinį langą). \
+‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę (iškart matomas filtras/ paieška). \
+1. * Patikimumas \
+‒ Serveris turėtų veikti sklandžiai (ne didesnis kaip 30% sulėtėjimas) net ir didelės (1000 vartotojų) apkrovos metu. \
+‒ Greitas užklausų apdorojimas (<2s žiūrint sąrašą). \
+
+# Funkciniai reikalavimai \
+1. * Programa galima naudotis prisijungusiems ir neprisijungusiems vartotojams (rodomas maisto produktų sąrašas); 
+1. * Maisto produktų sąrašą (Infinite scroll) galima filtruoti pagal: \
+‒ abėcėlę; \
+‒ datą; \
+‒ kainą; \
+1. * Prisijungusiems vartotojams suteikiamos šios galimybės: \
+‒ rezervuoti maisto produktus; \ 
+
+1. * Pateikiama detali informaciją apie maisto produktą: \
+‒ maisto produkto pagaminimo data; \
+‒ maisto produkto geriausias/ suvartoti iki data (jei tokia yra); \
+‒ maisto produkto kaina; \
+1. * Administratoriams suteikiamas šis funkcionalumas: \
+‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotojus; \
+‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus; \
+‒ redaguoti profilius, skelbimus; \
+
+# Vartotojų naudojimosi scenarijai
+1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymus
+1. Neprisijungęs vartotojas nori filtruoti pasiūlymus
+1. Neprisijungęs vartotojas nori rezervuoti pasiūlymą
+1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymo detales
+1. Prisijungęs vartotojas nori peržiūrėti pasiūlymus
+1. Prisijungęs vartotojas nori filtruoti pasiūlymus
+1. Prisijungęs vartotojas nori rezervuoti pasiūlymą
+1. Prisijungęs vartotojas nori peržiūrėti pasiūlymo detales
+1. Administratorius nori pridėti įrašą
+1. Administratorius nori ištrinti įrašą
+1. Administratorius nori redaguoti įrašą
+
+![Food waste traceablity matrix](matrix.jpg "Traceablity matrix")
 
 # BPMN
 
