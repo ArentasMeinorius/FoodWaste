@@ -63,6 +63,8 @@ header-includes:
 - Parduotuvės (Rimi, Iki, Maxima, Lidl ir pan.) 
 - Wolt, Bolt food, Barbora- šios kompanijos galėtų tiekti užsakytą maistą pirkėjui namus (pasirenkamas variantas, kadangi norintys sutaupyti pasirinks nemokėti kurjeriams, o atkeliaus patys).
 
+\pagebreak
+
 # Porterio 5 jėgų analizė
 ## Konkurentai
 - Maisto bankas, kitos labdaros - šios ne pelno siekiančios organizacijos siekia kovoti su maisto švaistymu ir paaukoti jį sunkiau gyvenantiems žmonėms. Žmonių ir kompanijų paaukotas maistas teikia jų sistemoje prisiregistravusiems juridiniams, fiziniams asmenims (fiziniams asmenins skiriama vienkartine parama, kitu atveju jis gaunamas iš savivaldybių socialines paramos skyrių). Minėtos labdaros organizacijos turi didelį remėjų kiekį: Lidl, Maxima, Iki ir t.t. 
@@ -83,9 +85,10 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 ## Pakaitų grėsmė
 - Kompanijos Wolt, Bolt food ir pan. galėtų atsisakyti mūsų teikiamų paslaugų, sukurdami savo produktą. 
 
+\pagebreak
 
 # SWOT 
-## Stiprybės  // daugiau prideti prie siu aspektu
+## Stiprybės
 - Veikiantis MVP
 - Platforma galėtų būtų remiama Europos Socialio fondo agentūros.
 
@@ -100,6 +103,8 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 ## Grėsmės  
 - Ateityje maisto tiekėjai į namus gali atsisakyti mūsų produkto pakeisdami jį savo sukurtą produktą.
 - Kadangi ši rinka nėra stipriai išplėtota, kitos aplikacijos su originalesne, labiau pritraukiančia idėja gali pritraukti mūsų esamus vartotojus.
+
+\pagebreak
 
 # Suinteresuotosios šalys ir jų poreikiai
 
@@ -129,6 +134,8 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 - Pasiekiama platesnė publika, labiau susidomėjusi ekologiškesnėmis alternatyvomis.
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
 - Gerinami viešieji ryšiai. (PR'as)
+
+\pagebreak
 
 # Nefunkciniai reikalavimai
 
@@ -160,6 +167,8 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 ‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus; \
 ‒ redaguoti profilius, skelbimus; \
 
+\pagebreak
+
 # Vartotojų naudojimosi scenarijai
 1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymus
 1. Neprisijungęs vartotojas nori filtruoti pasiūlymus
@@ -175,36 +184,48 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 
 ![Food waste traceablity matrix](matrix.jpg "Traceablity matrix")
 
+\pagebreak
+
 # BPMN
 
 ![Food waste BPMN](BPMN.jpg "BPMN diagrama")
 
+&nbsp; Procesas prasideda pirkėjui norint naršyti mūsų turimų produktų katalogą. Tai informuoja mūsų sistemą, kad reikia pateikti ieškomus produktus ir jų kainas pirkėjui. Šis, rinkdamasis produktus ir dėdamas juos į savo krepšelį pradeda formuoti savo užsakymą. Jei pirkėjas rado ko nori ir jam tinka siūloma kaina, jis patvirtina užsakymą ir pateikia detales apie pristatymą. Atlikęs šį žingsnį pirkėjas turi sulaukti kol gaus pranešimą apie sėkmingą jo užsakymo rezervavimą. Tuo metu mūsų sistema praneša pristatytojui apie naują užsakymą, o pati tikrina ar užsakyme išsirinktos prekės vis dar turimos ir yra prieinamos pristatymui. Jei prekės neprieinamos, tai pirkėjui apie tai pranešama ir jis yra grąžinamas į užsakymo formavimo etapą, kur jam nurodoma dėl kokių produktų nebuvo galima rezervuoti užsakymo. Jei užsakymas galimas tuomet laukiama patvirtinimo iš pristatytojo. Jis, gavęs iš mūsų sistemos žinutę, tikrina ar yra jam įmanoma įvykdyti pristatymą. Jei pristatymo nėra galimybės įvykdyti dėl tolimo pristatymo atstumo ar didelio užimtumo, apie tai taip pat pranešama klientui jį sugrąžinus į užsakymo formavimo etapą. Jei pristatymas galimas į mūsų sistemą yra išsiunčiamas patvirtinimas, kur, jei turimas patvirtinimas dėl užsakymo galimumo, yra patvirtinamas užsakymas ir galiausiai pirkėjui pranešama apie sėkmingai rezervuotą užsakymą. Pirkėjas, iki pristatytojo išvykimo, gali pasirinkti arba atšaukti užsakymą.
+
+\pagebreak
+
+# Use Case diagrama
+
+![Food waste use case diagrama](Assets/UseCase.png "Use case diagrama")
+
+&nbsp;&nbsp;&nbsp;&nbsp;Sistema gali naudotis tiek registruoti, tiek neprisiregistravę vartotojai. Prisiregistravusieji įgauna galimybę sekti savo pamėgtas parduotuves ar restoranus. Visi vartotojai gali peržiūrėti esamų produktų sąrašą bei juos rezervuoti, jei produktas yra prieinamas (Žr. žodynėlį). Tiekėjas gali pridėti produktus ir juos valdyti, t.y. redaguoti kainą, išimti iš produktų sąrašo, tikrinti likučius. Administratorius turi prieigą prie visų vartotojo ir tiekėjo veiksmų, kad galėtų pagelbėti nenumatytų atvejų metu. Taip pat pažymime, kad pristatymo paslauga šiuo metu nėra funkcionuojanti kaip numatyta programėlės ribose (žr. 1.6 punktą)
+
+\pagebreak
+
 # Žodynėlis
 
-&nbsp; Tiekėjas (Pardavėjas) - mums informaciją apie parduoti galimus produktus tiekianti kompanija. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
+* Tiekėjas (Pardavėjas) - mums informaciją apie parduoti galimus produktus tiekianti kompanija. Tiekėjais gali būti tiek prekybos tinklai, pardavinėjantys maisto produktus, tiek maitinimo įstaigos, kaip restoranai, kepyklos, užeigos. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
 
-&nbsp; Pristatytojas - produktus pirkėjams pristatanti kompanija. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
+* Pristatytojas - produktus pirkėjams pristatanti kompanija. Paprastai tiekėjas ir pristatytojas gali būti viena kompanija, bet yra atvejų kai juos reikia išskirti.
 
-&nbsp; Pirkėjas	 - asmuo ar įstaiga, norintys įsigyti mūsų produktų.
+* Pirkėjas	 - asmuo ar įstaiga, norintys įsigyti mūsų produktų.
 
-&nbsp; Produktas- mūsų parduodamas maisto produktas.  Produktai  tiekiami ir sandėliuojami tiekėjo, pristatomi klientams pristatytojų.
+* Produktas- mūsų parduodamas maisto produktas.  Produktai  tiekiami ir sandėliuojami tiekėjo, pristatomi klientams pristatytojų.
 
-&nbsp; Pasiūlymas - produktas su specifine kaina, prieinamas klientams specifiniu laikotarpiu. Mūsų teikiami pasiūlymai yra pigesni nei vidutiniai rinkos pasiūlymai tiems patiems produktams, bet mūsų parduodami produktai turi trumpesnę galiojimo datą nei įprasta tokiems produktams.
+* Sugedęs produktas – produktas, kuris nėra tinkamas valgymui. Jis yra pašalinamas iš mūsų siūlomų produktų po jo galiojimo datos dieną.
 
-&nbsp; Užsakymas - pirkėjo suformuotas prašymas pristatyti pasirinktą kiekį pasirinktų prekių į pasirinktą vieta už mūsų pasiūlytą kainą.
+* Pasiūlymas - produktas su specifine kaina, prieinamas klientams specifiniu laikotarpiu. Mūsų teikiami pasiūlymai yra pigesni nei vidutiniai rinkos pasiūlymai tiems patiems produktams, bet mūsų parduodami produktai turi trumpesnę galiojimo datą nei įprasta tokiems produktams.
 
-&nbsp; Galimas pristatymas - pristatymas, kurį gali įvykdyti pristatytojas. Paprastai ar pristatymas galimas priklauso nuo užsakymo atstumo iki artimiausio pristatytojo centro ir dabartinių užsakymų skaičiaus.
+* Užsakymas - pirkėjo suformuotas prašymas pristatyti pasirinktą kiekį pasirinktų prekių į pasirinktą vieta už mūsų pasiūlytą kainą.
 
-&nbsp; Prieinamas produktas	- produktas, kuris turimas tiekėjo sandėlyje ir yra galimas pristatyti.e
+* Galimas pristatymas - pristatymas, kurį gali įvykdyti pristatytojas. Paprastai ar pristatymas galimas priklauso nuo užsakymo atstumo iki artimiausio pristatytojo centro ir dabartinių užsakymų skaičiaus.
 
-&nbsp; Rezervuotas užsakymas	- užsakymas, kuris buvo patvirtintas tiek pirkėjo, tiek mūsų bei pristatytojų ir tiekėjo. Rezervuotas užsakymas visada sudarytas iš prieinamų produktų ir turi galimą pristatymą.
+* Prieinamas produktas	- produktas, kuris turimas tiekėjo sandėlyje ir yra galimas pristatyti.e
+
+* Rezervuotas užsakymas	- užsakymas, kuris buvo patvirtintas tiek pirkėjo, tiek mūsų bei pristatytojų ir tiekėjo. Rezervuotas užsakymas visada sudarytas iš prieinamų produktų ir turi galimą pristatymą.
+
+\pagebreak
 
 # Klasių diagrama
 
 ![Food waste klasių diagrama](KlasiuDiagrama.jpeg "Klasių diagrama")
-
-# Use Case diagrama
-
-![Food waste use case diagrama](Assets/UseCase.jpg "Use case diagrama")
-
-&nbsp;&nbsp;&nbsp;&nbsp;Sistema gali naudotis tiek registruoti, tiek neprisiregistravę vartotojai. Prisiregistravusieji įgauna galimybę sekti savo pamėgtas parduotuves ar restoranus. Visi vartotojai gali peržiūrėti esamų produktų sąrašą bei juos rezervuoti, jei produktas yra prieinamas (Žr. žodynėlį). Tiekėjas gali pridėti produktus ir juos valdyti, t.y. redaguoti kainą, išimti iš produktų sąrašo, tikrinti likučius. Administratorius turi prieigą prie visų vartotojo ir tiekėjo veiksmų, kad galėtų pagelbėti nenumatytų atvejų metu. Taip pat pažymime, kad pristatymo paslauga šiuo metu nėra funkcionuojanti kaip numatyta programėlės ribose (žr. 1.6 punktą)
