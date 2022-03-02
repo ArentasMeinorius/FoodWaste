@@ -132,35 +132,35 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 
 
 # Funkciniai reikalavimai \
-* Programa galima naudotis prisiregistravusiems ir neprisiregistravusiems vartotojams; 
-* Programos vartotojams maisto produktų, priregistruotų sistemoje, sąrašas; \
-* Renginių maisto produktų sąrašą galima filtruoti pagal: \
-‒ abėcėliškai; \
+* Programa galima naudotis prisijungusiems ir neprisijungusiems vartotojams; 
+* Programos vartotojams rodomas maisto produktų sąrašas; \
+* Maisto produktų sąrašą (Infinite scroll) galima filtruoti pagal: \
+‒ abėcėlę; \
 ‒ datą; \
 ‒ kainą; \
-* Prisiregistravusiems vartotojams suteikiamos šios galimybės: \
-‒ galimybė rezervuoti maisto produktus, nurodant visą reikalingą informaciją; \ 
+* Prisijungusiems vartotojams suteikiamos šios galimybės: \
+‒ rezervuoti maisto produktus; \ 
 
 * Pateikiama detali informaciją apie maisto produktą: \
-‒ maisto produkto data; \
+‒ maisto produkto pagaminimo data; \
+‒ maisto produkto geriausias/ suvartoti iki data (jei tokia yra); \
 ‒ maisto produkto kaina; \
 * Administratoriams suteikiamas šis funkcionalumas: \
-‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotoją; \
-‒ ištrinti parduotuves, maisto prekių parduotuves, redaguoti jų informaciją; \
-‒ šalinti kitus vartotojus;\
+‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotojus; \
+‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus;
+- redaguoti profilius, skelbimus; \
 
 # Nefunkciniai reikalavimai
 
 * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
-‒ Slaptažodis privalo atitikti saugumo reikalavimus. \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus. (NIST Password Guidelines) \
 * Naudojimas \
-‒ Patogi ir aiški vartotojo sąsaja. \
-‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę. \
-‒ Vartotojo sąsaja nėra apkrauta, lengvai suprantama. \
+‒ Patogi ir aiški vartotojo sąsaja (ne daugiau kaip 4 paspaudimai norint pasiekti specifinį langą). \
+‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę (iškart matomas filtras/ paieška). \
 * Patikimumas \
-‒ Serveris turėtų veikti sklandžiai net ir didelės (1000 vartotojų) apkrovos metu. \
-‒ Greitas užklausų apdorojimas. \
+‒ Serveris turėtų veikti sklandžiai (ne didesnis kaip 30% sulėtėjimas) net ir didelės (1000 vartotojų) apkrovos metu. \
+‒ Greitas užklausų apdorojimas (<2s žiūrint sąrašą). \
 
 # BPMN
 
