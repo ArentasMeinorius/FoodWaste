@@ -40,7 +40,7 @@ header-includes:
 # Kontekstas 
 ## Įžanga
  &nbsp;&nbsp;&nbsp;&nbsp; Šiuolaikiniame pasaulyje augant žmonių skaičiui, maisto poreikis stipriai auga. Kad patenkinti žmonių poreikius, statomos naujos maisto prekių parduotuvės,restoranai. Tačiau ne visas maistas yra parduodamas, dažnai yra nukainojamas, bet ne visada viskas būna išparduodama ir tenka likučius išmesti.
- Taip parduotuvės, restoranai patiria gana didelius nuostolius. Bet to būtų galima išvengti, jei būtų viena bendra sistema, kurioje būtų rodomos maisto prekių parduotuvių, greitojo maisto restoranų besibaigiantys produktai. Turint vieną bendrą sistemą, besibaigiantys maisto produktai būtų pasiekiami didesnei vartotojų grupei, taip tausojant tausojant gamtą.
+ &nbsp;&nbsp;&nbsp;&nbsp;Taip parduotuvės, restoranai patiria gana didelius nuostolius. Bet to būtų galima išvengti, jei būtų viena bendra sistema, kurioje būtų rodomos maisto prekių parduotuvių, greitojo maisto restoranų besibaigiantys produktai. Turint vieną bendrą sistemą, besibaigiantys maisto produktai būtų pasiekiami didesnei vartotojų grupei, taip tausojant tausojant gamtą.
 
 ## Vizija 
 - Sumažinti išmetamo maisto kiekį jį išdalinant.
@@ -182,10 +182,16 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 
 &nbsp; Galimas pristatymas - pristatymas, kurį gali įvykdyti pristatytojas. Paprastai ar pristatymas galimas priklauso nuo užsakymo atstumo iki artimiausio pristatytojo centro ir dabartinių užsakymų skaičiaus.
 
-&nbsp; Prieinamas produktas	- produktas, kuris turimas tiekėjo sandėlyje ir yra galimas pristatyti.
+&nbsp; Prieinamas produktas	- produktas, kuris turimas tiekėjo sandėlyje ir yra galimas pristatyti.e
 
 &nbsp; Rezervuotas užsakymas	- užsakymas, kuris buvo patvirtintas tiek pirkėjo, tiek mūsų bei pristatytojų ir tiekėjo. Rezervuotas užsakymas visada sudarytas iš prieinamų produktų ir turi galimą pristatymą.
 
 # Klasių diagrama
 
 ![Food waste klasių diagrama](KlasiuDiagrama.jpeg "Klasių diagrama")
+
+# Use Case diagrama
+
+![Food waste use case diagrama](Assets/UseCase.jpg "Use case diagrama")
+
+&nbsp;&nbsp;&nbsp;&nbsp;Sistema gali naudotis tiek registruoti, tiek neprisiregistravę vartotojai. Prisiregistravusieji įgauna galimybę sekti savo pamėgtas parduotuves ar restoranus. Visi vartotojai gali peržiūrėti esamų produktų sąrašą bei juos rezervuoti, jei produktas yra prieinamas (Žr. žodynėlį). Tiekėjas gali pridėti produktus ir juos valdyti, t.y. redaguoti kainą, išimti iš produktų sąrašo, tikrinti likučius. Administratorius turi prieigą prie visų vartotojo ir tiekėjo veiksmų, kad galėtų pagelbėti nenumatytų atvejų metu. Taip pat pažymime, kad pristatymo paslauga šiuo metu nėra funkcionuojanti kaip numatyta programėlės ribose (žr. 1.6 punktą)
