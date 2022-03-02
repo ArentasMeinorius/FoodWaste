@@ -132,35 +132,49 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 
 
 # Funkciniai reikalavimai \
-* Programa galima naudotis prisijungusiems ir neprisijungusiems vartotojams; 
-* Programos vartotojams rodomas maisto produktų sąrašas; \
-* Maisto produktų sąrašą (Infinite scroll) galima filtruoti pagal: \
+1. * Programa galima naudotis prisijungusiems ir neprisijungusiems vartotojams (rodomas maisto produktų sąrašas); 
+1. * Maisto produktų sąrašą (Infinite scroll) galima filtruoti pagal: \
 ‒ abėcėlę; \
 ‒ datą; \
 ‒ kainą; \
-* Prisijungusiems vartotojams suteikiamos šios galimybės: \
+1. * Prisijungusiems vartotojams suteikiamos šios galimybės: \
 ‒ rezervuoti maisto produktus; \ 
 
-* Pateikiama detali informaciją apie maisto produktą: \
+1. * Pateikiama detali informaciją apie maisto produktą: \
 ‒ maisto produkto pagaminimo data; \
 ‒ maisto produkto geriausias/ suvartoti iki data (jei tokia yra); \
 ‒ maisto produkto kaina; \
-* Administratoriams suteikiamas šis funkcionalumas: \
+1. * Administratoriams suteikiamas šis funkcionalumas: \
 ‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotojus; \
 ‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus;
 - redaguoti profilius, skelbimus; \
 
 # Nefunkciniai reikalavimai
 
-* Saugumas \
+1. * Saugumas \
 ‒ Apsaugos nuo SQL injekcijų. \
 ‒ Slaptažodis privalo atitikti saugumo reikalavimus. (NIST Password Guidelines) \
-* Naudojimas \
+1. * Naudojimas \
 ‒ Patogi ir aiški vartotojo sąsaja (ne daugiau kaip 4 paspaudimai norint pasiekti specifinį langą). \
 ‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę (iškart matomas filtras/ paieška). \
-* Patikimumas \
+1. * Patikimumas \
 ‒ Serveris turėtų veikti sklandžiai (ne didesnis kaip 30% sulėtėjimas) net ir didelės (1000 vartotojų) apkrovos metu. \
 ‒ Greitas užklausų apdorojimas (<2s žiūrint sąrašą). \
+
+# Vartotojų naudojimosi scenarijai
+1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymus
+1. Neprisijungęs vartotojas nori filtruoti pasiūlymus
+1. Neprisijungęs vartotojas nori rezervuoti pasiūlymą
+1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymo detales
+1. Prisijungęs vartotojas nori peržiūrėti pasiūlymus
+1. Prisijungęs vartotojas nori filtruoti pasiūlymus
+1. Prisijungęs vartotojas nori rezervuoti pasiūlymą
+1. Prisijungęs vartotojas nori peržiūrėti pasiūlymo detales
+1. Administratorius nori pridėti įrašą
+1. Administratorius nori ištrinti įrašą
+1. Administratorius nori redaguoti įrašą
+
+![Food waste traceablity matrix](matrix.jpg "Traceablity matrix")
 
 # BPMN
 
