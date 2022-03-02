@@ -130,6 +130,17 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 - Potencialiai mažinamos išlaidos užsakant naujus produktus.
 - Gerinami viešieji ryšiai. (PR'as)
 
+# Nefunkciniai reikalavimai
+
+1. * Saugumas \
+‒ Apsaugos nuo SQL injekcijų. \
+‒ Slaptažodis privalo atitikti saugumo reikalavimus. (NIST Password Guidelines) \
+1. * Naudojimas \
+‒ Patogi ir aiški vartotojo sąsaja (ne daugiau kaip 4 paspaudimai norint pasiekti specifinį langą). \
+‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę (iškart matomas filtras/ paieška). \
+1. * Patikimumas \
+‒ Serveris turėtų veikti sklandžiai (ne didesnis kaip 30% sulėtėjimas) net ir didelės (1000 vartotojų) apkrovos metu. \
+‒ Greitas užklausų apdorojimas (<2s žiūrint sąrašą). \
 
 # Funkciniai reikalavimai \
 1. * Programa galima naudotis prisijungusiems ir neprisijungusiems vartotojams (rodomas maisto produktų sąrašas); 
@@ -147,19 +158,7 @@ reikia turėti unikalių savybių aplikacijoje norint būti pastebėtam, kitų a
 1. * Administratoriams suteikiamas šis funkcionalumas: \
 ‒ skaityti informaciją apie parduotuves, maisto produktus ir vartotojus; \
 ‒ ištrinti ir sukurti parduotuves, restoranus, maisto produktų įrašus, vartotojus;
-- redaguoti profilius, skelbimus; \
-
-# Nefunkciniai reikalavimai
-
-1. * Saugumas \
-‒ Apsaugos nuo SQL injekcijų. \
-‒ Slaptažodis privalo atitikti saugumo reikalavimus. (NIST Password Guidelines) \
-1. * Naudojimas \
-‒ Patogi ir aiški vartotojo sąsaja (ne daugiau kaip 4 paspaudimai norint pasiekti specifinį langą). \
-‒ Vartotojai gali ieškoti maisto produktų vos įsijungę programėlę (iškart matomas filtras/ paieška). \
-1. * Patikimumas \
-‒ Serveris turėtų veikti sklandžiai (ne didesnis kaip 30% sulėtėjimas) net ir didelės (1000 vartotojų) apkrovos metu. \
-‒ Greitas užklausų apdorojimas (<2s žiūrint sąrašą). \
+‒ redaguoti profilius, skelbimus; \
 
 # Vartotojų naudojimosi scenarijai
 1. Neprisijungęs vartotojas nori peržiūrėti pasiūlymus
