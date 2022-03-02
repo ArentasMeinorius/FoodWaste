@@ -39,8 +39,7 @@ header-includes:
 \clearpage
 # Kontekstas 
 ## Įžanga
- &nbsp;&nbsp;&nbsp;&nbsp; Šiuolaikiniame pasaulyje augant žmonių skaičiui, maisto poreikis stipriai auga. Kad patenkinti žmonių poreikius, statomos naujos maisto prekių parduotuvės,restoranai. Tačiau ne visas maistas yra parduodamas, dažnai yra nukainojamas, bet ne visada viskas būna išparduodama ir tenka likučius išmesti.
- &nbsp;&nbsp;&nbsp;&nbsp;Taip parduotuvės, restoranai patiria gana didelius nuostolius. Bet to būtų galima išvengti, jei būtų viena bendra sistema, kurioje būtų rodomos maisto prekių parduotuvių, greitojo maisto restoranų besibaigiantys produktai. Turint vieną bendrą sistemą, besibaigiantys maisto produktai būtų pasiekiami didesnei vartotojų grupei, taip tausojant tausojant gamtą.
+ &nbsp;&nbsp;&nbsp;&nbsp; Šiuolaikiniame pasaulyje augant žmonių skaičiui, maisto poreikis stipriai auga. Kad patenkinti žmonių poreikius, statomos naujos maisto prekių parduotuvės,restoranai. Tačiau ne visas maistas yra parduodamas, dažnai yra nukainojamas, bet ne visada viskas būna išparduodama ir tenka likučius išmesti. Taip parduotuvės, restoranai patiria gana didelius nuostolius. Bet to būtų galima išvengti, jei būtų viena bendra sistema, kurioje būtų rodomos maisto prekių parduotuvių, greitojo maisto restoranų besibaigiantys produktai. Turint vieną bendrą sistemą, besibaigiantys maisto produktai būtų pasiekiami didesnei vartotojų grupei, taip tausojant tausojant gamtą.
 
 ## Vizija 
 - Sumažinti išmetamo maisto kiekį jį išdalinant.
