@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wBJS0K3NEeyzL6DupzOheQ" type="PapyrusUMLComponentDiagram" name="BuyingProductComponentDiagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_1M4-8K3NEeyzL6DupzOheQ" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_1NFMMK3NEeyzL6DupzOheQ" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_1NFMMa3NEeyzL6DupzOheQ" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_1NFzQK3NEeyzL6DupzOheQ" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_1NHocK3NEeyzL6DupzOheQ" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_1NIPgK3NEeyzL6DupzOheQ"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1NIPga3NEeyzL6DupzOheQ"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_1MkO0K3NEeyzL6DupzOheQ"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1M4-8a3NEeyzL6DupzOheQ" x="280" y="160"/>
+  </children>
+  <styles xmi:type="notation:StringValueStyle" xmi:id="_wBJS0a3NEeyzL6DupzOheQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_wBJS0q3NEeyzL6DupzOheQ"/>
+  <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_wBJS063NEeyzL6DupzOheQ" diagramKindId="org.eclipse.papyrus.uml.diagram.component.root.package">
+    <owner xmi:type="uml:Model" href="FoodWastePapyrus.uml#_z2qBQK3MEeyzL6DupzOheQ"/>
+  </styles>
+  <element xmi:type="uml:Model" href="FoodWastePapyrus.uml#_z2qBQK3MEeyzL6DupzOheQ"/>
+</notation:Diagram>
