@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_z2qBQK3MEeyzL6DupzOheQ" name="FoodWastePapyrus">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_z7rrMK3MEeyzL6DupzOheQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Component" xmi:id="_1MkO0K3NEeyzL6DupzOheQ" name="FoodSaver System">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_xWfMwK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="__pz94K3aEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_yBnNYK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_ELRW4K3bEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ytzlAK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_Kr-DwK3bEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_zKqgIK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_GQk2gK3bEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_ls9vcK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_X-LrQK3cEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_m9HIsK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_YxewcK3cEeyxN7PGCUEt-A"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_r8JuMK3fEeymC6X14bjwUA" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_RAsKIK3bEeyxN7PGCUEt-A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_N9AMIK3aEeyxN7PGCUEt-A" name="FoodSaver UI for Providers">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_0qNqgK3fEeymC6X14bjwUA" client="_N9AMIK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_WpTN4K3aEeyxN7PGCUEt-A" name="FoodSaver UI for Users">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_z-vEkK3fEeymC6X14bjwUA" client="_WpTN4K3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_5zIeYK3aEeyxN7PGCUEt-A" name="FoodSaver API for Providers">
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_1RP1UK3fEeymC6X14bjwUA" client="_5zIeYK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="__pz94K3aEeyxN7PGCUEt-A" name="ElasticCloud (Monitoring)"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_ELRW4K3bEeyxN7PGCUEt-A" name="Database"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_GQk2gK3bEeyxN7PGCUEt-A" name="Accounting Provider"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_Kr-DwK3bEeyxN7PGCUEt-A" name="Payments Provider"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_RAsKIK3bEeyxN7PGCUEt-A" name="OAuth2 Provider"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_X-LrQK3cEeyxN7PGCUEt-A" name="Admin Panel"/>
+  <packagedElement xmi:type="uml:Component" xmi:id="_YxewcK3cEeyxN7PGCUEt-A" name="Live Operators System"/>
+</uml:Model>
