@@ -1,16 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wBJS0K3NEeyzL6DupzOheQ" type="PapyrusUMLComponentDiagram" name="BuyingProductComponentDiagram" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/papyrus/infra/gmfdiag/style" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_wBJS0K3NEeyzL6DupzOheQ" type="PapyrusUMLComponentDiagram" name="GeneralComponentDiagram" measurementUnit="Pixel">
   <children xmi:type="notation:Shape" xmi:id="_1M4-8K3NEeyzL6DupzOheQ" type="Component_PackagedElementShape">
     <children xmi:type="notation:DecorationNode" xmi:id="_1NFMMK3NEeyzL6DupzOheQ" type="Component_NameLabel"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_1NFMMa3NEeyzL6DupzOheQ" type="Component_FloatingNameLabel">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_1NFzQK3NEeyzL6DupzOheQ" y="15"/>
     </children>
-    <children xmi:type="notation:BasicCompartment" xmi:id="_1NHocK3NEeyzL6DupzOheQ" type="Component_StructureCompartment">
+    <children xmi:type="notation:BasicCompartment" xmi:id="_1NHocK3NEeyzL6DupzOheQ" type="Component_StructureCompartment" collapsed="true">
       <styles xmi:type="notation:TitleStyle" xmi:id="_1NIPgK3NEeyzL6DupzOheQ"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1NIPga3NEeyzL6DupzOheQ"/>
     </children>
     <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_1MkO0K3NEeyzL6DupzOheQ"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1M4-8a3NEeyzL6DupzOheQ" x="280" y="160"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1M4-8a3NEeyzL6DupzOheQ" x="580" y="220"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_N9R48K3aEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_N9SgAK3aEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_N9SgAa3aEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_N9SgAq3aEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_N9SgA63aEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_N9SgBK3aEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_N9SgBa3aEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_N9AMIK3aEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_N9R48a3aEeyxN7PGCUEt-A" x="40" y="220" width="241"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_WpW4QK3aEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_WpXfUK3aEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_WpYGYK3aEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_WpYGYa3aEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_WpYGYq3aEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_WpYGY63aEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WpYGZK3aEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_WpTN4K3aEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WpW4Qa3aEeyxN7PGCUEt-A" x="40" y="360" width="241"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_5zMIwK3aEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_5zNW4K3aEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_5zNW4a3aEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_5zN98K3aEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_5zN98a3aEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_5zN98q3aEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5zN9863aEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_5zIeYK3aEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5zMIwa3aEeyxN7PGCUEt-A" x="40" y="80" width="241"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="__p3oQK3aEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="__p42YK3aEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="__p42Ya3aEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__p42Yq3aEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="__p5dcK3aEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="__p5dca3aEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="__p5dcq3aEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#__pz94K3aEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="__p3oQa3aEeyxN7PGCUEt-A" x="440" y="60"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_ELTzIK3bEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ELUaMK3bEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_ELUaMa3bEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ELUaMq3bEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_ELUaM63bEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_ELUaNK3bEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ELUaNa3bEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_ELRW4K3bEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ELTzIa3bEeyxN7PGCUEt-A" x="700" y="40"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_GQmrsK3bEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_GQmrsq3bEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_GQmrs63bEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_GQmrtK3bEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_GQmrta3bEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_GQmrtq3bEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GQmrt63bEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_GQk2gK3bEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GQmrsa3bEeyxN7PGCUEt-A" x="840" y="260"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_KsBHEK3bEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_KsBuIK3bEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_KsBuIa3bEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KsBuIq3bEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_KsBuI63bEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_KsBuJK3bEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KsBuJa3bEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_Kr-DwK3bEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KsBHEa3bEeyxN7PGCUEt-A" x="840" y="140"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_RAumYK3bEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_RAvNcK3bEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_RAvNca3bEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_RAvNcq3bEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_RAvNc63bEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_RAvNdK3bEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RAvNda3bEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_RAsKIK3bEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_RAumYa3bEeyxN7PGCUEt-A" x="360" y="220"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_X-OukK3cEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_X-PVoK3cEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_X-P8sK3cEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_X-P8sa3cEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_X-P8sq3cEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_X-P8s63cEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X-P8tK3cEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_X-LrQK3cEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_X-Ouka3cEeyxN7PGCUEt-A" x="460" y="380"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_Yxf-kK3cEeyxN7PGCUEt-A" type="Component_PackagedElementShape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_YxgloK3cEeyxN7PGCUEt-A" type="Component_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Yxgloa3cEeyxN7PGCUEt-A" type="Component_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Yxgloq3cEeyxN7PGCUEt-A" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_Yxglo63cEeyxN7PGCUEt-A" type="Component_StructureCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_YxglpK3cEeyxN7PGCUEt-A"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yxglpa3cEeyxN7PGCUEt-A"/>
+    </children>
+    <element xmi:type="uml:Component" href="FoodWastePapyrus.uml#_YxewcK3cEeyxN7PGCUEt-A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yxf-ka3cEeyxN7PGCUEt-A" x="680" y="380"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_wBJS0a3NEeyzL6DupzOheQ" name="diagram_compatibility_version" stringValue="1.4.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_wBJS0q3NEeyzL6DupzOheQ"/>
@@ -18,4 +138,206 @@
     <owner xmi:type="uml:Model" href="FoodWastePapyrus.uml#_z2qBQK3MEeyzL6DupzOheQ"/>
   </styles>
   <element xmi:type="uml:Model" href="FoodWastePapyrus.uml#_z2qBQK3MEeyzL6DupzOheQ"/>
+  <edges xmi:type="notation:Connector" xmi:id="_qRwlwK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_WpW4QK3aEeyxN7PGCUEt-A" target="_RAumYK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qRxM0K3bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qRxM0a3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_qRxz4K3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qRxz4a3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qRwlwa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_qRYyUK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qRwlwq3bEeyxN7PGCUEt-A" points="[260, 360, -643984, -643984]$[360, 289, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qSyggK3bEeyxN7PGCUEt-A" id="(0.995850622406639,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qSygga3bEeyxN7PGCUEt-A" id="(0.0,0.9904761904761902)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_sw46oK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_N9R48K3aEeyxN7PGCUEt-A" target="_RAumYK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_sw5hsK3bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_uHT7AK3bEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sw5hsa3bEeyxN7PGCUEt-A" x="1" y="58"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_sw5hsq3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_uHfhMK3bEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_sw5hs63bEeyxN7PGCUEt-A" x="1" y="58"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sw46oa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_swf5EK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sw46oq3bEeyxN7PGCUEt-A" points="[280, 240, -643984, -643984]$[360, 240, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_sxc7UK3bEeyxN7PGCUEt-A" id="(0.995850622406639,0.2857142857142857)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_sxc7Ua3bEeyxN7PGCUEt-A" id="(0.0,0.2857142857142857)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_vc3YsK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_5zMIwK3aEeyxN7PGCUEt-A" target="_RAumYK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vc3_wK3bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vc3_wa3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vc3_wq3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vc3_w63bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vc3Ysa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_vcgMUK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vc3Ysq3bEeyxN7PGCUEt-A" points="[280, 149, -643984, -643984]$[360, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vdRoYK3bEeyxN7PGCUEt-A" id="(0.995850622406639,0.9904761904761902)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vdSPcK3bEeyxN7PGCUEt-A" id="(0.0,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_wWTiIK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_RAumYK3bEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_wWTiI63bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_wWTiJK3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_wWTiJa3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_wWTiJq3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_wWTiIa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_wV_ZEK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wWTiIq3bEeyxN7PGCUEt-A" points="[509, 260, -643984, -643984]$[580, 260, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wW3i0K3bEeyxN7PGCUEt-A" id="(0.9955555555555554,0.5714285714285714)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wW3i0a3bEeyxN7PGCUEt-A" id="(0.0,0.5714285714285714)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_xWxgoK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="__p3oQK3aEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_xWxgo63bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_fizTQK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xWxgpK3bEeyxN7PGCUEt-A" y="59"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_xWxgpa3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_fjAuoK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_xWxgpq3bEeyxN7PGCUEt-A" y="59"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_xWxgoa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_xWfMwK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xWxgoq3bEeyxN7PGCUEt-A" points="[620, 220, -643984, -643984]$[640, 149, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xXIF8K3bEeyxN7PGCUEt-A" id="(0.2564102564102564,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xXIF8a3bEeyxN7PGCUEt-A" id="(0.3,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_yB-ZwK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="_ELTzIK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yB-Zw63bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_dPZGMK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yB-ZxK3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_yB-Zxa3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_dPlTcK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yB-Zxq3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_yB-Zwa3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_yBnNYK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yB-Zwq3bEeyxN7PGCUEt-A" points="[736, 240, -643984, -643984]$[800, 240, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yCdh8K3bEeyxN7PGCUEt-A" id="(1.0,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yCdh8a3bEeyxN7PGCUEt-A" id="(0.4,0.9714285714285714)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_yuI8MK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="_KsBHEK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_yuJjQK3bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_duQMcK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yuJjQa3bEeyxN7PGCUEt-A" x="-1" y="58"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_yuJjQq3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_dup1EK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_yuJjQ63bEeyxN7PGCUEt-A" x="-1" y="58"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_yuI8Ma3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_ytzlAK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yuI8Mq3bEeyxN7PGCUEt-A" points="[736, 280, -643984, -643984]$[800, 380, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yum2QK3bEeyxN7PGCUEt-A" id="(1.0,0.5714285714285714)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yum2Qa3bEeyxN7PGCUEt-A" id="(0.0,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_zK3UcK3bEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="_GQmrsK3bEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_zK3Uc63bEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_cqkh4K3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zK3UdK3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_zK3Uda3bEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <styles xmi:type="notation:BooleanValueStyle" xmi:id="_cq_YoK3cEeyxN7PGCUEt-A" name="IS_UPDATED_POSITION" booleanValue="true"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zK3Udq3bEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_zK3Uca3bEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_zKqgIK3bEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_zK3Ucq3bEeyxN7PGCUEt-A" points="[660, 289, -643984, -643984]$[660, 380, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zLZf8K3bEeyxN7PGCUEt-A" id="(1.0,0.8571428571428571)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_zLZf8a3bEeyxN7PGCUEt-A" id="(0.0,0.5714285714285714)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ltRRcK3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="_X-OukK3cEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ltR4gq3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ltR4g63cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_ltR4hK3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ltR4ha3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ltR4gK3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_ls9vcK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ltR4ga3cEeyxN7PGCUEt-A" points="[600, 289, -643984, -643984]$[560, 380, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ltsvQK3cEeyxN7PGCUEt-A" id="(0.1282051282051282,0.9904761904761902)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ltsvQa3cEeyxN7PGCUEt-A" id="(0.6666666666666666,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_m9gxUK3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_1M4-8K3NEeyzL6DupzOheQ" target="_Yxf-kK3cEeyxN7PGCUEt-A">
+    <children xmi:type="notation:DecorationNode" xmi:id="_m9gxU63cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_m9gxVK3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_m9gxVa3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_m9gxVq3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_m9gxUa3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_m9HIsK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_m9gxUq3cEeyxN7PGCUEt-A" points="[680, 289, -643984, -643984]$[740, 380, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_m-BHoK3cEeyxN7PGCUEt-A" id="(0.6410256410256411,0.9904761904761902)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_m-BHoa3cEeyxN7PGCUEt-A" id="(0.33707865168539325,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_w64ZYK3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_ELTzIK3bEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_w65AcK3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_w65Aca3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_w65Acq3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_w65Ac63cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_w64ZYa3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_w6ibIK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_w64ZYq3cEeyxN7PGCUEt-A" points="[720, 109, -643984, -643984]$[700, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w7ZWwK3cEeyxN7PGCUEt-A" id="(0.13333333333333333,0.9904761904761904)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w7ZWwa3cEeyxN7PGCUEt-A" id="(0.7692307692307693,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_3RxC8K3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_KsBHEK3bEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_3RyREK3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_3RyREa3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_3Ry4IK3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_3Ry4Ia3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_3RxC8a3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_3RrjYK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3RxC8q3cEeyxN7PGCUEt-A" points="[752, 109, -643984, -643984]$[680, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_38XfIK3cEeyxN7PGCUEt-A" id="(0.0,0.5714285714285714)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4UKUEK3cEeyxN7PGCUEt-A" id="(1.0,0.2857142857142857)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_4x4K0K3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_GQmrsK3bEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_4x4x4K3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_4x4x4a3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_4x4x4q3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_4x4x463cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_4x4K0a3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_4x2VoK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4x4K0q3cEeyxN7PGCUEt-A" points="[752, 109, -643984, -643984]$[680, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5P91AK3cEeyxN7PGCUEt-A" id="(0.0,0.2857142857142857)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_6NMSQK3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_Yxf-kK3cEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_6NM5UK3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_6NM5Ua3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_6NNgYK3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_6NNgYa3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_6NMSQa3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_6NJ2AK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6NMSQq3cEeyxN7PGCUEt-A" points="[752, 109, -643984, -643984]$[680, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7IuGYK3cEeyxN7PGCUEt-A" id="(0.7865168539325843,0.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_71xZoK3cEeyxN7PGCUEt-A" type="Dependency_Edge" source="_X-OukK3cEeyxN7PGCUEt-A" target="_1M4-8K3NEeyzL6DupzOheQ">
+    <children xmi:type="notation:DecorationNode" xmi:id="_71yAsK3cEeyxN7PGCUEt-A" type="Dependency_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_71ynwK3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_71ynwa3cEeyxN7PGCUEt-A" type="Dependency_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_71ynwq3cEeyxN7PGCUEt-A" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_71xZoa3cEeyxN7PGCUEt-A"/>
+    <element xmi:type="uml:Dependency" href="FoodWastePapyrus.uml#_71u9YK3cEeyxN7PGCUEt-A"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_71xZoq3cEeyxN7PGCUEt-A" points="[752, 109, -643984, -643984]$[680, 220, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8cn-QK3cEeyxN7PGCUEt-A" id="(0.8,0.0)"/>
+  </edges>
 </notation:Diagram>
