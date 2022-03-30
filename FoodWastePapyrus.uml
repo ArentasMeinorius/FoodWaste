@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_z2qBQK3MEeyzL6DupzOheQ" name="FoodWastePapyrus">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_z2qBQK3MEeyzL6DupzOheQ" name="FoodWastePapyrus">
   <packageImport xmi:type="uml:PackageImport" xmi:id="_z7rrMK3MEeyzL6DupzOheQ">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
   </packageImport>
@@ -28,4 +28,28 @@
   <packagedElement xmi:type="uml:Component" xmi:id="_RAsKIK3bEeyxN7PGCUEt-A" name="OAuth2 Provider"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_X-LrQK3cEeyxN7PGCUEt-A" name="Admin Panel"/>
   <packagedElement xmi:type="uml:Component" xmi:id="_YxewcK3cEeyxN7PGCUEt-A" name="Live Operators System"/>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_Ps5q0K_7EeybK_Xoemohxw" name="Linux container">
+    <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_b7ZWEK_9EeybK_Xoemohxw" name=".NET core">
+      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_b7ZWEa_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
+      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_ca1rIK_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
+    </nestedClassifier>
+    <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_Yn6zIK_9EeybK_Xoemohxw" name="PostgreSQL Database"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_g6uBsK_7EeybK_Xoemohxw" name="HTTPS" memberEnd="_g6xsEK_7EeybK_Xoemohxw _g60IUK_7EeybK_Xoemohxw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_g6wd8K_7EeybK_Xoemohxw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_g6xFAK_7EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_g6xsEK_7EeybK_Xoemohxw" name="interner device" type="_KJnBYK_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_g60IUK_7EeybK_Xoemohxw" name="linux container" type="_Ps5q0K_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_KJnBYK_7EeybK_Xoemohxw" name="Interner device" visibility="public">
+    <nestedClassifier xmi:type="uml:Artifact" xmi:id="_UzcG0K_7EeybK_Xoemohxw" name="WebBrowser" fileName=""/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_kWi9cK_9EeybK_Xoemohxw" name="TCP" memberEnd="_kWjkgq_9EeybK_Xoemohxw _kWkLkK_9EeybK_Xoemohxw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kWjkgK_9EeybK_Xoemohxw" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kWjkga_9EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_kWjkgq_9EeybK_Xoemohxw" name=".net core" type="_b7ZWEK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_kWkLkK_9EeybK_Xoemohxw" name="postgresql database" type="_Yn6zIK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
+  </packagedElement>
 </uml:Model>
