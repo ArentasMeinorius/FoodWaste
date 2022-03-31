@@ -71,7 +71,7 @@ To further develop and increase the functionality of the existing system we were
 
 ### Impact of changes
 The newly added functionality of ordering products will help automate the process of food receiving. Users will no longer need to personally contact food owners or have cash prepared as transactions will go online to payment provider. Additionally, newly added tech support will be able to help customers with any concerning questions that might arise while using the system. That will further improve the system usability for all types of users.
-Finally, the ability for restaurants to easily edit their data should provide better up to date to information which is always important to avoid misunderstandings with the users.
+Finally, the ability for restaurants to easily edit their data should provide better up to date information which is always important to avoid misunderstandings with the users.
 
 ## Current system analysis
 The current system only worked as a showcasing tool for the products, therefore it was hardly usable and inconvenient. The need to manualy contact food owners and negotiate made the process slow
