@@ -53,13 +53,16 @@ For a system to be successful, it must be developed with the intention of solvin
 Reduce food waste by distributing it.
 
 ### The problem
-Not all food products are sold, often it is discounted, sometimes leftovers have to be discounted.
+Not all food products are sold before spoiling, sometimes restaurants do not use all the food they have bought.
 
 ### Solution
-Prepare a plaftorm that would stand as a middle man helping people to sell food excess and allowing others to buy it cheaper.
+Prepare a plaftorm that would stand as a middle man helping people sell excess food while  allowing others to buy it cheaper.
 
-### Main User Goals 
-Users that act as food providers are either interested in profit (mainly restaurants), their goal is to cut losses coming from throwing away food, or there are users (mainly simple individuals) which are interested in reducing food waste. On the other hand, there are also users that want to acquire food cheaper, their goal is to save money.
+### Main User Goals
+Monetary gain:
+ + Providers: utilising over-booked food
+ + Users: acquire food cheaper
+Reducing food waste
 
 ## Planned changes
 To further develop and increase the functionality of the existing system we were given several tasks of implementing changes and features. The improvement consists of adding food status to facilitate consumers lifes and by adding restaurant/grocery store edit option.
@@ -85,16 +88,22 @@ Overall, the tools and technologies are well chosen for the system in developmen
 
 ### Existing problems
 ## Development environment
-Version control systems, play a major role in any modern software development project. This is especially important for us, since out team will mostly work remotely. Our version control system is Git. The source code is hosted on GitHub, because all of the members are familiar with this repository management tool. Following good coding practices, every new feature implementation will be reviewed by at least one team member.
+Version control systems, play a major role in any modern software development project. This is especially important for us, since out team will mostly work remotely. Our version control system is Git. The source code is hosted on GitHub, because all of the members are familiar with this repository management tool. Following good coding practices, every new feature implementation will be created in a separate branch and reviewed by at least one team member.
 
 # Logical view
 Logical view is concerned with the functionality that the system provides to end-users. This will be achieved via these diagrams: \
-1. Class diagrams, \
-2. Object diagram, \
-3. Communication diagrams, \
-4. State machine diagrams. 
+1. Component diagram \
+2. Class diagrams \
+3. Object diagram \
+4. Communication diagrams \
+5. State machine diagrams 
 
 Each of these diagrams has a separate section in which diagrams itself and descriptions are provided.
+
+## Component diagram
+Component diagram provides high level architecture overview of different components used for operating Food Waste
+
+![Food waste Component diagram](Assets/ComponentDiagram.jpg "Component diagram")
 
 ## Class diagrams
 The class diagram shown belown illustrates our application after the changes. We have included a new functionality of ordering the products and designed tech support. Also we kept in mind the necessity to manage restaurants and added some additional operations. This diagram allows us to implement the changes more easily with its structured view.
