@@ -56,10 +56,10 @@ Reduce food waste by distributing it.
 Not all food products are sold, often it is discounted, sometimes leftovers have to be discounted.
 
 ### Solution
-//discussion
+Prepare a plaftorm that would stand as a middle man helping people to sell food excess and allowing others to buy it cheaper.
 
 ### Main User Goals 
-//discussion
+Users that act as food providers are either interested in profit (mainly restaurants), their goal is to cut losses coming from throwing away food, or there are users (mainly simple individuals) which are interested in reducing food waste. On the other hand, there are also users that want to acquire food cheaper, their goal is to save money.
 
 ## Planned changes
 To further develop and increase the functionality of the existing system we were given several tasks of implementing changes and features. The improvement consists of adding food status to facilitate consumers lifes and by adding restaurant/grocery store edit option.
@@ -70,10 +70,11 @@ To further develop and increase the functionality of the existing system we were
  + Add tech support.
 
 ### Impact of changes
-// discussion which change to implement
+The newly added functionality of ordering products will help automate the process of food receiving. Users will no longer need to personally contact food owners or have cash prepared as transactions will go online to payment provider. Additionally, newly added tech support will be able to help customers with any concerning questions that might arise while using the system. That will further improve the system usability for all types of users.
+Finally, the ability for restaurants to easily edit their data should provide better update to information which is always important to avoid misunderstandings with the users.
 
 ## Current system analysis
-//analyse the system
+The current system only worked as a showcasing tool for the products, therefore it was hardly usable and inconvenient. The need to manualy contact food owners and negotiate made the process slow
 
 ### System environment
 The main web-application server will be run on a linux machine using IIS Express. The database will be on the same server. Users will be able to connect through any type of modern browser. Support for older browsers (e.g., Internet Explorer) is not included. 
