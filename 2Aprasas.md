@@ -96,9 +96,17 @@ Logical view is concerned with the functionality that the system provides to end
 Each of these diagrams has a separate section in which diagrams itself and descriptions are provided.
 
 ## Class diagrams
+The class diagram shown belown illustrates our application after the changes. We have included a new functionality of ordering the products and designed tech support. Also we kept in mind the necessity to manage restaurants and added some additional operations. This diagram allows us to implement the changes more easily with its structured view.
+
+![Food waste Class diagram](Assets/ClassDiagram2.jpg "Class diagram")
+
 ## Object diagram
 ## Collaboration diagrams
 ## State machine diagrams
+The state diagram shown below illustrates how our ordering systems works in more depth. We can see that user adds or removes products to his order as he wishes and then proceeds to the payment. Once the payment is started, order status gets updated throughout the process and transaction is being verified. When the payment gets verified order finishes.
+
+![Food waste State diagram](Assets/StateDiagram2.jpg "State diagram")
+
 # Development view
   * The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:
 1. Component diagram
