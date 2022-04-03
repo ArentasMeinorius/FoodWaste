@@ -72,6 +72,7 @@ To further develop and increase the functionality of the existing system we were
  + Restaurant accounts should be able edit their data.\
  + Add tech support.
 
+\clearpage
 ### Impact of changes
 The newly added functionality of ordering products will help automate the process of food receiving. Users will no longer need to personally contact food owners or have cash prepared as transactions will go online to payment provider. Additionally, newly added tech support will be able to help customers with any concerning questions that might arise while using the system. That will further improve the system usability for all types of users.
 Finally, the ability for restaurants to easily edit their data should provide better up to date information which is always important to avoid misunderstandings with the users.
@@ -90,6 +91,7 @@ Overall, the tools and technologies are well chosen for the system in developmen
 ## Development environment
 Version control systems, play a major role in any modern software development project. This is especially important for us, since out team will mostly work remotely. Our version control system is Git. The source code is hosted on GitHub, because all of the members are familiar with this repository management tool. Following good coding practices, every new feature implementation will be created in a separate branch and reviewed by at least one team member.
 
+\clearpage
 # Logical view
 Logical view is concerned with the functionality that the system provides to end-users. This will be achieved via these diagrams: \
 1. Component diagram \
@@ -118,11 +120,13 @@ This communication diagram shows how components are supposed to communicate with
 ![Provider changes communication diagram](Assets/ProviderCommunicationDiagram.png "Food waste communication diagram")
 The provider needs the possibility to update information about himself, so this communication diagram shows how the process should go. Like a regular user, the provider can freely browse the products, but if he wants to make a change he must log in. After logging in, he is provided data about his account and his supplied products. He can make changes to this information, which is later saved into the data base. All changes are monitored.
 
+\clearpage
 ## State machine diagrams
 The state diagram shown below illustrates how our ordering systems works in more depth. We can see that user adds or removes products to his order as he wishes and then proceeds to the payment. Once the payment is started, order status gets updated throughout the process and transaction is being verified. When the payment gets verified order finishes.
 
 ![Food waste State diagram](Assets/StateDiagram2.jpg "State diagram")
 
+\clearpage
 # Development view
   * The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:
 1. Component diagram
@@ -137,6 +141,7 @@ Process view illustrates and explains the system processes. The focus is on thei
 Tech support until this point was virtually non-existent, so there is not much to compare it to. The diagram describes how a user (in this case a logged in provider) should deal with a system error that does not allow him to properly continue his work. As is shown in the diagram, after an error the system logs the circumstances under which the error occurred and asks the provider if he wants to issue a ticket. If he does so, the tech support personnel review the problem, communicate with the provider and fix a problem that the person is having. After all this, the provider can return to his work.
 
 ![Food waste activity diagram](Assets/ActivityDiagram.png "Activity diagram")
+\clearpage
 ## Sequence diagrams
 # Physical view
 In this part we analysed the topology of software components on the physical layer as well as physical connections between these components. 
