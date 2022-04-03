@@ -1,45 +1,51 @@
 ﻿@model IEnumerable<FoodWaste.Models.Restaurant>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    @{
+        ViewData["Title"] = "Index";
+        int RestaurantId = Model.FirstOrDefault(p => p.UserId.Value == (int)ViewData["CurrentUserId"]).Id;
+        bool RestaurantExists = Model.Any(p => p.UserId == (int)ViewData["CurrentUserId"]);
+    }
 
-<h1>Restaurants</h1>
+    <h1>Restaurants</h1>
+    @if (RestaurantExists)
+    {
+        <p>
+            <a asp-action="Edit" asp-route-id="@RestaurantId">Edit Restaurant</a>
+        </p>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Restaurant Name</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]">Address</a>
+                </th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewData["NumberSortParm"]">Phone Number</a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.UserId">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Restaurant Name</a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["AddressSortParm"]">Address</a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NumberSortParm"]">Phone Number</a>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.UserId">Details</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>

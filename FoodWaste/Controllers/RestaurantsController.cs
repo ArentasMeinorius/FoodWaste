@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodWaste.Data;
 using FoodWaste.Models;
+using System.Security.Claims;
 
 namespace FoodWaste.Controllers
 {
@@ -29,9 +30,10 @@ namespace FoodWaste.Controllers
             ViewData["AddressSortParm"] = getSortOrder(sortOrder, "Address");
             ViewData["NumberSortParm"] = getSortOrder(sortOrder, "Number");
             ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentUserId"] = GetCurrentUserId();
 
             var restaurants = from r in _context.Restaurant
-                           select r;
+                              select r;
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -121,9 +123,9 @@ namespace FoodWaste.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("UserId,Name,Address,PhoneNumber")] Restaurant restaurant)//nepriimt userid
+        public async Task<IActionResult> Edit([Bind("UserId,Name,Address,PhoneNumber,Id")] Restaurant restaurant)//nepriimt userid
         {
-            if (id != restaurant.UserId)
+            if (restaurant.UserId != GetCurrentUserId())
             {
                 return NotFound();
             }
@@ -182,6 +184,15 @@ namespace FoodWaste.Controllers
         private bool RestaurantExists(int? id)
         {
             return _context.Restaurant.Any(e => e.UserId == id);
+        }
+
+        private int GetCurrentUserId()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            }
+            return new int();
         }
     }
 }
