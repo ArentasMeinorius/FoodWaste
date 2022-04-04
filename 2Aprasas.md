@@ -110,11 +110,13 @@ Component diagram provides high level architecture overview of different compone
 
 ![Food waste Component diagram](Assets/ComponentDiagram.jpg "Component diagram")
 
+\clearpage
 ## Class diagrams
 The class diagram shown belown illustrates our application after the changes. We have included a new functionality of ordering the products and designed tech support. Also we kept in mind the necessity to manage restaurants and added some additional operations. This diagram allows us to implement the changes more easily with its structured view.
 
 ![Food waste Class diagram](Assets/ClassDiagram3.jpg "Class diagram")
 
+\clearpage
 ## Communication diagrams
 ![User purchases communication diagram](Assets/UserPurchasesCommunicationDiagram.png "Food waste communication diagram")
 This communication diagram shows how components are supposed to communicate with one another when a user wants to make a purchase. As you can see, the user can browse available products without logging in, but when he wants to make a purchase he has to provide credentials. After that the user makes a purchase, the database is updated accordingly and the accounting is notified of the transaction.
@@ -130,7 +132,7 @@ The state diagram shown below illustrates how our ordering systems works in happ
 
 \clearpage
 # Development view
-  * The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:
+The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:
 1. Component diagram
 
 ## Component diagram
@@ -144,6 +146,7 @@ Tech support until this point was virtually non-existent, so there is not much t
 
 ![Food waste activity diagram](Assets/ActivityDiagram.png "Activity diagram")
 \clearpage
+
 ## Sequence diagrams
 # Physical view
 In this part we analysed the topology of software components on the physical layer as well as physical connections between these components. 
@@ -152,6 +155,8 @@ This view contains:
 1. Deployment diagram
 
 ## Deployment diagram
+![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
+
 # Use Case View
 ## Main use cases – diagram and description
 ## Admin use cases – diagram and description
