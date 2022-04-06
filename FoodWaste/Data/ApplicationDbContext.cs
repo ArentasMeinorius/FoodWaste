@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using FoodWaste.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -19,7 +17,7 @@ namespace FoodWaste.Data
             : base(options)
         {
         }
-        public DbSet<FoodWaste.Models.Product> Product { get; set; }
-        public DbSet<FoodWaste.Models.Restaurant> Restaurant { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Restaurant> Restaurant { get; set; }
     }
 }
