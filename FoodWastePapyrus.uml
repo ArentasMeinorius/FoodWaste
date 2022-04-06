@@ -1,55 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_z2qBQK3MEeyzL6DupzOheQ" name="FoodWastePapyrus">
-  <packageImport xmi:type="uml:PackageImport" xmi:id="_z7rrMK3MEeyzL6DupzOheQ">
-    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
-  </packageImport>
-  <packagedElement xmi:type="uml:Component" xmi:id="_1MkO0K3NEeyzL6DupzOheQ" name="FoodSaver System">
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_xWfMwK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="__pz94K3aEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_yBnNYK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_ELRW4K3bEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_ytzlAK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_Kr-DwK3bEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_zKqgIK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_GQk2gK3bEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_ls9vcK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_X-LrQK3cEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_m9HIsK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_YxewcK3cEeyxN7PGCUEt-A"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_r8JuMK3fEeymC6X14bjwUA" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_RAsKIK3bEeyxN7PGCUEt-A"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_N9AMIK3aEeyxN7PGCUEt-A" name="FoodSaver UI for Providers">
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_0qNqgK3fEeymC6X14bjwUA" client="_N9AMIK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_WpTN4K3aEeyxN7PGCUEt-A" name="FoodSaver UI for Users">
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_z-vEkK3fEeymC6X14bjwUA" client="_WpTN4K3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="_5zIeYK3aEeyxN7PGCUEt-A" name="FoodSaver API for Providers">
-    <packagedElement xmi:type="uml:Dependency" xmi:id="_1RP1UK3fEeymC6X14bjwUA" client="_5zIeYK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Component" xmi:id="__pz94K3aEeyxN7PGCUEt-A" name="ElasticCloud (Monitoring)"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_ELRW4K3bEeyxN7PGCUEt-A" name="Database"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_GQk2gK3bEeyxN7PGCUEt-A" name="Accounting Provider"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_Kr-DwK3bEeyxN7PGCUEt-A" name="Payments Provider"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_RAsKIK3bEeyxN7PGCUEt-A" name="OAuth2 Provider"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_X-LrQK3cEeyxN7PGCUEt-A" name="Admin Panel"/>
-  <packagedElement xmi:type="uml:Component" xmi:id="_YxewcK3cEeyxN7PGCUEt-A" name="Live Operators System"/>
-  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_Ps5q0K_7EeybK_Xoemohxw" name="Linux container">
-    <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_b7ZWEK_9EeybK_Xoemohxw" name=".NET core">
-      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_b7ZWEa_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
-      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_ca1rIK_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
-    </nestedClassifier>
-    <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_Yn6zIK_9EeybK_Xoemohxw" name="PostgreSQL Database"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_g6uBsK_7EeybK_Xoemohxw" name="HTTPS" memberEnd="_g6xsEK_7EeybK_Xoemohxw _g60IUK_7EeybK_Xoemohxw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_g6wd8K_7EeybK_Xoemohxw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_g6xFAK_7EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_g6xsEK_7EeybK_Xoemohxw" name="interner device" type="_KJnBYK_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_g60IUK_7EeybK_Xoemohxw" name="linux container" type="_Ps5q0K_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_KJnBYK_7EeybK_Xoemohxw" name="Interner device" visibility="public">
-    <nestedClassifier xmi:type="uml:Artifact" xmi:id="_UzcG0K_7EeybK_Xoemohxw" name="WebBrowser" fileName=""/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_kWi9cK_9EeybK_Xoemohxw" name="TCP" memberEnd="_kWjkgq_9EeybK_Xoemohxw _kWkLkK_9EeybK_Xoemohxw">
-    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kWjkgK_9EeybK_Xoemohxw" source="org.eclipse.papyrus">
-      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kWjkga_9EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
-    </eAnnotations>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_kWjkgq_9EeybK_Xoemohxw" name=".net core" type="_b7ZWEK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_kWkLkK_9EeybK_Xoemohxw" name="postgresql database" type="_Yn6zIK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
-  </packagedElement>
-</uml:Model>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ActionLanguage="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.omg.org/spec/ALF/20120827/ActionLanguage-Profile pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ">
+  <uml:Model xmi:id="_z2qBQK3MEeyzL6DupzOheQ" name="FoodWastePapyrus">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_z7rrMK3MEeyzL6DupzOheQ">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Component" xmi:id="_1MkO0K3NEeyzL6DupzOheQ" name="FoodSaver System">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_xWfMwK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="__pz94K3aEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_yBnNYK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_ELRW4K3bEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_ytzlAK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_Kr-DwK3bEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_zKqgIK3bEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_GQk2gK3bEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_ls9vcK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_X-LrQK3cEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_m9HIsK3cEeyxN7PGCUEt-A" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_YxewcK3cEeyxN7PGCUEt-A"/>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_r8JuMK3fEeymC6X14bjwUA" client="_1MkO0K3NEeyzL6DupzOheQ" supplier="_RAsKIK3bEeyxN7PGCUEt-A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_N9AMIK3aEeyxN7PGCUEt-A" name="FoodSaver UI for Providers">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_0qNqgK3fEeymC6X14bjwUA" client="_N9AMIK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_WpTN4K3aEeyxN7PGCUEt-A" name="FoodSaver UI for Users">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_z-vEkK3fEeymC6X14bjwUA" client="_WpTN4K3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="_5zIeYK3aEeyxN7PGCUEt-A" name="FoodSaver API for Providers">
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_1RP1UK3fEeymC6X14bjwUA" client="_5zIeYK3aEeyxN7PGCUEt-A" supplier="_1MkO0K3NEeyzL6DupzOheQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Component" xmi:id="__pz94K3aEeyxN7PGCUEt-A" name="ElasticCloud (Monitoring)"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_ELRW4K3bEeyxN7PGCUEt-A" name="Database"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_GQk2gK3bEeyxN7PGCUEt-A" name="Accounting Provider"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_Kr-DwK3bEeyxN7PGCUEt-A" name="Payments Provider"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_RAsKIK3bEeyxN7PGCUEt-A" name="OAuth2 Provider"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_X-LrQK3cEeyxN7PGCUEt-A" name="Admin Panel"/>
+    <packagedElement xmi:type="uml:Component" xmi:id="_YxewcK3cEeyxN7PGCUEt-A" name="Live Operators System"/>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_Ps5q0K_7EeybK_Xoemohxw" name="Linux container">
+      <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_b7ZWEK_9EeybK_Xoemohxw" name=".NET core">
+        <nestedClassifier xmi:type="uml:Artifact" xmi:id="_b7ZWEa_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
+        <nestedClassifier xmi:type="uml:Artifact" xmi:id="_ca1rIK_9EeybK_Xoemohxw" name="FoodWaste system" fileName=""/>
+      </nestedClassifier>
+      <nestedClassifier xmi:type="uml:ExecutionEnvironment" xmi:id="_Yn6zIK_9EeybK_Xoemohxw" name="PostgreSQL Database"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_g6uBsK_7EeybK_Xoemohxw" name="HTTPS" memberEnd="_g6xsEK_7EeybK_Xoemohxw _g60IUK_7EeybK_Xoemohxw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_g6wd8K_7EeybK_Xoemohxw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_g6xFAK_7EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_g6xsEK_7EeybK_Xoemohxw" name="interner device" type="_KJnBYK_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_g60IUK_7EeybK_Xoemohxw" name="linux container" type="_Ps5q0K_7EeybK_Xoemohxw" association="_g6uBsK_7EeybK_Xoemohxw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:ExecutionEnvironment" xmi:id="_KJnBYK_7EeybK_Xoemohxw" name="Interner device" visibility="public">
+      <nestedClassifier xmi:type="uml:Artifact" xmi:id="_UzcG0K_7EeybK_Xoemohxw" name="WebBrowser" fileName=""/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CommunicationPath" xmi:id="_kWi9cK_9EeybK_Xoemohxw" name="TCP" memberEnd="_kWjkgq_9EeybK_Xoemohxw _kWkLkK_9EeybK_Xoemohxw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_kWjkgK_9EeybK_Xoemohxw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_kWjkga_9EeybK_Xoemohxw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kWjkgq_9EeybK_Xoemohxw" name=".net core" type="_b7ZWEK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_kWkLkK_9EeybK_Xoemohxw" name="postgresql database" type="_Yn6zIK_9EeybK_Xoemohxw" association="_kWi9cK_9EeybK_Xoemohxw"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Interaction" xmi:id="_0MxBcLWeEey-_7EyQEikwg" name="Interaction17">
+      <ownedComment xmi:type="uml:Comment" xmi:id="_elx1cLWfEey-_7EyQEikwg">
+        <body>Used by each developer on their own machine</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_mPs0MLWfEey-_7EyQEikwg">
+        <body>Used by all developers. Runs on virtual machine</body>
+      </ownedComment>
+      <ownedComment xmi:type="uml:Comment" xmi:id="_xjpNoLWfEey-_7EyQEikwg">
+        <body>Used by users. Runs on virtual machine</body>
+      </ownedComment>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_5E7DMLWeEey-_7EyQEikwg" name="Local environment" coveredBy="_1pTbcLWfEey-_7EyQEikwg"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_6xD04LWeEey-_7EyQEikwg" name="Local DB"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_9dRjgLWeEey-_7EyQEikwg" name="Test DB"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_9dSKkLWeEey-_7EyQEikwg" name="Test environment" coveredBy="_1pUCgLWfEey-_7EyQEikwg _RHfO4LWgEey-_7EyQEikwg _bnzzALWgEey-_7EyQEikwg _PD4YYLWgEey-_7EyQEikwg"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_GISy4LWfEey-_7EyQEikwg" name="Prod environment" coveredBy="_Yt6qMLWfEey-_7EyQEikwg _RHf18LWgEey-_7EyQEikwg _bn0aELWgEey-_7EyQEikwg _PD4YYbWgEey-_7EyQEikwg"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_Jf95ULWfEey-_7EyQEikwg" name="Mocked components"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_K-2SILWfEey-_7EyQEikwg" name="Mocked components"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_OfUIMLWfEey-_7EyQEikwg" name="Real components" coveredBy="_Yt6qMbWfEey-_7EyQEikwg"/>
+      <lifeline xmi:type="uml:Lifeline" xmi:id="_Pr7sULWfEey-_7EyQEikwg" name="Prod DB"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Yt6qMLWfEey-_7EyQEikwg" name="Message10SendEvent" covered="_GISy4LWfEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_Yt6qMbWfEey-_7EyQEikwg" name="Message10ReceiveEvent" covered="_OfUIMLWfEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1pTbcLWfEey-_7EyQEikwg" name="Message15SendEvent" covered="_5E7DMLWeEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1pUCgLWfEey-_7EyQEikwg" name="Message15ReceiveEvent" covered="_9dSKkLWeEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PD4YYLWgEey-_7EyQEikwg" name="Message17SendEvent" covered="_9dSKkLWeEey-_7EyQEikwg" message="_PD3xULWgEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_PD4YYbWgEey-_7EyQEikwg" name="Message17ReceiveEvent" covered="_GISy4LWfEey-_7EyQEikwg" message="_PD3xULWgEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_RHfO4LWgEey-_7EyQEikwg" name="Message20SendEvent" covered="_9dSKkLWeEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_RHf18LWgEey-_7EyQEikwg" name="Message20ReceiveEvent" covered="_GISy4LWfEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bnzzALWgEey-_7EyQEikwg" name="Message22SendEvent" covered="_9dSKkLWeEey-_7EyQEikwg"/>
+      <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_bn0aELWgEey-_7EyQEikwg" name="Message22ReceiveEvent" covered="_GISy4LWfEey-_7EyQEikwg"/>
+      <message xmi:type="uml:Message" xmi:id="_PD3xULWgEey-_7EyQEikwg" name="Pull request" messageSort="asynchCall" receiveEvent="_PD4YYbWgEey-_7EyQEikwg" sendEvent="_PD4YYLWgEey-_7EyQEikwg"/>
+      <message xmi:type="uml:Message" xmi:id="_iYsQ8LWgEey-_7EyQEikwg" name="Manual release" messageSort="asynchCall" receiveEvent="_PD4YYbWgEey-_7EyQEikwg" sendEvent="_PD4YYLWgEey-_7EyQEikwg"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_Zqb80LWfEey-_7EyQEikwg">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_ZqdyALWfEey-_7EyQEikwg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+  </uml:Model>
+  <ActionLanguage:TextualRepresentation xmi:id="_ZqoKELWfEey-_7EyQEikwg" language="org.eclipse.papyrus.uml.textedit.message.xtext.UmlMessage"/>
+  <ActionLanguage:TextualRepresentation xmi:id="_2c6CoLWfEey-_7EyQEikwg" language="org.eclipse.papyrus.uml.textedit.message.xtext.UmlMessage"/>
+</xmi:XMI>

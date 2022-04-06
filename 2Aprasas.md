@@ -159,6 +159,18 @@ The deployment diagram below shows the relationships between the software and ha
 ![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
 
 # CI/CD 
+Continuous integration, delivery and deployment (CI/CD) enables FoodWaste developer team to release and test software on a more frequent basis without compromising on quality.
+Each new version of software is ensured to be without compilation errors and passing all of the predefined tests.
+
+1. Each developer tests their own features in local environment
+2. Automatic pipelines ensure that changed system compiles without errors and passes all of the tests
+3. Other developers review the changes
+4. Changes are merged to test environment (automatically deployed on a virtual machine)
+5. Once a batch of changes is collected manual testing is used to make sure no faults are present
+6. Changes are delivered to production system by manually starting deployment process
+7. Clients are served by the new system
+
+![Food waste CI diagram](Assets/Deployment.png "CI diagram")
 
 # Use Case View
 ## Main use cases – diagram and description
