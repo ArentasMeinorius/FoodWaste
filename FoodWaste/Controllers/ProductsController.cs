@@ -33,7 +33,7 @@ namespace FoodWaste.Controllers
 
         // GET: Products
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter, int page, int pageSwitch)
+        public IActionResult Index(string sortOrder, string searchString, bool clearFilter, int page, int pageSwitch)
         {
             ViewData["IsCurrentUserRestaurant"] = IsCurrentUserRestaurant();
             ViewData["CurrentRestaurantUserId"] = GetRestaurantId();
@@ -134,7 +134,7 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Details/5
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             _logger.LogInformation("Start: product id: {Id}", id);
             if (id == null)

@@ -35,7 +35,7 @@ namespace IntegrationTests
                 Id = 11,
                 Name = "Test",
                 ExpiryDate = new DateTime(),
-                State = Product.ProductState.Listed,
+                State = ProductState.Listed,
                 RestaurantId = 10,
                 UserId = null
             },
@@ -44,7 +44,7 @@ namespace IntegrationTests
                 Id = 12,
                 Name = "TData",
                 ExpiryDate = new DateTime(),
-                State = Product.ProductState.Listed,
+                State = ProductState.Listed,
                 RestaurantId = 10,
                 UserId = null
             }

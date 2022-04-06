@@ -380,4 +380,137 @@
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kW_CUa_9EeybK_Xoemohxw" id="(1.0,0.7329842931937173)"/>
     </edges>
   </notation:Diagram>
+  <notation:Diagram xmi:id="_1Ja28LWeEey-_7EyQEikwg" type="PapyrusUMLCommunicationDiagram" name="DeploymentDiagram" measurementUnit="Pixel">
+    <children xmi:type="notation:Shape" xmi:id="_1Ja28bWeEey-_7EyQEikwg" type="Interaction_Shape">
+      <children xmi:type="notation:DecorationNode" xmi:id="_1Ja28rWeEey-_7EyQEikwg" type="Interaction_NameLabel"/>
+      <children xmi:type="notation:DecorationNode" xmi:id="_1Ja287WeEey-_7EyQEikwg" type="Interaction_FloatingNameLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_1Ja29LWeEey-_7EyQEikwg" x="50"/>
+      </children>
+      <children xmi:type="notation:BasicCompartment" xmi:id="_1Ja29bWeEey-_7EyQEikwg" type="Interaction_SubfragmentCompartment">
+        <children xmi:type="notation:Shape" xmi:id="_5FC_ALWeEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_5FDmELWeEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_5FDmEbWeEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_5FDmErWeEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_5E7DMLWeEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5FC_AbWeEey-_7EyQEikwg" x="94" y="230"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_6xM-0LWeEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_6xOM8LWeEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_6xOM8bWeEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_6xOM8rWeEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_6xD04LWeEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6xM-0bWeEey-_7EyQEikwg" x="94" y="390" width="141"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_9dbUgLWeEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_9dcioLWeEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_9dciobWeEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_9dciorWeEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_9dSKkLWeEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9dbUgbWeEey-_7EyQEikwg" x="334" y="230"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_9ddJsLWeEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_9ddJsrWeEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_9ddJs7WeEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_9ddJtLWeEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_9dRjgLWeEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9ddJsbWeEey-_7EyQEikwg" x="354" y="390"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_GIausLWfEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_GIbVwLWfEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_GIbVwbWfEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_GIbVwrWfEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_GISy4LWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GIausbWfEey-_7EyQEikwg" x="574" y="230"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_JgHDQLWfEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_JgHDQrWfEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_JgHDQ7WfEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_JgHDRLWfEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_Jf95ULWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JgHDQbWfEey-_7EyQEikwg" x="94" y="130"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_K-4HULWfEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_K-4HUrWfEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_K-4HU7WfEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_K-4uYLWfEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_K-2SILWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_K-4HUbWfEey-_7EyQEikwg" x="314" y="130"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_OfcEALWfEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_OfcrELWfEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_OfcrEbWfEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_OfcrErWfEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_OfUIMLWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OfcEAbWfEey-_7EyQEikwg" x="574" y="130"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_PsBy8LWfEey-_7EyQEikwg" type="Lifeline_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_PsBy8rWfEey-_7EyQEikwg" type="Lifeline_NameLabel"/>
+          <children xmi:type="notation:DecorationNode" xmi:id="_PsBy87WfEey-_7EyQEikwg" type="Lifeline_FloatingNameLabel">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_PsBy9LWfEey-_7EyQEikwg" y="15"/>
+          </children>
+          <element xmi:type="uml:Lifeline" href="FoodWastePapyrus.uml#_Pr7sULWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_PsBy8bWfEey-_7EyQEikwg" x="590" y="390"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_el4jILWfEey-_7EyQEikwg" type="Comment_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_el5KMLWfEey-_7EyQEikwg" type="Comment_BodyLabel"/>
+          <element xmi:type="uml:Comment" href="FoodWastePapyrus.uml#_elx1cLWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_el4jIbWfEey-_7EyQEikwg" x="54" y="270" width="201" height="101"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_mP3MQLWfEey-_7EyQEikwg" type="Comment_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_mP3MQrWfEey-_7EyQEikwg" type="Comment_BodyLabel"/>
+          <element xmi:type="uml:Comment" href="FoodWastePapyrus.uml#_mPs0MLWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mP3MQbWfEey-_7EyQEikwg" x="334" y="270" width="161" height="103"/>
+        </children>
+        <children xmi:type="notation:Shape" xmi:id="_xjxJcLWfEey-_7EyQEikwg" type="Comment_Shape">
+          <children xmi:type="notation:DecorationNode" xmi:id="_xjxwgLWfEey-_7EyQEikwg" type="Comment_BodyLabel"/>
+          <element xmi:type="uml:Comment" href="FoodWastePapyrus.uml#_xjpNoLWfEey-_7EyQEikwg"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xjxJcbWfEey-_7EyQEikwg" x="554" y="270" width="181" height="101"/>
+        </children>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1Ja29rWeEey-_7EyQEikwg"/>
+      </children>
+      <element xmi:type="uml:Interaction" href="FoodWastePapyrus.uml#_0MxBcLWeEey-_7EyQEikwg"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1Ja297WeEey-_7EyQEikwg"/>
+    </children>
+    <styles xmi:type="notation:StringValueStyle" xmi:id="_1Ja2-LWeEey-_7EyQEikwg" name="diagram_compatibility_version" stringValue="1.4.0"/>
+    <styles xmi:type="notation:DiagramStyle" xmi:id="_1Ja2-bWeEey-_7EyQEikwg"/>
+    <styles xmi:type="style:PapyrusDiagramStyle" xmi:id="_1Ja2-rWeEey-_7EyQEikwg" diagramKindId="org.eclipse.papyrus.uml.diagram.communication">
+      <owner xmi:type="uml:Model" href="FoodWastePapyrus.uml#_z2qBQK3MEeyzL6DupzOheQ"/>
+    </styles>
+    <element xmi:type="uml:Interaction" href="FoodWastePapyrus.uml#_0MxBcLWeEey-_7EyQEikwg"/>
+    <edges xmi:type="notation:Connector" xmi:id="_PECJYLWgEey-_7EyQEikwg" type="Path_Edge" source="_5FC_ALWeEey-_7EyQEikwg" target="_9dbUgLWeEey-_7EyQEikwg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_PECwcLWgEey-_7EyQEikwg" type="Path_MessageLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PECwcbWgEey-_7EyQEikwg" x="1" y="-23"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_PECwcrWgEey-_7EyQEikwg" type="Path_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PECwc7WgEey-_7EyQEikwg" x="1" y="-53"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_PECJYbWgEey-_7EyQEikwg"/>
+      <element xmi:type="uml:Message" href="FoodWastePapyrus.uml#_PD3xULWgEey-_7EyQEikwg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PECJYrWgEey-_7EyQEikwg" points="[4, -2, -111, -6]$[109, -2, -6, -6]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PEgqgLWgEey-_7EyQEikwg" id="(0.9703703703703703,0.07407407407407407)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PEgqgbWgEey-_7EyQEikwg" id="(0.047619047619047616,0.2222222222222222)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_ib-OcLWgEey-_7EyQEikwg" type="Path_Edge" source="_9dbUgLWeEey-_7EyQEikwg" target="_GIausLWfEey-_7EyQEikwg">
+      <children xmi:type="notation:DecorationNode" xmi:id="_ib-Oc7WgEey-_7EyQEikwg" type="Path_MessageLabel">
+        <element xmi:type="uml:Message" href="FoodWastePapyrus.uml#_iYsQ8LWgEey-_7EyQEikwg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ib-OdLWgEey-_7EyQEikwg" x="18" y="-26"/>
+      </children>
+      <children xmi:type="notation:DecorationNode" xmi:id="_ib-OdbWgEey-_7EyQEikwg" type="Path_StereotypeLabel">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ib-OdrWgEey-_7EyQEikwg" x="1" y="-53"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_ib-OcbWgEey-_7EyQEikwg"/>
+      <element xmi:type="uml:Message" href="FoodWastePapyrus.uml#_iYsQ8LWgEey-_7EyQEikwg"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ib-OcrWgEey-_7EyQEikwg" points="[68, -2, -345, 11]$[413, -13, 0, 0]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oLJXwLWgEey-_7EyQEikwg" id="(0.9523809523809523,0.0)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k5q_8LWgEey-_7EyQEikwg" id="(0.0,0.0)"/>
+    </edges>
+  </notation:Diagram>
 </xmi:XMI>
