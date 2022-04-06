@@ -16,13 +16,15 @@ namespace FoodWaste.Controllers
     public class DBController : ControllerBase
     {
         private readonly IConfiguration _configuration;
+
         public DBController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
+
         [Route("product")]
         [HttpGet]
-        public JsonResult Get() //wntity framework identity db 
+        public JsonResult Get() //entity framework identity db 
         {
             string query = @"select 
                                 id as id, 
@@ -50,6 +52,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult(table);
         }
+
         [Route("product")]
         [HttpPost]
         public JsonResult Post(Product product)
@@ -79,6 +82,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Added successfully");
         }
+
         [Route("product")]
         [HttpPut]
         public JsonResult Put(Product product)
@@ -115,6 +119,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Updated successfully");
         }
+
         [HttpDelete("product/{id}")]
         public JsonResult Delete(int id)
         {
@@ -140,6 +145,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Updated successfully");
         }
+
         [Route("restaurant")]
         [HttpGet]
         public JsonResult GetRestaurant()
@@ -169,6 +175,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult(table);
         }
+
         [Route("restaurant")]
         [HttpPost]
         public JsonResult PostRestaurant(Restaurant restaurant)
@@ -197,6 +204,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Added successfully");
         }
+
         [Route("restaurant")]
         [HttpPut]
         public JsonResult PutRestaurant(Restaurant restaurant)
@@ -231,6 +239,7 @@ namespace FoodWaste.Controllers
             }
             return new JsonResult("Updated successfully");
         }
+
         [HttpDelete("restaurant/{id}")]
         public JsonResult DeleteRestaurant(int id)
         {

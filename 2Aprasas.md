@@ -87,62 +87,67 @@ The main web-application server will be run on a linux machine using IIS Express
 The main development tools and technologies, which are .NET Core Software framework, ASP.NET server-side application and razor framework. The database management system chosen by the original developers was Docker and and PostgreSQL. 
 Overall, the tools and technologies are well chosen for the system in development. 
 
+\clearpage
 ### Existing problems
+User interface is too simplistic and lacks visual representation. There is too much text and zero appeal
+
+   ![Food waste Product View](Assets/ProductView.png "Product view")
+
 ## Development environment
 Version control systems, play a major role in any modern software development project. This is especially important for us, since out team will mostly work remotely. Our version control system is Git. The source code is hosted on GitHub, because all of the members are familiar with this repository management tool. Following good coding practices, every new feature implementation will be created in a separate branch and reviewed by at least one team member.
 
 \clearpage
-# Logical view
-Logical view is concerned with the functionality that the system provides to end-users. This will be achieved via these diagrams: \
-1. Component diagram \
-2. Class diagrams \
-3. Object diagram \
-4. Communication diagrams \
-5. State machine diagrams 
-
-Each of these diagrams has a separate section in which diagrams itself and descriptions are provided.
+# Development view
+The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:\
+1. Component diagram
 
 ## Component diagram
 Component diagram provides high level architecture overview of different components used for operating Food Waste
 
 ![Food waste Component diagram](Assets/ComponentDiagram.jpg "Component diagram")
 
+\clearpage
+# Logical view
+Logical view is concerned with the functionality that the system provides to end-users. This will be achieved via these diagrams: \
+1. Class diagrams \
+2. State machine diagrams 
+
+Each of these diagrams has a separate section in which diagrams itself and descriptions are provided.\
+
 ## Class diagrams
 The class diagram shown belown illustrates our application after the changes. We have included a new functionality of ordering the products and designed tech support. Also we kept in mind the necessity to manage restaurants and added some additional operations. This diagram allows us to implement the changes more easily with its structured view.
 
-![Food waste Class diagram](Assets/ClassDiagram2.jpg "Class diagram")
+![Food waste Class diagram](Assets/ClassDiagram3.jpg "Class diagram")
 
-## Object diagram
+\clearpage
+## State machine diagrams
+The state diagram shown below illustrates how our ordering systems works in happy day scenario. We can see that user adds or removes products to his order as he wishes and then proceeds to the payment. Once the payment is started, order status gets updated throughout the process and transaction is being verified. When the payment gets verified and customer gets his bill order is considered to be finished.
+
+![Food waste State diagram](Assets/StateElements4.jpg "State diagram")
+
+\clearpage
+# Process view
+Process view illustrates and explains the system processes. The focus is on their communication and synchronization. This view contains: \
+1. Communication diagrams\
+2. Activity diagrams
+
 ## Communication diagrams
 ![User purchases communication diagram](Assets/UserPurchasesCommunicationDiagram.png "Food waste communication diagram")
 This communication diagram shows how components are supposed to communicate with one another when a user wants to make a purchase. As you can see, the user can browse available products without logging in, but when he wants to make a purchase he has to provide credentials. After that the user makes a purchase, the database is updated accordingly and the accounting is notified of the transaction.
+\
+\
+\
 
 ![Provider changes communication diagram](Assets/ProviderCommunicationDiagram.png "Food waste communication diagram")
 The provider needs the possibility to update information about himself, so this communication diagram shows how the process should go. Like a regular user, the provider can freely browse the products, but if he wants to make a change he must log in. After logging in, he is provided data about his account and his supplied products. He can make changes to this information, which is later saved into the data base. All changes are monitored.
 
-\clearpage
-## State machine diagrams
-The state diagram shown below illustrates how our ordering systems works in more depth. We can see that user adds or removes products to his order as he wishes and then proceeds to the payment. Once the payment is started, order status gets updated throughout the process and transaction is being verified. When the payment gets verified order finishes.
-
-![Food waste State diagram](Assets/StateDiagram2.jpg "State diagram")
-
-\clearpage
-# Development view
-  * The development view illustrates a system from programmer’s perspective and is concerned with software management. This view contains:
-1. Component diagram
-
-## Component diagram
-# Process view
-Process view illustrates and explains the system processes. The focus is on their communication and synchronization. This view contains: \
-1. Activity diagrams,\
-2. Sequence diagrams.
 
 ## Activity diagrams
 Tech support until this point was virtually non-existent, so there is not much to compare it to. The diagram describes how a user (in this case a logged in provider) should deal with a system error that does not allow him to properly continue his work. As is shown in the diagram, after an error the system logs the circumstances under which the error occurred and asks the provider if he wants to issue a ticket. If he does so, the tech support personnel review the problem, communicate with the provider and fix a problem that the person is having. After all this, the provider can return to his work.
 
 ![Food waste activity diagram](Assets/ActivityDiagram.png "Activity diagram")
 \clearpage
-## Sequence diagrams
+
 # Physical view
 In this part we analysed the topology of software components on the physical layer as well as physical connections between these components. 
 This view contains:
@@ -150,6 +155,8 @@ This view contains:
 1. Deployment diagram
 
 ## Deployment diagram
+![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
+
 # Use Case View
 ## Main use cases – diagram and description
 ## Admin use cases – diagram and description
