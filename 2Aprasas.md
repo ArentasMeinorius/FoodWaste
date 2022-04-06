@@ -59,9 +59,9 @@ Not all food products are sold before spoiling, sometimes restaurants do not use
 Prepare a plaftorm that would stand as a middle man helping people sell excess food while  allowing others to buy it cheaper.
 
 ### Main User Goals
-Monetary gain:
- + Providers: utilising over-booked food
- + Users: acquire food cheaper
+Monetary gain: \
+ + Providers: utilising over-booked food \
+ + Users: acquire food cheaper \
 Reducing food waste
 
 ## Planned changes
