@@ -155,7 +155,10 @@ This view contains:
 1. Deployment diagram
 
 ## Deployment diagram
+The deployment diagram below shows the relationships between the software and hardware components in the system and the physical distribution of the processing. Food waste system could be accessed using an ordinary web browser, no additional installations should not be needed. When the user opens the page, it sends request to the linux FoodWasteSystem server. The System communicates with the PostgreSQL Database in the same linux server to retrieve the data.
 ![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
+
+# CI/CD 
 
 # Use Case View
 ## Main use cases – diagram and description
