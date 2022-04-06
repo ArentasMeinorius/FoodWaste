@@ -45,7 +45,7 @@ namespace IntegrationTests
                         appContext.Users.Add(TestData.user);
                         appContext.SaveChanges();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         throw;
                     }

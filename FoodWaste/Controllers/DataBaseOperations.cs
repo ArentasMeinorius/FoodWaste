@@ -36,7 +36,7 @@ namespace FoodWaste.Controllers
                         if (prod.ExpiryDate < DateTime.Today)
                         {
                             prod.State = ProductState.Expired;
-                            PutProduct(prod);
+                            var x = PutProduct(prod).Result;
                         }
                     }
                 }

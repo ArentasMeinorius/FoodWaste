@@ -23,7 +23,7 @@ namespace FoodWaste.Controllers
         }
 
         // GET: Restaurants
-        public async Task<IActionResult> Index(string sortOrder, string searchString, bool clearFilter)
+        public IActionResult Index(string sortOrder, string searchString, bool clearFilter)
         {
             Func<string, string, string> getSortOrder = (x, orderby) => ((x == orderby) ? (orderby + "_desc") : orderby);
 
