@@ -132,13 +132,16 @@ Process view illustrates and explains the system processes. The focus is on thei
 2. Activity diagrams
 
 ## Communication diagrams
+
 ![User purchases communication diagram](Assets/UserPurchasesCommunicationDiagram.png "Food waste communication diagram")
+
 This communication diagram shows how components are supposed to communicate with one another when a user wants to make a purchase. As you can see, the user can browse available products without logging in, but when he wants to make a purchase he has to provide credentials. After that the user makes a purchase, the database is updated accordingly and the accounting is notified of the transaction.
 \
 \
 \
 
 ![Provider changes communication diagram](Assets/ProviderCommunicationDiagram.png "Food waste communication diagram")
+
 The provider needs the possibility to update information about himself, so this communication diagram shows how the process should go. Like a regular user, the provider can freely browse the products, but if he wants to make a change he must log in. After logging in, he is provided data about his account and his supplied products. He can make changes to this information, which is later saved into the data base. All changes are monitored.
 
 
@@ -146,6 +149,7 @@ The provider needs the possibility to update information about himself, so this 
 Tech support until this point was virtually non-existent, so there is not much to compare it to. The diagram describes how a user (in this case a logged in provider) should deal with a system error that does not allow him to properly continue his work. As is shown in the diagram, after an error the system logs the circumstances under which the error occurred and asks the provider if he wants to issue a ticket. If he does so, the tech support personnel review the problem, communicate with the provider and fix a problem that the person is having. After all this, the provider can return to his work.
 
 ![Food waste activity diagram](Assets/ActivityDiagram.png "Activity diagram")
+
 \clearpage
 
 # Physical view
@@ -156,6 +160,7 @@ This view contains:
 
 ## Deployment diagram
 The deployment diagram below shows the relationships between the software and hardware components in the system and the physical distribution of the processing. Food waste system could be accessed using an ordinary web browser, no additional installations should not be needed. When the user opens the page, it sends request to the linux FoodWasteSystem server. The System communicates with the PostgreSQL Database in the same linux server to retrieve the data.
+
 ![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
 
 # CI/CD 
@@ -176,4 +181,13 @@ Each new version of software is ensured to be without compilation errors and pas
 ## Main use cases – diagram and description
 ## Admin use cases – diagram and description
 ## User use cases – diagram and description
+
+\clearpage
 # Traceability
+R1: Product status implementation, when it is bought etc.\
+R2: Restaurant accounts should be able edit their data.\
+R3: Add tech support.
+
+![Traceability matrix](Assets/Traceability.png "Traceability matrix")
+
+ 
