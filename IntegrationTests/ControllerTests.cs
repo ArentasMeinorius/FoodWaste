@@ -67,8 +67,8 @@ namespace IntegrationTests
             Assert.Contains("Test", responseString);
             Assert.Contains("State", responseString);
         }
-        [Fact]
-        public async Task RestaurantControllerEdit()
+
+        internal async Task RestaurantControllerEdit()
         {
             var response = await _client.GetAsync("/Restaurants/Edit/10");
             response.EnsureSuccessStatusCode();
@@ -89,8 +89,8 @@ namespace IntegrationTests
             Assert.Contains("tttt", responseString);
             Assert.Contains("tttttttt", responseString);
         }
-        [Fact]
-        public async Task RestaurantControllerIndex()
+
+        internal async Task RestaurantControllerIndex()
         {
             var response = await _client.GetAsync("/Restaurants");
             response.EnsureSuccessStatusCode();
