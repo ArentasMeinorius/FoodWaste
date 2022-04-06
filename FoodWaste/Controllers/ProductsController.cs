@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodWaste.Data;
 using FoodWaste.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using FoodWaste.Controllers;
 using Microsoft.Extensions.Logging;
 using FoodWaste.ActionFilters;
+using FoodWaste.Services;
 
 namespace FoodWaste.Controllers
 {
@@ -22,11 +20,15 @@ namespace FoodWaste.Controllers
         private const string NotFoundPage = "/Products/NotFound";
         private static string SearchString = "";
         private const int PageSize = 5;
+        private readonly IUserService _userService;
 
-        public ProductsController(ApplicationDbContext context, ILogger<ProductsController> logger)
+        public ProductsController(ApplicationDbContext context,
+            IUserService userService,
+            ILogger<ProductsController> logger)
         {
             _logger = logger;
             _context = context;
+            _userService = userService;
         }
 
         // GET: Products
@@ -46,15 +48,11 @@ namespace FoodWaste.Controllers
             var products = from p in _context.Product
                            select p;
 
-            if (!String.IsNullOrEmpty(searchString))
-            {
+            if (!string.IsNullOrEmpty(searchString))
                 SearchString = searchString;
-            }
 
             if (clearFilter)
-            {
                 SearchString = "";
-            }
 
             products = products.Where(s => s.Name.Contains(SearchString));
 
@@ -87,9 +85,8 @@ namespace FoodWaste.Controllers
         {
             _logger.LogInformation("Start: Reserving id: {Id}", id);
             if (id == null)
-            {
                 return NotFound();
-            }
+
             if (IsCurrentUserRestaurant())
             {
                 var product = await _context.Product
@@ -99,16 +96,16 @@ namespace FoodWaste.Controllers
                     _logger.LogInformation("Completed: product not found {Id}", id);
                     return NotFound();
                 }
-                if (product.State == Product.ProductState.Listed)
+                if (product.State == ProductState.Listed)
                 {
-                    product.State = Product.ProductState.Reserved;
-                    product.UserId = GetCurrentUserId();
+                    product.State = ProductState.Reserved;
+                    product.UserId = _userService.GetCurrentUserId(User);
                 }
-                else if (product.State == Product.ProductState.Reserved)
+                else if (product.State == ProductState.Reserved)
                 {
-                    if (product.UserId == GetCurrentUserId())
+                    if (product.UserId == _userService.GetCurrentUserId(User))
                     {
-                        product.State = Product.ProductState.Listed;
+                        product.State = ProductState.Listed;
                         product.UserId = null;
                     }
                 }
@@ -141,9 +138,8 @@ namespace FoodWaste.Controllers
         {
             _logger.LogInformation("Start: product id: {Id}", id);
             if (id == null)
-            {
                 return NotFound();
-            }
+
             var result = from p in _context.Product
                          join r in _context.Restaurant on p.RestaurantId equals r.Id into details
                          from r in details.DefaultIfEmpty()
@@ -165,7 +161,7 @@ namespace FoodWaste.Controllers
         [ServiceFilter(typeof(LogMethod))]
         public async Task<IActionResult> Create()
         {
-            var res = await _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(GetCurrentUserId()));
+            var res = await _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(_userService.GetCurrentUserId(User)));
             return View();
         }
 
@@ -180,10 +176,10 @@ namespace FoodWaste.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.State = Product.ProductState.Listed;
-                product.RestaurantId = GetCurrentUserId();
+                product.State = ProductState.Listed;
+                product.RestaurantId = _userService.GetCurrentUserId(User);
                 product.Restaurants = await _context.Restaurant
-                    .FirstOrDefaultAsync(m => m.UserId == GetCurrentUserId());
+                    .FirstOrDefaultAsync(m => m.UserId == _userService.GetCurrentUserId(User));
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Completed: posted product {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
@@ -197,12 +193,9 @@ namespace FoodWaste.Controllers
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var product = await _context.Product.FindAsync(id);
-
             if (product == null)
             {
                 _logger.LogInformation("Completed: product not found for editing {Id}", id);
@@ -230,9 +223,9 @@ namespace FoodWaste.Controllers
             {
                 try
                 {
-                    product.RestaurantId = GetCurrentUserId();
+                    product.RestaurantId = _userService.GetCurrentUserId(User);
                     product.Restaurants = await _context.Restaurant
-                    .FirstOrDefaultAsync(m => m.UserId == GetCurrentUserId());
+                    .FirstOrDefaultAsync(m => m.UserId == _userService.GetCurrentUserId(User));
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -267,8 +260,7 @@ namespace FoodWaste.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 _logger.LogInformation("Completed: product is not found {Id}", id);
@@ -297,36 +289,22 @@ namespace FoodWaste.Controllers
             return _context.Product.Any(e => e.Id == id);
         }
 
-        private int GetCurrentUserId()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return Int32.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            }
-            return new int();
-        }
-
         public bool IsCurrentUserRestaurant()//base klase sitiems
         {
-            var userId = GetCurrentUserId();
+            var userId = _userService.GetCurrentUserId(User);
             if (userId == default)
-            {
                 return false;
-            }
+
             return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)) != null;
         }
+
         private int? GetRestaurantId()
         {
-            var userId = GetCurrentUserId();
-            if (userId == default)
-            {
+            var userId = _userService.GetCurrentUserId(User);
+            if (userId == default || !IsCurrentUserRestaurant())
                 return null;
-            }
-            if (IsCurrentUserRestaurant())
-            {
-                return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)).Id;
-            }
-            return null;
+
+            return _context.Restaurant.SingleOrDefault(r => r.UserId.Equals(userId)).Id;
         }
     }
 }

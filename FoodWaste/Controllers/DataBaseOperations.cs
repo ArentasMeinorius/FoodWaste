@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
@@ -36,7 +35,7 @@ namespace FoodWaste.Controllers
                     {
                         if (prod.ExpiryDate < DateTime.Today)
                         {
-                            prod.State = Product.ProductState.Expired;
+                            prod.State = ProductState.Expired;
                             PutProduct(prod);
                         }
                     }

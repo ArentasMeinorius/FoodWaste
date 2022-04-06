@@ -1,5 +1,3 @@
-using System;
-
 namespace FoodWaste.Models
 {
     public class ErrorViewModel

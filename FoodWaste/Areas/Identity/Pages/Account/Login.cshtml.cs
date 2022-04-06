@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using FoodWaste.Controllers;
 using FoodWaste.Models;
-using Microsoft.Extensions.Configuration;
-using System.Net.Http;
-using Newtonsoft.Json;
 
 namespace FoodWaste.Areas.Identity.Pages.Account
 {
@@ -25,6 +18,7 @@ namespace FoodWaste.Areas.Identity.Pages.Account
         private readonly UserManager<IdentityUser<int>> _userManager;
         private readonly SignInManager<IdentityUser<int>> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+
         public LoginModel(SignInManager<IdentityUser<int>> signInManager, 
             ILogger<LoginModel> logger,
             UserManager<IdentityUser<int>> userManager)
@@ -35,7 +29,7 @@ namespace FoodWaste.Areas.Identity.Pages.Account
         }
 
         [BindProperty]
-        public InputModel Input { get; set; }
+        public LoginInputModel Input { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
@@ -43,19 +37,6 @@ namespace FoodWaste.Areas.Identity.Pages.Account
 
         [TempData]
         public string ErrorMessage { get; set; }
-
-        public class InputModel
-        {
-            [Required]
-            public string UserName { get; set; }
-
-            [Required]
-            [DataType(DataType.Password)]
-            public string Password { get; set; }
-
-            [Display(Name = "Remember me?")]
-            public bool RememberMe { get; set; }
-        }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -73,6 +54,7 @@ namespace FoodWaste.Areas.Identity.Pages.Account
 
             ReturnUrl = returnUrl;
         }
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
@@ -102,7 +84,6 @@ namespace FoodWaste.Areas.Identity.Pages.Account
                     return Page();
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return Page();
         }

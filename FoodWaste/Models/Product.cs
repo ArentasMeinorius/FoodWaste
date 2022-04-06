@@ -10,14 +10,6 @@ namespace FoodWaste.Models
 {
     public class Product
     {
-        public enum ProductState
-        {
-            Expired,
-            Taken,
-            Reserved,
-            Listed
-        }
-
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
@@ -31,9 +23,5 @@ namespace FoodWaste.Models
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
-
-        public Product()
-        {
-        }
     }
 }
