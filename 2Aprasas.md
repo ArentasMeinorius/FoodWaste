@@ -59,9 +59,9 @@ Not all food products are sold before spoiling, sometimes restaurants do not use
 Prepare a plaftorm that would stand as a middle man helping people sell excess food while  allowing others to buy it cheaper.
 
 ### Main User Goals
-Monetary gain:
- + Providers: utilising over-booked food
- + Users: acquire food cheaper
+Monetary gain: \
+ + Providers: utilising over-booked food \
+ + Users: acquire food cheaper \
 Reducing food waste
 
 ## Planned changes
@@ -138,7 +138,6 @@ Process view illustrates and explains the system processes. The focus is on thei
 This communication diagram shows how components are supposed to communicate with one another when a user wants to make a purchase. As you can see, the user can browse available products without logging in, but when he wants to make a purchase he has to provide credentials. After that the user makes a purchase, the database is updated accordingly and the accounting is notified of the transaction.
 \
 \
-\
 
 ![Provider changes communication diagram](Assets/ProviderCommunicationDiagram.png "Food waste communication diagram")
 
@@ -163,6 +162,8 @@ The deployment diagram below shows the relationships between the software and ha
 
 ![Food waste deployment diagram](Assets/DeploymentDiagram.png "Deployment diagram")
 
+\clearpage
+
 # CI/CD 
 Continuous integration, delivery and deployment (CI/CD) enables FoodWaste developer team to release and test software on a more frequent basis without compromising on quality.
 Each new version of software is ensured to be without compilation errors and passing all of the predefined tests.
@@ -177,12 +178,34 @@ Each new version of software is ensured to be without compilation errors and pas
 
 ![Food waste CI diagram](Assets/Deployment.png "CI diagram")
 
+\clearpage
+
 # Use Case View
-## Main use cases – diagram and description
-## Admin use cases – diagram and description
-## User use cases – diagram and description
+
+For our use cases we decided to provided diagrams of how the implemented changes should be used by system administrators, buyers and providers. The following diagrams show how providers can update their data, how buyers and providers can update the state of products, and how tech support should be handled.
+
+## Supplier data update use case – diagram and description
+
+![Supplier data update use case diagram](Assets/SupplierDataUpdateUseCase.png "Use case diagram")
+
+Here we can see a simple use case diagram of providers and how they can interact with their data. If they are logged in, they can view and change their data. A system administrator can also manage this date for the whole platform.
 
 \clearpage
+
+## Product status change use case – diagram and description
+
+![Product status change use case diagram](Assets/ProductStatusChangeUseCase.png "Use case diagram")
+
+Here we can see how we expect our users to interact with our system in ways that would change the status of supplied products. To change a products status a buyer can purchase it or reserve it. Providers and administrators have more options - providers can see what they are selling on this platform and they allways can change the status of their products. The system administrator has the same possibility, but he can change the status of every single sold product on this platform.
+
+\clearpage
+
+## Tech support use case – diagram and description
+
+![Tech support use case diagram](Assets/TechSupportUseCase.png "Use case diagram")
+
+In this use case diagram we can see how we expect our users to interact with our system when faced with technical difficulties. As you can see, an unregistered user can issue a ticket if he encounters a problem. But only a register user can see if the ticket has recieved any atttention. The registered user can also provide updates to the ticket if he finds something that could help resolve the ticket. Tech support representative is constantly reviewing and updating tickets, hopefully with news about a successfull restoration of expected functionality.
+
 # Traceability
 R1: Product status implementation, when it is bought etc.\
 R2: Restaurant accounts should be able edit their data.\
