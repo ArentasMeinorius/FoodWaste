@@ -90,8 +90,6 @@ Workflow is identical to adding a product. The only change is that now restauran
 
 ![Use case diagram](Assets/lab3/newAddressUseCase.PNG "Use case diagram")
 
-\clearpage
-
 4. Notifications for chosen restaurants
 
 Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite" to add this physical restaurant to their list of favoured restaurants and to receive notifications when this restaurant has any updates in their product inventory. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. When the restaurant updates their food product information the system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. When clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
@@ -100,3 +98,19 @@ Alternative scenario: In the page of a physical restaurants product list the use
 
 Diagram:
 ![Restaurant notifications](Assets/UseCase4.png "Restaurant notifications")
+
+
+### GUI Sketches
+
+#### Req. 1 - Several addresses for a restaurant
+![Several restaurant addresses sketch](Assets/lab3/rest_addr.jpg)
+
+#### Req. 2 - Cancel reservation
+![Cancel product reservation sketch](Assets/lab3/cancel_reserve.jpg)
+
+#### Req. 3 - Alergen addition 
+![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
+![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
+
+#### Req. 4 - New product notification
+![Newly added product notification](Assets/lab3/notifications.jpg)
