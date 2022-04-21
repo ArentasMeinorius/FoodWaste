@@ -89,3 +89,18 @@ Adding new product when one more than one address is specified:
 Workflow is identical to adding a product. The only change is that now restaurant has to select which location the product is in (from the addresses they have filled).
 
 ![Use case diagram](Assets/lab3/newAddressUseCase.PNG "Use case diagram")
+
+### GUI Sketches
+
+#### Req. 1 - Several addresses for a restaurant
+![Several restaurant addresses sketch](Assets/lab3/rest_addr.jpg)
+
+#### Req. 2 - Cancel reservation
+![Cancel product reservation sketch](Assets/lab3/cancel_reserve.jpg)
+
+#### Req. 3 - Alergen addition 
+![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
+![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
+
+#### Req. 4 - New product notification
+![Newly added product notification](Assets/lab3/notifications.jpg)
