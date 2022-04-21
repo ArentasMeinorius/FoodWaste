@@ -71,9 +71,7 @@ To further develop and increase the functionality of the existing system we crea
 ### Impact of changes
 
 
-
-
-###Use case models
+### Use case models
 
 1. Multiple addresses for restaurant.
 
@@ -90,4 +88,4 @@ Clicks on restaurant profile which opens profile window. Presses edit settings. 
 Adding new product when one more than one address is specified:
 Workflow is identical to adding a product. The only change is that now restaurant has to select which location the product is in (from the addresses they have filled).
 
-Diagram TBA
+![Use case diagram](Assets/lab3/newAddressUseCase.PNG "Use case diagram")
