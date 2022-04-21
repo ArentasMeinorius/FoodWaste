@@ -116,17 +116,30 @@ Diagram:
 ![Restaurant notifications](Assets/UseCase4.png "Restaurant notifications")
 
 
+\clearpage
+
 ### GUI Sketches
 
 #### Req. 1 - Several addresses for a restaurant
+
 ![Several restaurant addresses sketch](Assets/lab3/rest_addr.jpg)
 
+\clearpage
+
 #### Req. 2 - Cancel reservation
+
 ![Cancel product reservation sketch](Assets/lab3/cancel_reserve.jpg)
 
+\clearpage
+
 #### Req. 3 - Alergen addition 
+
 ![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
+
 ![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
 
+\clearpage
+
 #### Req. 4 - New product notification
+
 ![Newly added product notification](Assets/lab3/notifications.jpg)
