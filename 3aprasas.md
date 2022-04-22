@@ -90,20 +90,28 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 1. Multiple addresses for restaurant.
 
-User: Might encounter offers from the same restaurant but with different address. Will be seeing restaurant's rating combined from multiple locations. Nothing else changes
+Main scenario (adding new address):
+Administrator of the restaurant presses account bubble in the top right corner of the main screen. Multiple options show up in a list. Administrator presses “Account settings”. Settings screen contains “Addresses” subsection. User clicks green “Add new address” button. User inputs the address and presses save. 
 
-Restaurant: 
+- If the address is found in google maps – green “Address added” modal shows up in top right corner. User profile shows multiple addresses (including the new one) under “Addresses” subsection.
+- If the address is not found on google maps – red “Address not found on google maps” modal shows up in the top right corner. User profile shows old addresses under “Addresses” subsection.
 
-Adding new address:
-Clicks on restaurant profile which opens profile window. Presses edit settings. Under locations submodule adds new address.
 
-Removing one of the addresses:
-Clicks on restaurant profile which opens profile window. Presses edit settings. Under locations submodule removes one of the addresses (can't remove if that's the last address).
+Alternative scenario (removing one of the addresses):
+Administrator navigates to “Addresses” subsection in profile settings (as described in main scenario). User sees red crosses near each address. Hovering over red cross displays a tooltip “Remove this address". User presses the button. Confirmation modal shows up with "This will remove all listings of this address”. User may proceed or cancel deletion. 
 
-Adding new product when one more than one address is specified:
-Workflow is identical to adding a product. The only change is that now restaurant has to select which location the product is in (from the addresses they have filled).
+- If the address is not the last – address is removed as well as all listings associated with it. Green modal shows up in top right corner signaling “Address removed successfully”
+- If the address is the last one – red cross is grayed out. Hovering over the button displays tooltip “Cannot remove the last address”.
 
-![Use case diagram](Assets/lab3/newAddressUseCase.png "Use case diagram")
+![Use case diagram](Assets/lab3/useCase1_newAddress.png "Use case diagram")
+
+2. Removing reservations
+Main scenario (cancelling reservation):
+User clicks on “My reservations”. New page with the list of reservations is loaded. Red crosses are displayed over each one. Hovering over red cross displays tooltip “You may cancel this reservation”. User clicks the button. Modal warning window pops up with the text “You are about to remove reservation. Doing this more than once in 24hours may result in negative reputation (keep in mind, that not arriving on your reservation *will* result in negative reputation). You may read about this more in our F.A.Q (link). Do you want to remove reservation?”. 
+- User presses cancel and same reservations page is displayed.
+- User confirms reservation removal. Reservation is removed from the list. In the top right corner green modal pop up displays “Reservation removed successfully”.
+
+![Use case diagram](Assets/lab3/useCase2_removeReservation.png "Use case diagram")
 
 4. Notifications for chosen restaurants
 
