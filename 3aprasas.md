@@ -105,7 +105,7 @@ Workflow is identical to adding a product. The only change is that now restauran
 
 ![Use case diagram](Assets/lab3/newAddressUseCase.png "Use case diagram")
 
-4. Notifications for chosen restaurants
+2. Notifications for chosen restaurants
 
 Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite" to add this physical restaurant to their list of favoured restaurants and to receive notifications when this restaurant has any updates in their product inventory. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. When the restaurant updates their food product information the system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. When clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
 
@@ -115,6 +115,29 @@ Diagram:
 
 ![Restaurant notifications](Assets/UseCase4.png "Restaurant notifications")
 
+
+\clearpage
+
+3. Remove reservation
+
+Main scenario: In the main page the user presses shopping cart icon on the top right. The systems opens users shopping cart page which contains reserved items and shows them in a list. The user selects one or more food products to which he wants to remove reservation. The system show modal dialog window which asks whether the user really wants to remove products from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes items from the list, returns partial sum of the product price and reloads the shopping cart page.
+
+Alternative scenario: Everything is the same as in the main scenario, but instead of clicking "yes" in shopping cart page confirmation dialog, the user clicks "no". The system closes the dialog and the shopping cart page is shown again.
+
+
+Diagram:
+
+![Cancel reservation UseCase diagram](Assets/lab3/UseCaseReservation.png "Cancel reservation Use case diagram")
+
+UI sketches:
+
+![Main page](Assets/lab3/MainPage.png "Main page")
+
+![Shopping cart page](Assets/lab3/ShoppingCartPage.png "Shopping cart page")
+
+![Confirmation dialog](Assets/lab3/ConfirmationDialog.png "Confirmation dialog")
+
+![Updated shopping cart page](Assets/lab3/ShoppingCartItemsCancelled.png "Updated shopping cart page")
 
 \clearpage
 
@@ -143,3 +166,7 @@ Diagram:
 #### Req. 4 - New product notification
 
 ![Newly added product notification](Assets/lab3/notifications.jpg)
+
+pagrindinis scenarijus 
+alternatyvus
+langu eskizai
