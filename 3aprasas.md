@@ -121,6 +121,10 @@ Alternative scenario 1: The user clicks the button “Add to cart” button to a
 
 Alternative scenario 2: Unregistered user clicks on the restaurant tabs. The user selects a restaurant. The user clicks on a product. The user clicks on a tab named “Allergens”. The user checks if the list that is shown in the tab. The user finds an allergen that affects him. The user does not add the product in his cart.
 
+Diagram:
+
+![Allergen information](Assets/UseCaseDiagram3.png "Allergen information")
+
 4. Notifications for chosen restaurants
 
 Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite". The system adds this physical restaurant to the users list of favoured restaurants. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. The restaurant updates their food product information. The system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. Clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
