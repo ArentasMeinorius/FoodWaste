@@ -113,11 +113,23 @@ User clicks on “My reservations”. New page with the list of reservations is 
 
 ![Use case diagram](Assets/lab3/useCase2_removeReservation.png "Use case diagram")
 
+3.Allergen list for sold products
+
+Main scenario: The user clicks on the profile tab. The user clicks the allergen subsection. The user selects allergens from a given list. The user clicks on „Save changes“ button. The user clicks on the restaurant tab. The user selects a restaurant. The user selects a product that has component that he has selected as his allergen. The system displays a warning box at the products description about the allergen.
+
+Alternative scenario 1: The user clicks the button “Add to cart” button to add the product with his allergen. The system shows a pop-up dialogue warning the user that he wants to add a product that he is allergic to his cart. The user clicks “Do not put this in the cart” button. The system does not add the product to the user’s cart.
+
+Alternative scenario 2: Unregistered user clicks on the restaurant tabs. The user selects a restaurant. The user clicks on a product. The user clicks on a tab named “Allergens”. The user checks if the list that is shown in the tab. The user finds an allergen that affects him. The user does not add the product in his cart.
+
+Diagram:
+
+![Allergen information](Assets/UseCaseDiagram3.png "Allergen information")
+
 4. Notifications for chosen restaurants
 
-Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite" to add this physical restaurant to their list of favoured restaurants and to receive notifications when this restaurant has any updates in their product inventory. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. When the restaurant updates their food product information the system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. When clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
+Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite". The system adds this physical restaurant to the users list of favoured restaurants. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. The restaurant updates their food product information. The system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. Clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
 
-Alternative scenario: In the page of a physical restaurants product list the user presses a dark lilac button saying "Favourite" to add this specific product from this specific physical restaurant to receive a notification when this specific product can be purchased from this store. The system reports successful subscription by making the button become white with dark lavender outline and text, saying "Favoured". This way the process is almost identical to the main scenario, except that the user only gets a notification only when the specified products are made available.
+Alternative scenario: The user presses the “Restaurants” tab. The user clicks on a specific physical restaurant. The user presses a dark lilac button saying "Favourite". The system adds this product from this physical restaurant to the users list of favoured products. The system reports successful subscription by making the button become white with dark lavender outline and text, saying "Favoured". When this specific product can be purchased from this store the user is notified.
 
 Diagram:
 
@@ -140,11 +152,17 @@ Diagram:
 
 \clearpage
 
-#### Req. 3 - Alergen addition 
+#### Req. 3 - Alergen addition and warnings
 
 ![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
 
 ![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
+
+\clearpage
+
+![Product allergens](Assets/UseCaseSketch.png)
+
+![Product purchase warning](Assets/UseCase3SketchWithAWarning.png)
 
 \clearpage
 
