@@ -152,11 +152,17 @@ Diagram:
 
 \clearpage
 
-#### Req. 3 - Alergen addition 
+#### Req. 3 - Alergen addition and warnings
 
 ![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
 
 ![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
+
+\clearpage
+
+![Product allergens](Assets/UseCaseSketch.png)
+
+![Product purchase warning](Assets/UseCase3SketchWithAWarning.png)
 
 \clearpage
 
