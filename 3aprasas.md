@@ -76,7 +76,6 @@ User can have its favourite restaurants. In the page of a physical restaurant th
  + Notifications for selected restaurants (whenever they add a new product)
 
 \clearpage
-### Impact of changes
 
 ### Domain model
 
@@ -170,3 +169,104 @@ Diagram:
 #### Req. 4 - New product notification
 
 ![Newly added product notification](Assets/lab3/notifications.jpg)
+
+# Impact of changes
+
+## Multiple addresses for restaurant
+
+### Analysis:
+
+Restaurant chains like Talutti, Kfc, McDonalds have multiple restaurants. These restaurants will want to use single account for all activity on FoodWaste. Thus, multiple addresses for restaurant profiles are needed.
+
+### Solution:
+
+Each restaurant profile may have multiple addresses.
+
+### Solution alternatives:
+
+Do not provide this feature. Restaurants will have to create multiple accounts (one for each address)
+
+### Problems:
+
+Users might travel to one address instead of the correct one if addresses on products are not shown very clearly.
+
+### Impact:
+
+Restaurant entity will change.
+Creating new offering will have a new choise (address, if multiple are provided)
+
+## Removing reservations
+
+### Analysis:
+
+User plans might change and they might want to cancel reservation.
+
+### Solution:
+
+Each reservation may be canceled. Penalties will be applied if user continues to cancel multiple reservations.
+
+### Solution alternatives:
+
+Do not provide this feature. User will have to write a support ticket to remove reservation.
+No penalties on cancelation.
+
+### Problems:
+
+Users might reserve things they will not come to pick up. Thus, penalties are introduced.
+
+### Impact:
+
+Reserved item might be returned to general selection if reservation is canceled.
+
+## Allergen list for sold products
+
+### Analysis:
+
+Users have allergies. FoodWaste wants to inform users to not invoke alergic reactions.
+
+### Solution:
+
+Products will have list of allergens provided next to them.
+
+### Solution alternatives:
+
+Provide allergen filters (do not show dangerous products to user)
+Do not provide this feature. User will have to contact restaurant to get this informatio.
+
+### Problems:
+
+Users might miss the allergen list.
+Restaurants might provide information incorrectly.
+
+### Impact:
+
+Product entity will be changes.
+Restaurants will have to fill more information on new product.
+
+## Notifications for chosen restaurants.
+
+### Analysis:
+
+Users might be interested on specific restaurants (close to them, their favourites etc.)
+
+### Solution:
+
+Provide marking restaurants as favoured and send notifications on their new listings.
+
+### Solution alternatives:
+
+Provide email notifications/ send message trough SMS instead of app notifications.
+Do not provide this feature. Users will have to check main offering lists to see if anything new is added.
+
+### Problems:
+
+Users might stop using product list and just wait for their restaurants.
+
+### Impact:
+
+User entity will be changed.
+Notification systems will have to be implemented.
+
+# Project plan
+
+![Project timeline](Assets/lab3/project_plan.png)
