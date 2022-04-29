@@ -143,13 +143,13 @@ Diagram:
 
 #### Req. 1 - Several addresses for a restaurant
 
-![Several restaurant addresses sketch](Assets/lab3/rest_addr.jpg)
+![Several restaurant addresses sketch](Assets/lab3/sketch_address.png)
 
 \clearpage
 
 #### Req. 2 - Cancel reservation
 
-![Cancel product reservation sketch](Assets/lab3/cancel_reserve.jpg)
+![Cancel product reservation sketch](Assets/lab3/sketch_removeRes.png)
 
 \clearpage
 
