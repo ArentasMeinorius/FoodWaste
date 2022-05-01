@@ -89,20 +89,33 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 1. Multiple addresses for restaurant.
 
-Main scenario (adding new address):
-Administrator of the restaurant presses account bubble in the top right corner of the main screen. Multiple options show up in a list. Administrator presses “Account settings”. Settings screen contains “Addresses” subsection. User clicks green “Add new address” button. User inputs the address and presses save. System calls Google API to find the address. If the address is found - green “Address added” modal shows up in top right corner. User profile shows multiple addresses (including the new one) under “Addresses” subsection.
+   1.1. Add a new address
 
-Alternative scenario:
-If the address is not found on google maps – red “Address not found on google maps” modal shows up in the top right corner. User profile shows old addresses under “Addresses” subsection.
+   ![Add restaurant address use case](Assets/lab3/add-address.jpg)
 
+   Main scenario: 
+   Restaurant presses account bubble in website header. System loads restaurant information (Address, name, phone number) and opens restaurant editing page. Restaurant inputs new address in the address table. System finds the address with Google API and highlights a plus button with green color. User presses the plus button. System updates the address table.
 
-Main scenario (removing one of the addresses):
-Administrator navigates to “Addresses” subsection in profile settings (as described in adding new address scenario). User sees red crosses near each address. Hovering over red cross displays a tooltip “Remove this address". User presses the button. Confirmation modal shows up with "This will remove all listings of this address”. User proceeds with deletion. Address is removed as well as all listings associated with it. Green modal shows up in top right corner signaling “Address removed successfully”
+   Alt. 1: If system doesn't find the address, system highlights a plus button with red color and disables it.
 
-Alternative scenario:
-Address is the last one – red cross is grayed out. Hovering over the button displays tooltip “Cannot remove the last address”.
+   Alt. 2: If the address is already entered, system highlights a plus button with red color and disables it.
 
-![Use case diagram](Assets/lab3/useCase1_newAddress.png "Use case diagram")
+   ![Add restraunt address robustness](Assets/lab3/Robustness-AddAddress.jpg)
+
+   ![Several restaurant addresses sketch](Assets/lab3/sketch-addaddress.png)
+
+   1.2 Remove an address
+   
+   ![Remove restaurant address use case](Assets/lab3/remove-address.jpg)
+   
+   Main scenario:
+   In the restaurant editing page system shows all the addresses in address table. Address has a remove button next to it. Restaurant presses remove button. System removes the address.
+
+   Alt. 1: If there is only one address in the table, system disables remove button.
+
+   Alt. 2: If system failed to remove the address, system displays an error message.
+
+   ![Remove restaurant address robustness](Assets/lab3/Robustness-RemoveAddress.jpg)
 
 2. Removing reservations
 Main scenario:
