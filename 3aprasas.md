@@ -115,25 +115,82 @@ User confirms reservation removal. Reservation is removed from the list. In the 
 
 3.Allergen list for sold products
 
-Main scenario: The user clicks on the profile tab. The user clicks the allergen subsection. The user selects allergens from a given list. The user clicks on „Save changes“ button. The user clicks on the restaurant tab. The user selects a restaurant. The user selects a product that has component that he has selected as his allergen. The system displays a warning box at the products description about the allergen.
-
-Alternative scenario 1: The user clicks the button “Add to cart” button to add the product with his allergen. The system shows a pop-up dialogue warning the user that he wants to add a product that he is allergic to his cart. The user clicks “Do not put this in the cart” button. The system does not add the product to the user’s cart.
-
-Alternative scenario 2: Unregistered user clicks on the restaurant tabs. The user selects a restaurant. The user clicks on a product. The user clicks on a tab named “Allergens”. The user checks if the list that is shown in the tab. The user finds an allergen that affects him. The user does not add the product in his cart.
-
 Diagram:
 
 ![Allergen information](Assets/UseCaseDiagram3.png "Allergen information")
 
+3.1 Update personal allergen list
+Main scenario: A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Personal allergens“ button. The system shows a new page with a list of his allergens. The user clicks “Add new“ button above the list. The system adds a drop-down list to the top of the allergen list and a deactivated “select“ button in the same page. The user clicks on the drop-down list and scrolls down it until he finds the substance he is allergic to and clicks on it. The system shows the selected allergen in place of the drop-down list and activates the “Select“ button. The user clicks the “Select“ button. The system instantly adds the allergen into the list of allergens in the shown page, deactivates the “Select“ button and show a check mark next to the “Select“ button.
+
+Alternative scenario (when user is searching for his allergen in the drop-down list): The user writes down the allergen at the top of the drop-down list. The system updates the list with entered allergens. The clicks on the allergen. The scenario continues as written in the main scenario.
+
+Alternative scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one. The user clicks a button “I’m allergic to this“ next to a substance he is allergic to. The system adds this allergen to the users list of allergens. 
+
+Sketches:
+
+
+
+3.2 View relevant allergens in the product
+Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
+Alternative scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one that is not present In users list of allergens and a red text box next to allergens that are in the users list of allergens, saying “Dangerous to you!“.
+Alternative scenario (if user selects a product that has no substances that are dangerous to him in his list of allergens): The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume based on the information you have given to us“.
+Alternative scenario (if user selects a product that has no substances that are dangerous to him in his list of allergens but sees something in the list of allergens that he is allergic to but has not recorded in his list of allergens): The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume based on the information you have given to us“. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one. The user clicks a button “I’m allergic to this“ next to a substance he is allergic to. The system adds this allergen to the users list of allergens. The system updates the text box to the right product picture and bellow “Add to cart“ button with text, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
+
+Sketches:
+
+
+
+3.3 View list of allergens in the product
+Main scenario: Unregistered user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product.
+Alternative scenario (a logged-in user that has no records of his allergies clicks on a product): The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one.
+
+Sketches:
+
+
+
 4. Notifications for chosen restaurants
-
-Main scenario: In the page of a physical restaurant the user presses a crimson button with white text, saying "Favourite". The system adds this physical restaurant to the users list of favoured restaurants. The system reports successful subscription by making the button become white with ruby outline and text, saying "Favoured". The system shows the restaurant in the "Restaurant notifications" tab in "Favoured restaurants" page. The restaurant updates their food product information. The system sends the user a notification about the update. The user clicks "Restaurant notifications" tab to see updates from all their favoured restaurants or clicks on "Favoured restaurants" in this tab to see the list with their favoured restaurants that have been updated since last time they checked. Clicking a specific restaurant in "Favoured restaurants" page the user sees what exact products were added.
-
-Alternative scenario: The user presses the “Restaurants” tab. The user clicks on a specific physical restaurant. The user presses a dark lilac button saying "Favourite". The system adds this product from this physical restaurant to the users list of favoured products. The system reports successful subscription by making the button become white with dark lavender outline and text, saying "Favoured". When this specific product can be purchased from this store the user is notified.
 
 Diagram:
 
 ![Restaurant notifications](Assets/UseCase4.png "Restaurant notifications")
+
+4.1 Favour a product
+Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The system shows a “Favour this“ button right of the product picture and above the “Add to cart“ button. User clicks on “Favour this“ button. The system adds this product to the list of users favoured products. The system updates the “Favour this“ button to a “Favoured“ button.
+
+Alternative scenario (User favours a product from the product menu without entering the page with detailed information): The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a button with an ellipsis symbol to the right side of the product. System displays a drop down menu from that button. The user clicks “Favour product“ button from the drop down menu. The system adds this product to the list of users favoured products. The system replaces the ellipsis symbol in the menu with a check mark symbol.
+
+Sketches:
+
+
+
+4.2 Favour a restaurant
+Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Restaurant“. The system updates the text box bellow the tab with information about the restaurant and a “Favour restaurant“ button on the top right corner of the text box. The user clicks the “Favour restaurant“ button. The system adds the favoured restaurant to the users favoured restaurants list. The system replaces the “Favour restaurant“ button with a “This restaurant is favoured“ text box.
+
+Alternative scenario: (User favours a restaurant from the product menu without entering the page with detailed information): The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a button with an ellipsis symbol to the right side of the product. System displays a drop down menu from that button. The user clicks “Favour restaurant“ button from the drop down menu. The system adds this restaurant to the list of users favoured restaurants. The system replaces the ellipsis symbol in the menu with a check mark symbol.
+
+
+Sketches:
+
+
+
+4.3 View favoured restaurants
+Main scenario: A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Favoured restaurants“ button. The system shows a new page with a list of all the restaurants the user has favoured.
+
+Alternative scenario (user may look into a specific favoured restaurant with more depth from the favoured restaurants list): A user clicks on a restaurant. The system shows a new page with detailed information about the restaurants near the user and their offered products.
+
+Sketches:
+
+
+
+4.4 View all notifications
+Main scenario: Restaurant updates their product selection. System updates the profile icon in the top right with a new icon with a blue point at the bottom of the profile icon. A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Notifications“ button. The system shows a new page with a list of all the notifications from restaurants and products the user has favoured. The system adds a blue point to the left of all the new notifications.
+
+Alternative scenario (The user may visit the page without any new notifications being present): A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Notifications“ button. The system shows a new page with a list of all the notifications from restaurants and products the user has favoured.
+Alternative scenario (The user may follow up on the notifications when in the Notifications page): The user clicks on a notification of a product. The system shows a new page that has the detailed description of the product. 
+
+Sketches:
+
+
 
 
 \clearpage
