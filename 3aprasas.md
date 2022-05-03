@@ -76,7 +76,6 @@ User can have its favourite restaurants. In the page of a physical restaurant th
  + Notifications for selected restaurants (whenever they add a new product)
 
 \clearpage
-### Impact of changes
 
 ### Domain model
 
@@ -91,17 +90,17 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 1. Multiple addresses for restaurant.
 
 Main scenario (adding new address):
-Administrator of the restaurant presses account bubble in the top right corner of the main screen. Multiple options show up in a list. Administrator presses “Account settings”. Settings screen contains “Addresses” subsection. User clicks green “Add new address” button. User inputs the address and presses save. 
+Administrator of the restaurant presses account bubble in the top right corner of the main screen. Multiple options show up in a list. Administrator presses “Account settings”. Settings screen contains “Addresses” subsection. User clicks green “Add new address” button. User inputs the address and presses save. System calls Google API to find the address. If the address is found - green “Address added” modal shows up in top right corner. User profile shows multiple addresses (including the new one) under “Addresses” subsection.
 
-- If the address is found in google maps – green “Address added” modal shows up in top right corner. User profile shows multiple addresses (including the new one) under “Addresses” subsection.
-- If the address is not found on google maps – red “Address not found on google maps” modal shows up in the top right corner. User profile shows old addresses under “Addresses” subsection.
+Alternative scenario:
+If the address is not found on google maps – red “Address not found on google maps” modal shows up in the top right corner. User profile shows old addresses under “Addresses” subsection.
 
 
-Alternative scenario (removing one of the addresses):
-Administrator navigates to “Addresses” subsection in profile settings (as described in main scenario). User sees red crosses near each address. Hovering over red cross displays a tooltip “Remove this address". User presses the button. Confirmation modal shows up with "This will remove all listings of this address”. User may proceed or cancel deletion. 
+Main scenario (removing one of the addresses):
+Administrator navigates to “Addresses” subsection in profile settings (as described in adding new address scenario). User sees red crosses near each address. Hovering over red cross displays a tooltip “Remove this address". User presses the button. Confirmation modal shows up with "This will remove all listings of this address”. User proceeds with deletion. Address is removed as well as all listings associated with it. Green modal shows up in top right corner signaling “Address removed successfully”
 
-- If the address is not the last – address is removed as well as all listings associated with it. Green modal shows up in top right corner signaling “Address removed successfully”
-- If the address is the last one – red cross is grayed out. Hovering over the button displays tooltip “Cannot remove the last address”.
+Alternative scenario:
+Address is the last one – red cross is grayed out. Hovering over the button displays tooltip “Cannot remove the last address”.
 
 ![Use case diagram](Assets/lab3/useCase1_newAddress.png "Use case diagram")
 
@@ -167,13 +166,13 @@ Diagram:
 
 #### Req. 1 - Several addresses for a restaurant
 
-![Several restaurant addresses sketch](Assets/lab3/rest_addr.jpg)
+![Several restaurant addresses sketch](Assets/lab3/sketch_address.png)
 
 \clearpage
 
 #### Req. 2 - Cancel reservation
 
-![Cancel product reservation sketch](Assets/lab3/cancel_reserve.jpg)
+![Cancel product reservation sketch](Assets/lab3/sketch_removeRes.png)
 
 \clearpage
 
@@ -198,3 +197,104 @@ Diagram:
 #### Req. 4 - New product notification
 
 ![Newly added product notification](Assets/lab3/notifications.jpg)
+
+# Impact of changes
+
+## Multiple addresses for restaurant
+
+### Analysis:
+
+Restaurant chains like Talutti, Kfc, McDonalds have multiple restaurants. These restaurants will want to use single account for all activity on FoodWaste. Thus, multiple addresses for restaurant profiles are needed.
+
+### Solution:
+
+Each restaurant profile may have multiple addresses.
+
+### Solution alternatives:
+
+Do not provide this feature. Restaurants will have to create multiple accounts (one for each address)
+
+### Problems:
+
+Users might travel to one address instead of the correct one if addresses on products are not shown very clearly.
+
+### Impact:
+
+Restaurant entity will change.
+Creating new offering will have a new choise (address, if multiple are provided)
+
+## Removing reservations
+
+### Analysis:
+
+User plans might change and they might want to cancel reservation.
+
+### Solution:
+
+Each reservation may be canceled. Penalties will be applied if user continues to cancel multiple reservations.
+
+### Solution alternatives:
+
+Do not provide this feature. User will have to write a support ticket to remove reservation.
+No penalties on cancelation.
+
+### Problems:
+
+Users might reserve things they will not come to pick up. Thus, penalties are introduced.
+
+### Impact:
+
+Reserved item might be returned to general selection if reservation is canceled.
+
+## Allergen list for sold products
+
+### Analysis:
+
+Users have allergies. FoodWaste wants to inform users to not invoke alergic reactions.
+
+### Solution:
+
+Products will have list of allergens provided next to them.
+
+### Solution alternatives:
+
+Provide allergen filters (do not show dangerous products to user)
+Do not provide this feature. User will have to contact restaurant to get this informatio.
+
+### Problems:
+
+Users might miss the allergen list.
+Restaurants might provide information incorrectly.
+
+### Impact:
+
+Product entity will be changes.
+Restaurants will have to fill more information on new product.
+
+## Notifications for chosen restaurants.
+
+### Analysis:
+
+Users might be interested on specific restaurants (close to them, their favourites etc.)
+
+### Solution:
+
+Provide marking restaurants as favoured and send notifications on their new listings.
+
+### Solution alternatives:
+
+Provide email notifications/ send message trough SMS instead of app notifications.
+Do not provide this feature. Users will have to check main offering lists to see if anything new is added.
+
+### Problems:
+
+Users might stop using product list and just wait for their restaurants.
+
+### Impact:
+
+User entity will be changed.
+Notification systems will have to be implemented.
+
+# Project plan
+
+![Project timeline](Assets/lab3/project_plan.png)
