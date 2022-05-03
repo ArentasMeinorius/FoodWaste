@@ -132,8 +132,11 @@ Sketches:
 
 3.2 View relevant allergens in the product
 Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
+
 Alternative scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one that is not present In users list of allergens and a red text box next to allergens that are in the users list of allergens, saying “Dangerous to you!“.
+
 Alternative scenario (if user selects a product that has no substances that are dangerous to him in his list of allergens): The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume based on the information you have given to us“.
+
 Alternative scenario (if user selects a product that has no substances that are dangerous to him in his list of allergens but sees something in the list of allergens that he is allergic to but has not recorded in his list of allergens): The system loads a new page with a detailed description of the product. The system shows a text box to the right product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume based on the information you have given to us“. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one. The user clicks a button “I’m allergic to this“ next to a substance he is allergic to. The system adds this allergen to the users list of allergens. The system updates the text box to the right product picture and bellow “Add to cart“ button with text, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
 
 Sketches:
@@ -142,6 +145,7 @@ Sketches:
 
 3.3 View list of allergens in the product
 Main scenario: Unregistered user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user a list of available products. The user clicks on a product. The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product.
+
 Alternative scenario (a logged-in user that has no records of his allergies clicks on a product): The system loads a new page with a detailed description of the product. The user clicks on a tab under the picture of the product called “Allergens“. The systems shows a list of allergens under the picture of the product with a “I’m allergic to this“ button next to each one.
 
 Sketches:
