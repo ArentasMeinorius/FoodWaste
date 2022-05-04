@@ -83,6 +83,26 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 ### Glossary
 
+* Allergen: a ingredient that is certain people are allergic to.
+
+* Favourite food product group: A group of food products that are added to the user favourite list.
+
+* Favourite restaurant group: A group of restaurants that are added to the user favourite list.
+
+* Food product: A product that is sold in the restaurant.
+
+* Notification: A message that is sent to the user when a new product is added to the favourite restaurant group or the favoured food product changes.
+
+* Payment information: A payment information that is provided with the reservation.
+
+* Reserved item: A product that is reserved for the user.
+
+* Restaurant: A place where food is sold.
+
+* Restaurant Group: a group of restaurants that are added to the restaurant account.
+
+* User: A person who uses the FoodWaste system. 
+
 ### UI sketches
 
 ### Use case models
