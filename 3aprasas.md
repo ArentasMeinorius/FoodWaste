@@ -113,11 +113,11 @@ Address is the last one – red cross is grayed out. Hovering over the button di
 
 Main scenario: In the main page the user presses shopping cart icon on the top right. The systems opens users shopping cart page which contains reserved items and shows them in a list. The user selects one food product which he wants to remove from reservation. The system show modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
 
-Alternative scenario 1: In the food product list the user presses the the food product. The system opens individual food product page which contains food product details, reservation details and reservation checkbox. The user clicks the reservation checkbox. The system shows modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and returns to the food product list.
+Alternative scenario 3: In the shopping cart page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is too late to remove it.
 
-Alternative scenario 2: In the individual food product page the user presses the cancel reservation button. The system shows modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
+Alternative scenario 1: In the food product list the user presses the the food product. The system opens individual food product page which contains food product details, reservation details and reservation checkbox. The user clicks the reservation checkbox and in the modal confirmation window clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and returns to the food product list.
 
-Alternative scenario 3: In the shopping cart page the user presses the cancel reservation button. The system shows modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system shows error message that reservation cannot be removed because it is too late to remove it.
+Alternative scenario 2: In the individual food product page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
 
 ![Remove one food product from reservation dialog](Assets/lab3/RemoveOneFoodProductReservation.png "Remove one food product from reservation dialog")
  
@@ -163,18 +163,6 @@ Diagram:
 \clearpage
 
 ### GUI Sketches
-
-#### Req. 1 - Several addresses for a restaurant
-
-![Several restaurant addresses sketch](Assets/lab3/sketch_address.png)
-
-\clearpage
-
-#### Req. 2 - Cancel reservation
-
-![Cancel product reservation sketch](Assets/lab3/sketch_removeRes.png)
-
-\clearpage
 
 #### Req. 3 - Alergen addition and warnings
 
