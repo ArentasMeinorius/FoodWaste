@@ -39,7 +39,7 @@ header-includes:
 &nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the second laboratory assignment is to design the system and required changes. While in the first laboratory work we analysed business and all its processes, this time the attention on existing system and the changes. \
 
 **The main tasks of this iteration:** \
-   1. Domain model. \
+   1. Class diagram. \
    2. Use cases. \
    3. Sketches. \
 \clearpage
@@ -77,9 +77,9 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 \clearpage
 
-### Domain model
+### Class diagram
 
-![Domain model](Assets/lab3/DomainModel.png "Domain model")
+![Class Diagram](Assets/lab3/ClassDiagram.png "class diagram")
 
 ### Glossary
 
@@ -139,9 +139,9 @@ Alternative scenario 2: In the food product list the user presses the the food p
 
 Alternative scenario 3: In the individual food product page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
 
-Alternative scenarion 4: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system removes items from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
+Alternative scenario 4: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system removes items from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
 
-Alternative scenarion 5: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
+Alternative scenario 5: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
 
 ![Remove one food product from reservation dialog](Assets/lab3/RemoveOneFoodProductReservation.png "Remove one food product from reservation dialog")
  
