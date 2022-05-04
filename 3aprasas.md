@@ -89,7 +89,7 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 * Favourite restaurant group: A group of restaurants that are added to the user favourite list.
 
-* Food product: A product that is sold in the restaurant.
+* Food product: A product that is sold in the restaurant(for our platform it is a product that is going to expire soon).
 
 * Notification: A message that is sent to the user when a new product is added to the favourite restaurant group or the favoured food product changes.
 
@@ -97,7 +97,7 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 * Reserved item: A product that is reserved for the user.
 
-* Restaurant: A place where food is sold.
+* Restaurant: A place where food is sold(for our platform restaurants provide a list of food products that will soon expire).
 
 * Restaurant Group: a group of restaurants that are added to the restaurant account.
 
@@ -129,29 +129,24 @@ Address is the last one – red cross is grayed out. Hovering over the button di
 
 ![Remove reservation use case diagram](Assets/lab3/UseCase2_RemoveReservation.png "Remove reservation use case diagram")
 \clearpage
-2.1. Removing one reservation
+2.1. Reservation cancellation
 
 Main scenario: In the main page the user presses shopping cart icon on the top right. The systems opens users shopping cart page which contains reserved items and shows them in a list. The user selects one food product which he wants to remove from reservation. The system show modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
 
-Alternative scenario 3: In the shopping cart page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is too late to remove it.
+Alternative scenario 1: In the shopping cart page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
 
-Alternative scenario 1: In the food product list the user presses the the food product. The system opens individual food product page which contains food product details, reservation details and reservation checkbox. The user clicks the reservation checkbox and in the modal confirmation window clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and returns to the food product list.
+Alternative scenario 2: In the food product list the user presses the the food product. The system opens individual food product page which contains food product details, reservation details and reservation checkbox. The user clicks the reservation checkbox and in the modal confirmation window clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and returns to the food product list.
 
-Alternative scenario 2: In the individual food product page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
+Alternative scenario 3: In the individual food product page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
+
+Alternative scenarion 4: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system removes items from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
+
+Alternative scenarion 5: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
 
 ![Remove one food product from reservation dialog](Assets/lab3/RemoveOneFoodProductReservation.png "Remove one food product from reservation dialog")
  
 ![Remove food product from reservation in individual food product page](Assets/lab3/IndividualFoodProductCancellationDialog.png "Remove food product from reservation in individual food product page")
  
-\clearpage
-2.2. Removing multiple reservations
-
-Main scenario: In the main page the user presses shopping cart icon on the top right. The systems opens users shopping cart page which contains reserved items and shows them in a list. The user selects multiple food products for which he wants to remove reservation. The system show modal dialog window which asks whether the user really wants to remove products from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes food products from the list, returns partial sum of the products price and reloads the shopping cart page.
-
-Alternative scenario 1: In the shopping cart page the user presses the reservation checkbox. The system shows modal dialog window which asks whether the user really wants to remove these food products from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system returns error message that reservation cannot be removed because one or more food products are past the reservation cancellation time.
-
-![Remove multiple reservations confirmation dialog ](Assets/lab3/RemoveConfirmationDialog.png "Remove multiple reservations confirmation dialog")
-
 \clearpage
 
 3.Allergen list for sold products
