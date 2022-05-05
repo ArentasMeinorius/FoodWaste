@@ -39,7 +39,7 @@ header-includes:
 &nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the second laboratory assignment is to design the system and required changes. While in the first laboratory work we analysed business and all its processes, this time the attention on existing system and the changes. \
 
 **The main tasks of this iteration:** \
-   1. Domain model. \
+   1. Class diagram. \
    2. Use cases. \
    3. Sketches. \
 \clearpage
@@ -77,11 +77,31 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 \clearpage
 
-### Domain model
+### Class diagram
 
-![Domain model](Assets/lab3/DomainModel.png "Domain model")
+![Class Diagram](Assets/lab3/ClassDiagram.png "class diagram")
 
 ### Glossary
+
+* Allergen: a ingredient that is certain people are allergic to.
+
+* Favourite food product group: A group of food products that are added to the user favourite list.
+
+* Favourite restaurant group: A group of restaurants that are added to the user favourite list.
+
+* Food product: A product that is sold in the restaurant(for our platform it is a product that is going to expire soon).
+
+* Notification: A message that is sent to the user when a new product is added to the favourite restaurant group or the favoured food product changes.
+
+* Payment information: A payment information that is provided with the reservation.
+
+* Reserved item: A product that is reserved for the user.
+
+* Restaurant: A place where food is sold(for our platform restaurants provide a list of food products that will soon expire).
+
+* Restaurant Group: a group of restaurants that are added to the restaurant account.
+
+* User: A person who uses the FoodWaste system. 
 
 ### UI sketches
 
@@ -109,14 +129,33 @@ User can have its favourite restaurants. In the page of a physical restaurant th
    ![Several restaurant addresses sketch](Assets/lab3/sketch-addaddress.png)
 
 
-2. Removing reservations
-Main scenario:
-User clicks on “My reservations”. New page with the list of reservations is loaded. Red crosses are displayed over each one. Hovering over red cross displays tooltip “You may cancel this reservation”. User clicks the button. Modal warning window pops up with the text “You are about to remove reservation. Doing this more than once in 24hours may result in negative reputation (keep in mind, that not arriving on your reservation *will* result in negative reputation). You may read about this more in our F.A.Q (link). Do you want to remove reservation?”.  User presses cancel and same reservations page is displayed.
+\clearpage
+2. Remove reservations
 
-Alternative scenario:
-User confirms reservation removal. Reservation is removed from the list. In the top right corner green modal pop up displays “Reservation removed successfully”. System displays reservations page without canceled reservation.
+![Remove reservation use case diagram](Assets/lab3/UseCase2_RemoveReservation.png "Remove reservation use case diagram")
+\clearpage
+2.1. Cancel reservation
 
-![Use case diagram](Assets/lab3/useCase2_removeReservation.png "Use case diagram")
+Main scenario: In the main page the user presses shopping cart icon on the top right. The systems opens users shopping cart page which contains reserved items and shows them in a list. The user selects one food product which he wants to remove from reservation. The system show modal dialog window which asks whether the user really wants to remove this food product from the reservation and contains 2 buttons: "no" and "yes". The user clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
+
+Alternative scenario 1: In the shopping cart page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
+
+Alternative scenario 2: In the food product list the user presses the the food product. The system opens individual food product page which contains food product details, reservation details and reservation checkbox. The user clicks the reservation checkbox and in the modal confirmation window clicks "yes". The system removes item from the reservation list, returns partial sum of the product price and returns to the food product list.
+
+Alternative scenario 3: In the individual food product page the user presses the cancel reservation button and in the modal confirmation window clicks "yes". The system returns error message that reservation cannot be removed because it is past the reservation cancellation time.
+
+Alternative scenario 4: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system removes items from the reservation list, returns partial sum of the product price and reloads the shopping cart page.
+
+Alternative scenario 5: In the shopping cart page the user select multiple food products, presses the cancel reservation button and in the modal confirmation window clicks "yes". The system shows error message that reservation cannot be removed because it is past the reservation cancellation time.
+
+![Remove one food product from reservation dialog](Assets/lab3/RemoveOneFoodProductReservation.png "Remove one food product from reservation dialog")
+ 
+![Remove food product from reservation in individual food product page](Assets/lab3/IndividualFoodProductCancellationDialog.png "Remove food product from reservation in individual food product page")
+ 
+Robustness diagram:
+![Cancel reservation robustness diagram](Assets/lab3/UseCase2.1Robustness.png "Cancel reservation robustness diagram")
+
+\clearpage
 
 3.Allergen list for sold food products
 
@@ -198,6 +237,9 @@ Alternative scenario (a logged-in user that has no records of his allergies clic
 Robustness diagram:
 
 ![Viewing allergen information in food product](Assets/lab3/UseCase3/UseCase3.3Robustness.png "Robustness diagram")
+
+
+\clearpage
 
 4. Notifications for chosen restaurants
 
@@ -293,27 +335,19 @@ Robustness diagram:
 
 ### GUI Sketches
 
-#### Req. 1 - Several addresses for a restaurant
-
-![Several restaurant addresses sketch](Assets/lab3/sketch_address.png)
-
-\clearpage
-
-#### Req. 2 - Cancel reservation
-
-![Cancel product reservation sketch](Assets/lab3/sketch_removeRes.png)
-
-\clearpage
-
 #### Req. 3 - Alergen addition and warnings
 
 ![User allergens sketch p1](Assets/lab3/allergens_1.jpg)
+
+\clearpage
 
 ![User allergens sketch p2](Assets/lab3/allergens_2.jpg)
 
 \clearpage
 
 ![Product allergens](Assets/UseCaseSketch.png)
+
+\clearpage
 
 ![Product purchase warning](Assets/UseCase3SketchWithAWarning.png)
 
@@ -423,3 +457,28 @@ Notification systems will have to be implemented.
 # Project plan
 
 ![Project timeline](Assets/lab3/project_plan.png)
+
+
+# Traceability
+
+## Requirements
+R1 Restaurant might have multiple addresses.\
+R2 Remove reservation.\
+R3 Allergens tags on food products.\
+R4 Notifications for selected restaurants
+
+## Use cases
+UC1 Manage multiple restaurant addresses
+
+UC2 Reservation cancellation
+
+UC3 Add a new allergen to the users allergen list
+UC4 View relevant allergens in the food product
+UC5 View list of allergens in the food product
+
+UC6 Favour a food product
+UC7 Favour a restaurant
+UC8 View favoured restaurants
+UC9 View all notifications
+
+![Traceability matrix](Assets/lab3/Traceability.PNG)
