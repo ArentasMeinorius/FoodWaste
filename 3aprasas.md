@@ -87,35 +87,27 @@ User can have its favourite restaurants. In the page of a physical restaurant th
 
 ### Use case models
 
-1. Multiple addresses for restaurant.
+1. Manage multiple restaurant addresses
 
-   1.1. Add a new address
-
-   ![Add restaurant address use case](Assets/lab3/add-address.jpg)
+   ![manage restaurant address use case](Assets/lab3/UseCaseManageAddresses.jpg)
 
    Main scenario: 
-   Restaurant presses account bubble in website header. System loads restaurant information (Address, name, phone number) and opens restaurant editing page. Restaurant inputs new address in the address table. System finds the address with Google API and highlights a plus button with green color. User presses the plus button. System updates the address table.
+   Restaurant presses account bubble in website header. System loads restaurant information (Address, name, phone number) and opens restaurant editing page. System shows address table. Address has a remove button next to it. Restaurant inputs new address in the address table. System finds the address with Google API and highlights a plus button with green color. User presses the plus button. System updates the address table.
 
    Alt. 1: If system doesn't find the address, system highlights a plus button with red color and disables it.
 
    Alt. 2: If the address is already entered, system highlights a plus button with red color and disables it.
 
-   ![Add restraunt address robustness](Assets/lab3/Robustness-AddAddress.jpg)
+   Alt. 3: If restaurant presses remove button, system disables products that only have this address and removes address from the table.
+
+   Alt. 4: If only one address is in the table, System disables remove button
+
+   Disable product is an important process that has it's own logic and requires separate use case but that's out of scope for our current iteration and will be taken into consideration in later stages.
+
+   ![Add restraunt address robustness](Assets/lab3/RobustnessManageAddresses.jpg)
 
    ![Several restaurant addresses sketch](Assets/lab3/sketch-addaddress.png)
 
-   1.2 Remove an address
-   
-   ![Remove restaurant address use case](Assets/lab3/remove-address.jpg)
-   
-   Main scenario:
-   In the restaurant editing page system shows all the addresses in address table. Address has a remove button next to it. Restaurant presses remove button. System removes the address.
-
-   Alt. 1: If there is only one address in the table, system disables remove button.
-
-   Alt. 2: If system failed to remove the address, system displays an error message.
-
-   ![Remove restaurant address robustness](Assets/lab3/Robustness-RemoveAddress.jpg)
 
 2. Removing reservations
 Main scenario:
