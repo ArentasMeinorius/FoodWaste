@@ -117,84 +117,172 @@ User confirms reservation removal. Reservation is removed from the list. In the 
 
 Diagram:
 
-![Allergen information](Assets/UseCaseDiagram3.png "Allergen information")
+![Allergen information use cases](Assets/UseCaseDiagram3.png "Allergen information use cases")
 
 3.1 Add a new allergen to the users allergen list
 Main scenario: A logged-in user clicks the profile button in the top right corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Personal allergens“ button. The system shows a new page with a list of his allergens. The user clicks “Add new“ button above the list. The system removes the “Add new“ button.  The system adds a drop-down list to the top of the allergen list and a deactivated “select“ button in the same page. The user clicks on the drop-down list and scrolls down it until he finds the allergen and clicks on it. The system shows the selected allergen in place of the drop-down list and enables the “Select“ button. The user clicks the “Select“ button. The system instantly adds the allergen into the list of allergens in the shown page, deactivates the “Select“ button and show a check mark next to the “Select“ button.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase3.1-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase3.1-Main2.png "Sketch")
+
+![Main scenario part 3](Assets/lab3/UseCase3/UseCase3.1-Main3.png "Sketch")
+
+![Main scenario part 4](Assets/lab3/UseCase3/UseCase3.1-Main4.png "Sketch")
+
+![Main scenario part 5](Assets/lab3/UseCase3/UseCase3.1-Main5.png "Sketch")
+
+![Main scenario part 6](Assets/lab3/UseCase3/UseCase3.1-Main6.png "Sketch")
+
 Alternative scenario (when user is searching for his allergen in the drop-down list): The user writes down the allergen at the top of the drop-down list. The system updates the list with entered allergens. The clicks on the allergen. The scenario continues as written in the main scenario.
+
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase3.1-Alternative1.1.png "Sketch")
 
 Alternative scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a food product. The system loads a new page with a detailed description of the food product. The user clicks on a tab under the picture of the food product called “Allergens“. The systems shows a list of allergens under the picture of the food product with a “I’m allergic to this“ button next to each one. The user clicks a button “I’m allergic to this“ next to the allergen. The system adds this allergen to the users list of allergens. 
 
-Sketches:
+![Alternative scenario 2 part 1](Assets/lab3/UseCase3/UseCase3.1-Alternative2.1.png "Sketch")
 
+![Alternative scenario 2 part 2](Assets/lab3/UseCase3/UseCase3.1-Alternative2.2.png "Sketch")
 
+![Alternative scenario 2 part 3](Assets/lab3/UseCase3/UseCase3.1-Alternative2.3.png "Sketch")
+
+![Alternative scenario 2 part 4](Assets/lab3/UseCase3/UseCase3.1-Alternative2.4.png "Sketch")
+
+Robustness diagram:
+
+![Adding allergen information](Assets/lab3/UseCase3/UseCase3Robustness.png "Robustness diagram")
 
 3.2 View relevant allergens in the food product
 Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a food product that has his allergens. The system loads a new page with a detailed description of the food product. The system shows a text box to the right of the food product picture and bellow “Add to cart“ button with text box, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase3.2-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase3.2-Main2.png "Sketch")
+
 Alternative scenario (when user is in the detailed description of the food product page): The user clicks on a tab under the picture of the food product called “Allergens“. The systems shows a list of allergens under the picture of the food product with a “I’m allergic to this“ button next to each one that is not present In users list of allergens and a red text box next to allergens that are in the users list of allergens, saying “Dangerous to you!“.
+
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase3.2-Alternative1.1.png "Sketch")
 
 Alternative scenario (if user selects a food product that has no allergens that he has declared in his allergen list): The system loads a new page with a detailed description of the food product. The system shows a text box to the right food product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume for you based on the information you have given to us“.
 
+![Alternative scenario 2 part 1](Assets/lab3/UseCase3/UseCase3.2-Alternative2.1.png "Sketch")
+
 Alternative scenario (if user selects a food product that has no allergens that he has declared in his allergen list but sees something in the list of allergens that he is allergic to but has not recorded in his list of allergens): The system loads a new page with a detailed description of the food product. The system shows a text box to the right food product picture and bellow “Add to cart“ button with text box, saying “This is safe to consume based on the information you have given to us“. The user clicks on a tab under the picture of the food product called “Allergens“. The systems shows a list of allergens under the picture of the food product with a “I’m allergic to this“ button next to each one. The user clicks a button “I’m allergic to this“ next to the allergen. The system adds this allergen to the users list of allergens. The system replaces “I’m allergic to this“ button with a “Dangerous to you!“. text box. The system updates the text box to the right of the food product picture and bellow “Add to cart“ button with text, saying “This product has substances that you are allergic to and is dangerous for you to consume“.
 
-Sketches:
+![Alternative scenario 3 part 1](Assets/lab3/UseCase3/UseCase3.2-Alternative3.1.png "Sketch")
 
+![Alternative scenario 3 part 2](Assets/lab3/UseCase3/UseCase3.2-Alternative3.2.png "Sketch")
 
+Robustness diagram:
+
+![Viewing allergen information](Assets/lab3/UseCase3/UseCase3.2Robustness.png "Robustness diagram")
 
 3.3 View list of allergens in the food product
 Main scenario: Unregistered user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a food product. The system loads a new page with a detailed description of the food product. The user clicks on a tab under the picture of the food product called “Allergens“. The systems shows a list of allergens under the picture of the food product.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase3.3-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase3.3-Main2.png "Sketch")
+
+![Main scenario part 3](Assets/lab3/UseCase3/UseCase3.3-Main3.png "Sketch")
+
 Alternative scenario (a logged-in user that has no records of his allergies clicks on a food product): The system loads a new page with a detailed description of the food product. The user clicks on a tab under the picture of the food product called “Allergens“. The systems shows a list of allergens under the picture of the food product with a “I’m allergic to this“ button next to each one.
 
-Sketches:
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase3.3-Alternative1.1.png "Sketch")
 
+Robustness diagram:
 
+![Viewing allergen information in food product](Assets/lab3/UseCase3/UseCase3.3Robustness.png "Robustness diagram")
 
 4. Notifications for chosen restaurants
 
 Diagram:
 
-![Restaurant notifications](Assets/UseCase4.png "Restaurant notifications")
+![Restaurant notifications use cases](Assets/UseCase4.png "Restaurant notifications use cases")
 
 4.1 Favour a food product
 Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a food product. The system loads a new page with a detailed description of the food product. The system shows a “Favour this“ button to the right of the food product picture and above the “Add to cart“ button. User clicks on “Favour this“ button. The system adds this food product to the list of users favoured food products. The system updates the “Favour this“ button to a “Favoured“ button.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase4.1-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase4.1-Main2.png "Sketch")
+
+![Main scenario part 3](Assets/lab3/UseCase3/UseCase4.1-Main3.png "Sketch")
+
 Alternative scenario (User favours a food product from the food product menu without entering the page with detailed information): The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a button with an ellipsis symbol to the right side of the food product. System displays a drop down menu from that button. The user clicks “Favour product“ button from the drop down menu. The system adds this food product to the list of users favoured food products. The system replaces the ellipsis symbol in the menu with a check mark symbol.
 
-Sketches:
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase4.1-Alternative1.1.png "Sketch")
 
+![Alternative scenario 1 part 2](Assets/lab3/UseCase3/UseCase4.1-Alternative1.2.png "Sketch")
 
+![Alternative scenario 1 part 3](Assets/lab3/UseCase3/UseCase4.1-Alternative1.3.png "Sketch")
+
+Robustness diagram:
+
+![Favour a food product](Assets/lab3/UseCase3/UseCase4.1Robustness.png "Robustness diagram")
 
 4.2 Favour a restaurant
 Main scenario: The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a food product. The system loads a new page with a detailed description of the food product. The user clicks on a tab under the picture of the food product called “Restaurant“. The system updates the text box bellow the tab with information about the restaurant and a “Favour restaurant“ button on the top right corner of the text box. The user clicks the “Favour restaurant“ button. The system adds the favoured restaurant to the users favoured restaurants list. The system replaces the “Favour restaurant“ button with a “Favoured restaurant“ button.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase4.2-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase4.2-Main2.png "Sketch")
+
+![Main scenario part 3](Assets/lab3/UseCase3/UseCase4.2-Main3.png "Sketch")
+
+![Main scenario part 4](Assets/lab3/UseCase3/UseCase4.2-Main4.png "Sketch")
+
 Alternative scenario (User favours a restaurant from the food product menu without entering the page with detailed information): The logged-in user clicks on the “Foodwaste“ button at the top left corner of the page. The system shows the user the main page with a list of available food products. The user clicks on a button with an ellipsis symbol to the right side of the food product. System displays a drop-down menu from that button. The user clicks “Favour restaurant“ button from the drop down menu. The system adds this restaurant to the list of users favoured restaurants. The system replaces the ellipsis symbol in the menu with a check mark symbol.
 
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase4.2-Alternative1.1.png "Sketch")
 
-Sketches:
+![Alternative scenario 1 part 2](Assets/lab3/UseCase3/UseCase4.2-Alternative1.2.png "Sketch")
 
+![Alternative scenario 1 part 3](Assets/lab3/UseCase3/UseCase4.2-Alternative1.3.png "Sketch")
 
+Robustness diagram:
+
+![Favour a restaurant](Assets/lab3/UseCase3/UseCase4.2Robustness.png "Robustness diagram")
 
 4.3 View favoured restaurants
 Main scenario: A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Favoured restaurants“ button. The system shows a new page with a list of all the restaurants the user has favoured.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase4.3-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase4.3-Main2.png "Sketch")
+
 Alternative scenario (user may look into a specific favoured restaurant with more depth from the favoured restaurants list): A user clicks on a restaurant. The system shows a new page with detailed information about the restaurants near the user and their offered food products.
 
-Sketches:
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase4.3-Alternative1.1.png "Sketch")
 
+![Alternative scenario 1 part 2](Assets/lab3/UseCase3/UseCase4.3-Alternative1.2.png "Sketch")
 
+Robustness diagram:
+
+![View a favoured restaurant](Assets/lab3/UseCase3/UseCase4.3Robustness.png "Robustness diagram")
 
 4.4 View all notifications
 Main scenario: Restaurant updates their food product selection. System updates the profile icon in the top right with a new icon with a blue point at the bottom of the profile icon. A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The system adds a blue point next to the “Notifications“ button. The user clicks the “Notifications“ button. The system shows a new page with a list of all the notifications from restaurants and food products the user has favoured. The system adds a blue point to the left of all the new notifications.
 
+![Main scenario part 1](Assets/lab3/UseCase3/UseCase4.4-Main1.png "Sketch")
+
+![Main scenario part 2](Assets/lab3/UseCase3/UseCase4.4-Main2.png "Sketch")
+
 Alternative scenario (The user may visit the page without any new notifications being present): A logged-in user clicks the profile button in the top tight corner. The system displays a drop-down menu from the button in the same page. The user clicks the “Notifications“ button. The system shows a new page with a list of all the notifications from restaurants and food products the user has favoured.
+
+![Alternative scenario 1 part 1](Assets/lab3/UseCase3/UseCase4.4-Alternative1.1.png "Sketch")
+
+![Alternative scenario 1 part 2](Assets/lab3/UseCase3/UseCase4.4-Alternative1.2.png "Sketch")
+
 Alternative scenario (The user may follow up on the notifications when in the Notifications page): The user clicks on a notification of a food product. The system shows a new page that has the detailed description of the food product. 
 
-Sketches:
+![Alternative scenario 2 part 1](Assets/lab3/UseCase3/UseCase4.4-Alternative2.1.png "Sketch")
 
+![Alternative scenario 2 part 2](Assets/lab3/UseCase3/UseCase4.4-Alternative2.2.png "Sketch")
 
+Robustness diagram:
+
+![View notifications](Assets/lab3/UseCase3/UseCase4.4Robustness.png "Robustness diagram")
 
 \clearpage
 
