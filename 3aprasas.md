@@ -517,21 +517,21 @@ Notification systems will have to be implemented.
 
 ## Requirements
 
-R1 Restaurant might have multiple addresses \
-R2 Remove reservation \
-R3 Allergens tags on food products \ 
-R4 Notifications for selected restaurants 
+* R1 Restaurant might have multiple addresses \
+* R2 Remove reservation \
+* R3 Allergens tags on food products \
+* R4 Notifications for selected restaurants \
 
 ## Use cases
 
-UC1 Manage multiple restaurant addresses \
-UC2 Reservation cancellation \
-UC3 Add a new allergen to the users allergen list \
-UC4 View relevant allergens in the food product \
-UC5 View list of allergens in the food product \
-UC6 Favour a food product \
-UC7 Favour a restaurant \
-UC8 View favoured restaurants \
-UC9 View all notifications 
+* UC1 Manage multiple restaurant addresses \
+* UC2 Reservation cancellation \
+* UC3 Add a new allergen to the users allergen list \
+* UC4 View relevant allergens in the food product \
+* UC5 View list of allergens in the food product \
+* UC6 Favour a food product \
+* UC7 Favour a restaurant \
+* UC8 View favoured restaurants \
+* UC9 View all notifications 
 
 ![Traceability matrix](Assets/lab3/Traceability.PNG)
