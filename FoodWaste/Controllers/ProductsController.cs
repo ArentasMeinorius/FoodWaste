@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using FoodWaste.Data;
 using FoodWaste.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 using FoodWaste.ActionFilters;
 using FoodWaste.Services;
+using System.Collections.Generic;
 
 namespace FoodWaste.Controllers
 {
@@ -81,7 +81,7 @@ namespace FoodWaste.Controllers
 
         [Authorize]
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Reserve(int? id)
+        public async Task<IActionResult> Reserve(Guid? id)
         {
             _logger.LogInformation("Start: Reserving id: {Id}", id);
             if (id == null)
@@ -134,10 +134,10 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Details/5
         [ServiceFilter(typeof(LogMethod))]
-        public IActionResult Details(int? id)
+        public IActionResult Details(Guid id)
         {
             _logger.LogInformation("Start: product id: {Id}", id);
-            if (id == null)
+            if (id == Guid.Empty)
                 return NotFound();
 
             var result = from p in _context.Product
@@ -146,6 +146,17 @@ namespace FoodWaste.Controllers
                          select new ProductViewModel { Product = p, Restaurant = r };
 
             var product = result.FirstOrDefault(m => m.Product.Id == id);
+
+            var productAllergens = from a in _context.ProductAllergens
+                                   join r in _context.Product on a.ProductId equals r.Id
+                                   join al in _context.Allergens on a.AllergenId equals al.AllergenId into d
+                                   from al in d.DefaultIfEmpty()
+                                   select al;
+
+            var userId = _userService.GetCurrentUserId(User);
+            product.Allergens = _context.UserAllergens.Where(p => p.UserId == userId).ToList();
+
+            product.Product.ProductAllergens = productAllergens.ToList();
 
             if (product == null)
             {
@@ -172,15 +183,26 @@ namespace FoodWaste.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
+        public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId,ProductAllergens")] Product product)//nepriimt userid
         {
             if (ModelState.IsValid)
             {
+                product.Id = Guid.NewGuid();
+                product.ProductAllergens = new List<Allergen> { new Allergen { AllergenId = Guid.NewGuid(), Name = "anana" }, new Allergen { AllergenId = Guid.NewGuid(), Name = "batman" } };
+                //change this harcoded allergen list to retrieved from page
                 product.State = ProductState.Listed;
                 product.RestaurantId = _userService.GetCurrentUserId(User);
                 product.Restaurants = await _context.Restaurant
                     .FirstOrDefaultAsync(m => m.UserId == _userService.GetCurrentUserId(User));
                 _context.Add(product);
+
+                foreach (var allergen in product.ProductAllergens)
+                {
+                    _context.Add(allergen);
+                    var productAllergen = new ProductAllergen { AllergenId = allergen.AllergenId, ProductId = product.Id };
+                    _context.Add(productAllergen);
+                }
+
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Completed: posted product {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
                 return RedirectToAction(nameof(Index));
@@ -211,7 +233,7 @@ namespace FoodWaste.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
+        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId")] Product product)//nepriimt userid
         {
             _logger.LogInformation("Start: product details: {Product}", product);
             if (id != product.Id)
@@ -251,10 +273,10 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Delete/5
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Delete(int? id)// jei be id kreiptusi tai notfound grazintu be nullable
+        public async Task<IActionResult> Delete(Guid id)// jei be id kreiptusi tai notfound grazintu be nullable
         {
             _logger.LogInformation("Start: deleting product with id {Id}", id);
-            if (id == null)
+            if (id == Guid.Empty)
             {
                 _logger.LogInformation("Completed: id is not found {Id}", id);
                 return NotFound();
@@ -284,7 +306,33 @@ namespace FoodWaste.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        [HttpGet]
+        [Route("Products/Details/Modify/{productId}/{allergenId}")]
+        [ServiceFilter(typeof(LogMethod))]
+        public async Task<IActionResult> ChangeUserAllergens(Guid productId, Guid allergenId)
+        {
+            try
+            {
+                var userId = _userService.GetCurrentUserId(User);
+                var UserAllergen = await _context.UserAllergens
+                .FirstOrDefaultAsync(m => m.UserId == userId && m.AllergenId == allergenId);
+                if (UserAllergen == null)
+                {
+                    _context.Add(new UserAllergen { AllergenId = allergenId, UserId = userId });
+                }
+                else
+                {
+                    _context.Remove(UserAllergen);
+                }
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+            }
+            return Redirect("~/Products/Details/" + productId);
+        }
+
+        private bool ProductExists(Guid id)
         {
             return _context.Product.Any(e => e.Id == id);
         }

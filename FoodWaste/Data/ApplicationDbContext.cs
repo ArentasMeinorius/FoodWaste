@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace FoodWaste.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>,IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser<int>, IdentityRole<int>, int>
     {//nhibernate dapper
         public class ApplicationUser : IdentityUser<int>
         {
@@ -17,7 +17,18 @@ namespace FoodWaste.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<ProductAllergen>()
+                .HasKey(nameof(ProductAllergen.AllergenId), nameof(ProductAllergen.ProductId));
+            modelBuilder.Entity<UserAllergen>()
+                .HasKey(nameof(UserAllergen.AllergenId), nameof(UserAllergen.UserId));
+        }
         public DbSet<Product> Product { get; set; }
         public DbSet<Restaurant> Restaurant { get; set; }
+        public DbSet<UserAllergen> UserAllergens { get; set; }
+        public DbSet<Allergen> Allergens { get; set; }
+        public DbSet<ProductAllergen> ProductAllergens { get; set; }
     }
 }
