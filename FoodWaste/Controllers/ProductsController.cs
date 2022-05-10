@@ -212,9 +212,9 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Edit/5
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(Guid id)
         {
-            if (id == null)
+            if (id == Guid.Empty)
                 return NotFound();
 
             var product = await _context.Product.FindAsync(id);
@@ -296,7 +296,7 @@ namespace FoodWaste.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             _logger.LogInformation("Statrt: deleting product {Id}", id);
             var product = await _context.Product.FindAsync(id);

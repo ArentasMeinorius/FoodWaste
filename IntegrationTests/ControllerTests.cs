@@ -37,7 +37,7 @@ namespace IntegrationTests
         [Fact]
         public async Task ProductControllerDetails()
         {
-            var response = await _client.GetAsync("/Products/Details/11");
+            var response = await _client.GetAsync($"/Products/Details/{TestData.products[0].Id}");
             response.EnsureSuccessStatusCode();
 
             var responseString = await response.Content.ReadAsStringAsync();
@@ -49,23 +49,23 @@ namespace IntegrationTests
         [Fact]
         public async Task ProductControllerDelete()
         {
-            var response = await _client.GetAsync("/Products/Delete/11");
+            var response = await _client.GetAsync($"/Products/Delete/{TestData.products[1].Id}");
             response.EnsureSuccessStatusCode();
 
             var responseString = await response.Content.ReadAsStringAsync();
             Assert.Contains("Delete", responseString);
-            Assert.Contains("Test", responseString);
+            Assert.Contains("TData", responseString);
         }
         [Fact]
         public async Task ProductControllerEdit()
         {
-            var response = await _client.GetAsync("/Products/Edit/11");
+            var response = await _client.GetAsync($"/Products/Edit/{TestData.products[1].Id}");
             response.EnsureSuccessStatusCode();
 
             var responseString = await response.Content.ReadAsStringAsync();
 
-            Assert.Contains("Test", responseString);
             Assert.Contains("State", responseString);
+            Assert.Contains("TData", responseString);
         }
 
         internal async Task RestaurantControllerEdit()
