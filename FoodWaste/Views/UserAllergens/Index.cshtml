@@ -1,0 +1,42 @@
+﻿@model FoodWaste.Models.UserAllergen
+@{
+    var allergenList = (List<Allergen>)ViewData["Allergens"];
+    var userAllergenList = (List<Allergen>)ViewData["UserAllergens"];
+}
+
+<h4>Allergen list</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            Allergens
+            @foreach (var allergen in allergenList)
+            {
+                <div>
+                    @allergen.Name
+                </div>
+            }
+            User Allergens
+            @foreach (var allergen in userAllergenList)
+            {
+                <div>
+                    @allergen.Name
+                    <a href="/UserAllergens/Remove/@allergen.AllergenId">Remove this allergen</a>
+                </div>
+            }
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
