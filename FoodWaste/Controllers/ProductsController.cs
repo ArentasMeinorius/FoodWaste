@@ -301,6 +301,8 @@ namespace FoodWaste.Controllers
             _logger.LogInformation("Statrt: deleting product {Id}", id);
             var product = await _context.Product.FindAsync(id);
             _context.Product.Remove(product);
+            _context.ProductAllergens.RemoveRange(_context.ProductAllergens.Where(p => p.AllergenId == id));
+
             await _context.SaveChangesAsync();
             _logger.LogInformation("Completed: product deleted {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             return RedirectToAction(nameof(Index));
