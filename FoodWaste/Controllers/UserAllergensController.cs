@@ -2,6 +2,7 @@
 using FoodWaste.Models;
 using FoodWaste.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,16 @@ namespace FoodWaste.Controllers
         [Route("/UserAllergens/")]
         public async Task<IActionResult> Index()
         {
-            ViewData["Allergens"] = GetAllergens();
-            ViewData["UserAllergens"] = GetUserAllergens();
-            return View();
+            var userAllergens = new UserAllergenViewModel
+            {
+                UserAllergens = GetUserAllergens().ToList(),
+                Allergens = GetAllergens().ToList(),
+                Item = new List<Guid> { Guid.NewGuid(), Guid.Empty }
+            };
+
+            ViewBag.Allergenss = new MultiSelectList(GetAllergens(), "AllergenId", "Name");
+
+            return View(userAllergens);
         }
 
         public IEnumerable<Allergen> GetUserAllergens()
@@ -41,7 +49,7 @@ namespace FoodWaste.Controllers
             return userAllergens.ToList();
         }
 
-        public IEnumerable<Allergen>GetAllergens()
+        public IEnumerable<Allergen> GetAllergens()
         {
             var allergens = _context.Allergens.ToList();
             return allergens;
@@ -64,17 +72,22 @@ namespace FoodWaste.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpGet]// TODO change to POST and implement as required
-        [Route("/UserAllergens/{allergenId}")]
-        public async Task<IActionResult> SaveAllergens(Guid allergenId)// todo this one
+        [HttpPost]
+        [Route("/UserAllergens/Save")]
+        public async Task<IActionResult> SaveAllergens([Bind("Item")] UserAllergenViewModel view)
         {
             var userId = _userService.GetCurrentUserId(User);
-            var userAllergen = await _context.UserAllergens.FindAsync(userId);
-            _context.UserAllergens.Remove(userAllergen);
+            foreach (var allergen in view.Item)
+            {
+                var userAllergen = _context.UserAllergens.FirstOrDefault(p => p.AllergenId == allergen && p.UserId == userId);
+                if (userAllergen == null)
+                {
+                    _context.UserAllergens.Add(new UserAllergen { UserId = userId, AllergenId = allergen });
+                }
+            }
             await _context.SaveChangesAsync();
 
-            return View(userAllergen);
+            return RedirectToAction(nameof(Index));
         }
-
     }
 }
