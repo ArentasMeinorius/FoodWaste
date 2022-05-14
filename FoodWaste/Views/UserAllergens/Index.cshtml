@@ -1,45 +1,50 @@
 ﻿@model FoodWaste.Models.UserAllergenViewModel
-
 <h4>Allergen list</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Save">
-            @Html.ListBoxFor(m => m.Item, new MultiSelectList(Model.Allergens, "AllergenId", "Name", Model.Item), new { @class = "listbox" })
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-            <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
-                  rel="stylesheet" type="text/css" />
-            <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-            <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
-            <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js" type="text/javascript"></script>
-            <script type="text/javascript">
-                $(function () {
-                    $('.listbox').multiselect({
-                        includeSelectAllOption: true
-                    });
-                });
-            </script>
-            Allergen list
-            @Html.HiddenFor(model => model.Item)
-            @Html.ListBoxFor(m => m.Item, new MultiSelectList(Model.Allergens, "AllergenId", "Name", Model.Item), new { id = "yourID", @class = "form-control", style = "height:200px", multiple = "multiple" })
-
-            @Html.DropDownListFor(m => m.Item, new MultiSelectList(Model.Allergens, "AllergenId", "Name", Model.Item), "select...", new { id = "yourID", @class = "form-control", multiple = "multiple" })
-
-            @Html.DropDownList("AllergenId", (MultiSelectList)ViewBag.Allergenss, new { multiple = "multiple" })
-
-            User Allergens
-            @foreach (var allergen in Model.UserAllergens)
-            {
-                <div>
-                    @allergen.Name
-                    <a href="/UserAllergens/Remove/@allergen.AllergenId">Remove this allergen</a>
-                </div>
-            }
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        <MatAcordion Multi="true">
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>List of potential allergens</MatExpansionPanelHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatList>
+                        @foreach (var allergen in Model.Allergens)
+                        {
+                            <MatListItem style=" display: inline-block; width: 100%;">
+                                <div style="float:left; margin: 0">
+                                    @allergen.Name
+                                </div>
+                                <div style="float:right">
+                                    <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Add/@allergen.AllergenId'" type="button">Add</MatButton>
+                                </div>
+                            </MatListItem>
+                        }
+                    </MatList>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>List your allergens</MatExpansionPanelHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatList>
+                        @foreach (var allergen in Model.UserAllergens)
+                        {
+                            <MatListItem style=" display: inline-block; width: 100%;">
+                                <div style="float:left; margin: 0">
+                                    @allergen.Name
+                                </div>
+                                <div style="float:right">
+                                    <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Remove/@allergen.AllergenId'" type="button">Remove</MatButton>
+                                </div>
+                            </MatListItem>
+                        }
+                    </MatList>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+        </MatAcordion>
     </div>
 </div>
 

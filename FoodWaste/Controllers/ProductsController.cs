@@ -173,6 +173,7 @@ namespace FoodWaste.Controllers
         public async Task<IActionResult> Create()
         {
             var res = await _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(_userService.GetCurrentUserId(User)));
+            ViewData["Allergens"] = GetAllergens();
             return View();
         }
 
@@ -188,8 +189,7 @@ namespace FoodWaste.Controllers
             if (ModelState.IsValid)
             {
                 product.Id = Guid.NewGuid();
-                product.ProductAllergens = new List<Allergen> { new Allergen { AllergenId = Guid.NewGuid(), Name = "anana" }, new Allergen { AllergenId = Guid.NewGuid(), Name = "batman" } };
-                //change this harcoded allergen list to retrieved from page
+                product.ProductAllergens = (List <Allergen>)ViewData["Allergens"];
                 product.State = ProductState.Listed;
                 product.RestaurantId = _userService.GetCurrentUserId(User);
                 product.Restaurants = await _context.Restaurant
@@ -337,6 +337,14 @@ namespace FoodWaste.Controllers
         private bool ProductExists(Guid id)
         {
             return _context.Product.Any(e => e.Id == id);
+        } 
+
+        public IEnumerable<Allergen> GetAllergens(IEnumerable<Allergen> productAllergens = null)
+        {
+            if (productAllergens == null)
+                return _context.Allergens.ToList().OrderBy(p => p.Name);
+
+            return _context.Allergens.ToList().Except(productAllergens).OrderBy(p => p.Name);
         }
 
         public bool IsCurrentUserRestaurant()//base klase sitiems

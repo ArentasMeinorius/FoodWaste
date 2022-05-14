@@ -11,6 +11,7 @@ using FoodWaste.ActionFilters;
 using Microsoft.Extensions.Logging;
 using FoodWaste.Middlewares;
 using FoodWaste.Services;
+using MatBlazor;
 
 namespace FoodWaste
 {
@@ -42,6 +43,7 @@ namespace FoodWaste
             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
             services.AddRazorPages();
+            services.AddMatBlazor();
         }
 
         public void ConfigureLogger(IServiceCollection services)
