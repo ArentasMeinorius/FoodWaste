@@ -30,5 +30,8 @@ namespace FoodWaste.Data
         public DbSet<UserAllergen> UserAllergens { get; set; }
         public DbSet<Allergen> Allergens { get; set; }
         public DbSet<ProductAllergen> ProductAllergens { get; set; }
+        public DbSet<UserCreatedAllergens> UserCreatedAllergens { get; set; }
+        public DbSet<UserSelectedAllergens> UserSelectedAllergens { get; set; }
+        public DbSet<UserTemporaryProduct> UserTemporaryProducts { get; set; }
     }
 }
