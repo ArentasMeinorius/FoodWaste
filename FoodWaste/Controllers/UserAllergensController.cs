@@ -2,7 +2,6 @@
 using FoodWaste.Models;
 using FoodWaste.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +23,7 @@ namespace FoodWaste.Controllers
 
         [HttpGet]
         [Route("/UserAllergens/")]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             var userAls = GetUserAllergens().ToList();
             var als = GetAllergens(userAls).ToList();

@@ -6,6 +6,10 @@
 
     string allergenName = "";
 
+    string GetAllergen()
+    {
+        return allergenName;
+    }
 }
 
 <h1>Create</h1>
@@ -26,12 +30,8 @@
                 <input asp-for="ExpiryDate" class="form-control" />
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
             </div>
-            @*add create thingie*@
-            @*<form>
-                <input @bind="allergenName">
-                <MatButton onclick="location.href = '/UserAllergens/Create/@allergen.AllergenId'" type="button">Create Allergen</MatButton>
-
-            </form>*@
+            <input value="@allergenName">
+            <MatButton onclick="location.href = '/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=@GetAllergen()'" type="button">Create Allergen</MatButton>
             <MatAcordion Multi="true">
                 <MatExpansionPanel>
                     <MatExpansionPanelSummary>
@@ -46,7 +46,7 @@
                                         @allergen.Name
                                     </div>
                                     <div style="float:right">
-                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Remove/AllergenC/@allergen.AllergenId'" type="button">Remove</MatButton>
+                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Remove/Allergen?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&allergenId=@allergen.AllergenId'" type="button">Remove</MatButton>
                                     </div>
                                 </MatListItem>
                             }
@@ -67,7 +67,7 @@
                                         @allergen.Name
                                     </div>
                                     <div style="float:right">
-                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Add/AllergenC/@allergen.AllergenId'" type="button">Add</MatButton>
+                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Add/Allergen?foodName=@Model.Name&expiryDate=@Model.ExpiryDate&allergenId=@allergen.AllergenId'" type="button">Add</MatButton>
                                     </div>
                                 </MatListItem>
                             }
