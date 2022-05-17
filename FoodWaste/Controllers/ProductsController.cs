@@ -147,16 +147,21 @@ namespace FoodWaste.Controllers
 
             var product = result.FirstOrDefault(m => m.Product.Id == id);
 
-            var productAllergens = from a in _context.ProductAllergens
-                                   join r in _context.Product on a.ProductId equals r.Id
-                                   join al in _context.Allergens on a.AllergenId equals al.AllergenId into d
-                                   from al in d.DefaultIfEmpty()
-                                   select al;
-
             var userId = _userService.GetCurrentUserId(User);
+            var productAllergens = from a in _context.ProductAllergens
+                                   join al in _context.Allergens on a.AllergenId equals al.AllergenId into d
+                                   from r in d.DefaultIfEmpty()
+                                   select new
+                                   {
+                                       r.AllergenId,
+                                       r.Name,
+                                       r.Details,
+                                       a.ProductId
+                                   };
+
             product.Allergens = _context.UserAllergens.Where(p => p.UserId == userId).ToList();
 
-            product.Product.ProductAllergens = productAllergens.ToList();
+            product.Product.ProductAllergens = productAllergens.Where(p => p.ProductId == id).Select(p => new Allergen { Name = p.Name, AllergenId = p.AllergenId, Details = p.Details }).ToList();
 
             if (product == null)
             {
@@ -176,19 +181,27 @@ namespace FoodWaste.Controllers
             var res = await _context.Restaurant.SingleOrDefaultAsync(r => r.UserId.Equals(userId));
             var mergedLists = MergeTwoLists();
             ViewData["CurrentAllergens"] = mergedLists;
-            var created = _context.UserCreatedAllergens.Where(p => p.Id == _userService.GetCurrentUserId(User));
-            ViewData["Allergens"] = GetAllergens()
-                .Where(p => !mergedLists
-                    .Any(q => q.AllergenId == p.AllergenId))
-                .Concat(created
-                    .Select(p =>
-                    new Allergen
-                    {
-                        AllergenId = p.AllergenId,
-                        Name = p.Name
-                    }
-                ));
-            var savedData = _context.UserTemporaryProducts.Where(p => p.Id == userId).FirstOrDefault();
+            var created = _context.CreatedAllergens.Where(p => p.UserId == userId).ToList();
+            var activeAllergens = GetAllergens()
+            .Concat(created
+                .Select(p =>
+                new Allergen
+                {
+                    AllergenId = p.AllergenId,
+                    Name = p.Name
+                }
+            ))
+            .Where(p => !mergedLists
+                 .Any(q => q.AllergenId == p.AllergenId));
+            if (activeAllergens == null)
+            {
+                ViewData["Allergens"] = new List<Allergen>();
+            }
+            else
+            {
+                ViewData["Allergens"] = activeAllergens;
+            }
+            var savedData = _context.TemporaryProducts.Where(p => p.UserId == userId).FirstOrDefault();
             var model = new Product();
             if (savedData != null)
             {
@@ -207,10 +220,10 @@ namespace FoodWaste.Controllers
         [ServiceFilter(typeof(LogMethod))]
         public async Task<IActionResult> Create([Bind("Id,Name,ExpiryDate,State,UserId,RestaurantId,ProductAllergens")] Product product)//nepriimt userid
         {
-            if (ModelState.IsValid)// multiple allergens, returns the same elements, fix
+            if (ModelState.IsValid)
             {
                 var userId = _userService.GetCurrentUserId(User);
-                var selectedAllergens = _context.UserSelectedAllergens.Where(p => p.Id == userId).ToList();// this returns n same allergens somewhy
+                var selectedAllergens = _context.SelectedAllergens.Where(p => p.UserId == userId).ToList();
                 product.Id = Guid.NewGuid();
                 product.State = ProductState.Listed;
                 product.RestaurantId = userId;
@@ -238,13 +251,13 @@ namespace FoodWaste.Controllers
                     _context.Remove(selAl);
                 }
 
-                var createdAllergens = _context.UserCreatedAllergens.Where(p => p.Id == userId);
+                var createdAllergens = _context.CreatedAllergens.Where(p => p.UserId == userId);
                 foreach (var allergen in createdAllergens)
                 {
                     _context.Remove(allergen);
                 }
                 await _context.SaveChangesAsync();
-                var userTempProductData = _context.UserTemporaryProducts.Where(p => p.Id == userId).FirstOrDefault();
+                var userTempProductData = _context.TemporaryProducts.Where(p => p.UserId == userId).FirstOrDefault();
                 if (userTempProductData != null)
                 {
                     _context.Remove(userTempProductData);
@@ -257,7 +270,7 @@ namespace FoodWaste.Controllers
 
         // GET: Products/Edit/5
         [ServiceFilter(typeof(LogMethod))]
-        public async Task<IActionResult> Edit(Guid id)
+        public async Task<IActionResult> Edit(Guid id)// not for this iteration
         {
             if (id == Guid.Empty)
                 return NotFound();
@@ -270,10 +283,8 @@ namespace FoodWaste.Controllers
             }
             _logger.LogInformation("Completed: opening product editing page {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
             var mergedLists = MergeTwoLists();
-            var created = _context.UserCreatedAllergens.Where(p => p.Id == _userService.GetCurrentUserId(User));
+            var created = _context.CreatedAllergens.Where(p => p.UserId == _userService.GetCurrentUserId(User));
             ViewData["CurrentAllergens"] = mergedLists;
-            // top as a list of currently existing allergens and selected allergens
-            // REmove Table allergen
             ViewData["Allergens"] = GetAllergens().Where(p => !mergedLists.Any(q => q.AllergenId == p.AllergenId))
                 .Concat(created
                     .Select(p =>
@@ -361,7 +372,8 @@ namespace FoodWaste.Controllers
             _logger.LogInformation("Statrt: deleting product {Id}", id);
             var product = await _context.Product.FindAsync(id);
             _context.Product.Remove(product);
-            _context.ProductAllergens.RemoveRange(_context.ProductAllergens.Where(p => p.AllergenId == id));
+            var productAllergens = _context.ProductAllergens.Where(p => p.AllergenId == id);
+            //if no one uses allergens, remove them
 
             await _context.SaveChangesAsync();
             _logger.LogInformation("Completed: product deleted {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
@@ -430,21 +442,21 @@ namespace FoodWaste.Controllers
         public async Task<IActionResult> RemoveAllergen(string foodName, DateTime expiryDate, Guid allergenId)
         {
             var userId = _userService.GetCurrentUserId(User);
-            var selectedAllergen = _context.UserSelectedAllergens.Where(p => p.Id == userId && p.AllergenId == allergenId).FirstOrDefault();
+            var selectedAllergen = _context.SelectedAllergens.Where(p => p.UserId == userId && p.AllergenId == allergenId).FirstOrDefault();
             if (selectedAllergen != null)
             {
-                _context.UserSelectedAllergens.Remove(selectedAllergen);// remove fails somewhy
+                _context.SelectedAllergens.Remove(selectedAllergen);
                 _context.SaveChanges();
                 return RedirectToAction(nameof(Create));
             }
 
-            var createdAllergen = _context.UserCreatedAllergens.Where(p => p.Id == userId && p.AllergenId == allergenId).FirstOrDefault();
+            var createdAllergen = _context.CreatedAllergens.Where(p => p.UserId == userId && p.AllergenId == allergenId).FirstOrDefault();
             if (createdAllergen != null)
             {
-                _context.UserCreatedAllergens.Remove(createdAllergen);
+                _context.CreatedAllergens.Remove(createdAllergen);
                 _context.SaveChanges();
             }
-            await SaveUserData(new UserTemporaryProduct { Id = userId, Name = foodName, ExpiryDate = expiryDate });
+            await SaveUserData(new UserTemporaryProduct { UserId = userId, Name = foodName, ExpiryDate = expiryDate });
 
             return RedirectToAction(nameof(Create));
         }
@@ -455,7 +467,7 @@ namespace FoodWaste.Controllers
         {
             await AddAllergens(allergenId);
             var userId = _userService.GetCurrentUserId(User);
-            await SaveUserData(new UserTemporaryProduct { Id = userId, Name = foodName, ExpiryDate = expiryDate });
+            await SaveUserData(new UserTemporaryProduct { UserId = userId, Name = foodName, ExpiryDate = expiryDate });
 
             return RedirectToAction(nameof(Create));
         }
@@ -476,19 +488,19 @@ namespace FoodWaste.Controllers
 
             if (tempAllergen == null)
             {
-                tempAllergen = _context.UserCreatedAllergens.Where(p => p.Id == userId && p.AllergenId == allergenId).Select(p => new Allergen { Name = p.Name }).FirstOrDefault();
+                tempAllergen = _context.CreatedAllergens.Where(p => p.UserId == userId && p.AllergenId == allergenId).Select(p => new Allergen { Name = p.Name }).FirstOrDefault();
             }
-            _context.UserSelectedAllergens.Add(new UserSelectedAllergens { Id = userId, AllergenId = allergenId, Name = tempAllergen.Name });
+            _context.SelectedAllergens.Add(new UserSelectedAllergens { UserId = userId, AllergenId = allergenId, Name = tempAllergen.Name });
             await _context.SaveChangesAsync();
         }
 
         [HttpGet]
         [Route("Products/Create/Allergen")]
-        public async Task<IActionResult> CreateAllergenC(string foodName, DateTime date, string name)//adding somewhy adds multiple entities
+        public async Task<IActionResult> CreateAllergenC(string foodName, DateTime date, string name)
         {
             await CreateAllergen(name);
             var userId = _userService.GetCurrentUserId(User);
-            await SaveUserData(new UserTemporaryProduct { Id = userId, Name = foodName, ExpiryDate = date });
+            await SaveUserData(new UserTemporaryProduct { UserId = userId, Name = foodName, ExpiryDate = date });
             return RedirectToAction(nameof(Create));
         }
 
@@ -504,14 +516,14 @@ namespace FoodWaste.Controllers
         {
             var userId = _userService.GetCurrentUserId(User);
 
-            _context.UserCreatedAllergens.Add(new UserCreatedAllergens { Id = userId, AllergenId = Guid.NewGuid(), Name = name });
+            _context.CreatedAllergens.Add(new UserCreatedAllergens { UserId = userId, AllergenId = Guid.NewGuid(), Name = name });
             await _context.SaveChangesAsync();
         }
 
-        private async Task SaveUserData(UserTemporaryProduct product)// model does not work : \
+        private async Task SaveUserData(UserTemporaryProduct product)
         {
-            var curUser = _context.UserTemporaryProducts.FirstOrDefault(p => p.Id == product.Id);
-            if (curUser.ExpiryDate == product.ExpiryDate && curUser.Name == product.Name && curUser.Id == product.Id)
+            var curUser = _context.TemporaryProducts.FirstOrDefault(p => p.UserId == product.UserId);
+            if (curUser.ExpiryDate == product.ExpiryDate && curUser.Name == product.Name && curUser.UserId == product.UserId)
             {
                 return;
             }
@@ -529,8 +541,13 @@ namespace FoodWaste.Controllers
         IEnumerable<Allergen> MergeTwoLists()
         {
             var userId = _userService.GetCurrentUserId(User);
-            var selectedAllergens = _context.UserSelectedAllergens.Where(p => p.Id == userId).Select(p => new Allergen { AllergenId = p.AllergenId, Name = p.Name });
+            var selectedAllergens = _context.SelectedAllergens.Where(p => p.UserId == userId).Select(p => new Allergen { AllergenId = p.AllergenId, Name = p.Name });
             return selectedAllergens;
         }
     }
 }
+// todo
+// user Saved data is not saved
+// create allergen no value is selected
+// atm skip edit allergen
+// 

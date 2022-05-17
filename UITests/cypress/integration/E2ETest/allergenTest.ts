@@ -4,7 +4,7 @@ describe('FoodWaste allergens', () => {
     beforeEach(() => {
       cy.visit('https://localhost:44368')
       cy.get('a').contains('Login').click()
-      cy.get('#Input_UserName').type('thomas')
+      cy.get('#Input_UserName').type('TestAccount')
       cy.get('#Input_Password').type('q!W2E3R4T5')
       cy.get('button').contains('Log in').click()
       //check if user has allergens

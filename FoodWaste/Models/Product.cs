@@ -23,6 +23,7 @@ namespace FoodWaste.Models
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
+        [NotMapped]
         public List<Allergen> ProductAllergens { get; set; }
     }
 }

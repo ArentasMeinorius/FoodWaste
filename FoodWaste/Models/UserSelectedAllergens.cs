@@ -5,9 +5,9 @@ namespace FoodWaste.Models
 {
     public class UserSelectedAllergens
     {
-        [Required]
-        public int Id { get; set; }
-        [Required]
+        [Key]
+        public int UserId { get; set; }
+        [Key]
         public Guid AllergenId { get; set; }
         public string Name { get; set; }
     }
