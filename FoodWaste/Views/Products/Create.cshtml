@@ -30,8 +30,10 @@
                 <input asp-for="ExpiryDate" class="form-control" />
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
             </div>
-            <input value="@allergenName">
-            <MatButton onclick="location.href = '/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=@GetAllergen()'" type="button">Create Allergen</MatButton>
+            <div id="newAllergen">
+                <input value="@allergenName">
+                <MatButton onclick="location.href = '/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=@GetAllergen()'" type="button">Create Allergen</MatButton>
+            </div>
             <MatAcordion Multi="true">
                 <MatExpansionPanel>
                     <MatExpansionPanelSummary>
