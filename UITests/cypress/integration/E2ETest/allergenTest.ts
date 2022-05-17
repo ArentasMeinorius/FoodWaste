@@ -1,7 +1,5 @@
 /// <reference types="cypress" />
 
-import { forEach } from "cypress/types/lodash";
-
 describe('FoodWaste allergens', () => {
     beforeEach(() => {
       cy.visit('https://localhost:44368');
@@ -18,10 +16,10 @@ describe('FoodWaste allergens', () => {
   
     it('Creates product, user is allergic to the product', () => {
       //product creation stage
-      let allergenNames = ['Milk', 'Eggs', 'Peanuts']
+      let allergenNames = ['Milk', 'Eggs', 'Peanuts'];
       let productName = '1111111';
-      cy.get('.nav-link').contains('Products').click()
-      cy.get('a').contains('Add a product').click()
+      cy.get('.nav-link').contains('Products').click();
+      cy.get('a').contains('Add a product').click();
    
       for(var i=1;i<=allergenNames.length;i++){
         CreateNewAllergen(allergenNames[i-1],i%3!=0);
@@ -56,7 +54,7 @@ describe('FoodWaste allergens', () => {
     })
 
     it('Creates allergen, it appears in list, no empty fields', () => {
-      var productName = "testCreate";
+      var productName = "1111111";
       cy.get('.nav-link').contains('Products').click();
       cy.get('a').contains('Add a product').click();
 
@@ -69,8 +67,8 @@ describe('FoodWaste allergens', () => {
 
     it('Removes allergen, one should be removed, not all of them', () => {
       var productName = "22222222";
-      cy.get('.nav-link').contains('Products').click()
-      cy.get('a').contains('Add a product').click()
+      cy.get('.nav-link').contains('Products').click();
+      cy.get('a').contains('Add a product').click();
 
       var allergenNames = ['Milk', 'Eggs', 'Peanuts'];
       for(var i=0;i<allergenNames.length;i++){
@@ -124,14 +122,14 @@ describe('FoodWaste allergens', () => {
       cy.get('#newAllergen').children('input').type(name).parent().children('matbutton').click();
       cy.get('matlistItem').children('div').contains(name).parent().children().children('matbutton').contains('Add').should('have.length', 1);
       if(add){
-        cy.get('matlistItem').children('div').contains(name).parent().children().children('matbutton').contains('Add').click()
+        cy.get('matlistItem').children('div').contains(name).parent().children().children('matbutton').contains('Add').click();
       }
     }
 
     function DeleteProduct(name:string){
-      cy.get('.nav-link').contains('Products').click()
-      cy.get('tr').children('td').contains(name).parent().children('td').contains('Delete').click()
-      cy.get('input').contains('Delete').click()
+      cy.get('.nav-link').contains('Products').click();
+      cy.get('tr').children('td').contains(name).parent().children('td').contains('Delete').click();
+      cy.get('input').contains('Delete').click();
     }
   })
   
