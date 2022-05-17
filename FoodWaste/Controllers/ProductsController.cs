@@ -372,8 +372,20 @@ namespace FoodWaste.Controllers
             _logger.LogInformation("Statrt: deleting product {Id}", id);
             var product = await _context.Product.FindAsync(id);
             _context.Product.Remove(product);
-            var productAllergens = _context.ProductAllergens.Where(p => p.AllergenId == id);
-            //if no one uses allergens, remove them
+            var productAllergens = _context.ProductAllergens.Where(p => p.ProductId == id);
+            _context.ProductAllergens.RemoveRange(productAllergens);
+            var allergensByTheirUsage = _context.ProductAllergens
+                .GroupBy(p => p.AllergenId)
+                .Select(p => new
+                {
+                    p.Key,
+                    AllergenUsage = p.Count()
+                })
+                .Where(p => p.AllergenUsage == 1 && productAllergens.Any(q => q.AllergenId == p.Key));
+            var dep = _context.Allergens
+                .Where(p => allergensByTheirUsage
+                .Any(q => p.AllergenId == q.Key));
+            _context.Allergens.RemoveRange(dep);
 
             await _context.SaveChangesAsync();
             _logger.LogInformation("Completed: product deleted {Product}", Newtonsoft.Json.JsonConvert.SerializeObject(product));
@@ -523,13 +535,13 @@ namespace FoodWaste.Controllers
         private async Task SaveUserData(UserTemporaryProduct product)
         {
             var curUser = _context.TemporaryProducts.FirstOrDefault(p => p.UserId == product.UserId);
-            if (curUser.ExpiryDate == product.ExpiryDate && curUser.Name == product.Name && curUser.UserId == product.UserId)
-            {
-                return;
-            }
-            else if (curUser == null)
+            if (curUser == null)
             {
                 _context.Add(product);
+            }
+            else if (curUser.ExpiryDate == product.ExpiryDate && curUser.Name == product.Name && curUser.UserId == product.UserId)
+            {
+                return;
             }
             else
             {
@@ -548,6 +560,4 @@ namespace FoodWaste.Controllers
 }
 // todo
 // user Saved data is not saved
-// create allergen no value is selected
 // atm skip edit allergen
-// 
