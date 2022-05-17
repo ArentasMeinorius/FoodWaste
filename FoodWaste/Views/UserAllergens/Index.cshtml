@@ -17,7 +17,7 @@
                                     @allergen.Name
                                 </div>
                                 <div style="float:right">
-                                    <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Add/@allergen.AllergenId'" type="button">Add</MatButton>
+                                    <MatButton Id="AddAllergen" Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Add/@allergen.AllergenId'" type="button">Add</MatButton>
                                 </div>
                             </MatListItem>
                         }
@@ -37,7 +37,7 @@
                                     @allergen.Name
                                 </div>
                                 <div style="float:right">
-                                    <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Remove/@allergen.AllergenId'" type="button">Remove</MatButton>
+                                    <MatButton Id = "RemoveAllergen" Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Remove/@allergen.AllergenId'" type="button">Remove</MatButton>
                                 </div>
                             </MatListItem>
                         }

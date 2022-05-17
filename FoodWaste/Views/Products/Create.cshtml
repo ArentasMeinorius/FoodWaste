@@ -1,15 +1,18 @@
 ﻿@model FoodWaste.Models.Product
 @using Microsoft.AspNetCore.Components
-
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#createAllergen").click(function () {
+                let link = "/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=" + $("#allergenName").val();
+                window.location.replace(link);
+            });
+        });
+    </script>
+</head>
 @{
     ViewData["Title"] = "Create";
-
-    string allergenName = "";
-
-    string GetAllergen()
-    {
-        return allergenName;
-    }
 }
 
 <h1>Create</h1>
@@ -31,8 +34,8 @@
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
             </div>
             <div id="newAllergen">
-                <input value="@allergenName">
-                <MatButton onclick="location.href = '/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=@GetAllergen()'" type="button">Create Allergen</MatButton>
+                <input id="allergenName">
+                <MatButton id="createAllergen" Outlined="true" class="btn btn-primary">Create Allergen</MatButton>
             </div>
             <MatAcordion Multi="true">
                 <MatExpansionPanel>

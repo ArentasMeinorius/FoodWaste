@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('FoodWaste allergens', () => {
+describe('FoodWaste allergens', () => {// add create your own products and then use everywhere,delete when unused
     beforeEach(() => {
       cy.visit('https://localhost:44368')
       cy.get('a').contains('Login').click()
@@ -10,10 +10,11 @@ describe('FoodWaste allergens', () => {
       //check if user has allergens
       cy.get('a').contains('My Allergens').click()
       //iteratively remove allergens by clicking remove button
-       
-      // while(cy.get('matbutton:contains("Remove")').its('length'). > 0){
+      cy.log(Cypress.$("matbutton#RemoveAllergen.btn.btn-primary").length.toString());
+      // while(Cypress.$.find("matbutton#RemoveAllergen.btn.btn-primary").length > 0){// somewhy it does not work: \ 
       //   cy.get('matbutton').contains('Remove').click()
       // }
+      
       // cy.get('matbutton:contains("Remove")').should('have.length', 0)
 
       cy.get('.navbar-brand').click()
@@ -45,8 +46,14 @@ describe('FoodWaste allergens', () => {
       cy.get('div:contains("Milk")').children('a:contains("This is dangerous")').should('have.length.greaterThan', 0)
 
       cy.get('a:contains("My Allergens")').click()
-      cy.get('matlistItem').children('div').contains('Milk').parent().children().children('matbutton').contains('Remove').click()
-     
+      cy.get('matlistItem').children('div').contains('Milk').parent().children().children('matbutton').contains('Remove').click()// remove milk and more
+
+      // while(Cypress.$("#RemoveAllergen").length > 0){// somewhy it does not work
+      //   cy.get('matbutton').contains('Remove').click()
+      // }
+      // cy.get('matbutton:contains("Remove")').should('have.length', 0)
+
+
       cy.get('.nav-link').contains('Products').click()
       cy.get('tr').children('td').contains('testProduct').parent().children('td').contains('Delete').click()
       cy.get('input').contains('Delete').click()
@@ -56,10 +63,15 @@ describe('FoodWaste allergens', () => {
       cy.get('.nav-link').contains('Products').click()
       cy.get('a').contains('Add a product').click()
       cy.get('#newAllergen').children('input').type('test').parent().children('matbutton').click()
-      // later add create product then use them
-      cy.get('matlistItem').children('div').contains('Test').parent().children().children('matbutton').contains('Remove').should('have.length', 1)
+      
+      cy.get('matlistItem').children('div').contains('test').parent().children().children('matbutton').contains('Remove').should('have.length', 1)
+      cy.get('matlistItem').children('div').contains('test').parent().children().children('matbutton').contains('Add').click()
       cy.get('#Name').type('testProduct')
       cy.get('input').contains('Create').click()
+
+      cy.get('.nav-link').contains('Products').click()
+      cy.get('tr').children('td').contains('testProduct').parent().children('td').contains('Delete').click()
+      cy.get('input').contains('Delete').click()
     })
 
     it('Removes allergen, one should be removed, not all of them', () => {
