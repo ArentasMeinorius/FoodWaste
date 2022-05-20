@@ -1,5 +1,16 @@
 ﻿@model FoodWaste.Models.Product
-
+@using Microsoft.AspNetCore.Components
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#createAllergen").click(function () {
+                let link = "/Products/Create/Allergen/?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&name=" + $("#allergenName").val();
+                window.location.replace(link);
+            });
+        });
+    </script>
+</head>
 @{
     ViewData["Title"] = "Create";
 }
@@ -22,6 +33,54 @@
                 <input asp-for="ExpiryDate" class="form-control" />
                 <span asp-validation-for="ExpiryDate" class="text-danger"></span>
             </div>
+            <div id="newAllergen">
+                <input id="allergenName">
+                <MatButton id="createAllergen" Outlined="true" class="btn btn-primary">Create Allergen</MatButton>
+            </div>
+            <MatAcordion Multi="true">
+                <MatExpansionPanel>
+                    <MatExpansionPanelSummary>
+                        <MatExpansionPanelHeader>Added allergens</MatExpansionPanelHeader>
+                    </MatExpansionPanelSummary>
+                    <MatExpansionPanelDetails>
+                        <MatList>
+                            @foreach (var allergen in (IEnumerable<Allergen>)ViewData["CurrentAllergens"])
+                            {
+                                <MatListItem style=" display: inline-block; width: 100%;">
+                                    <div style="float:left; margin: 0">
+                                        @allergen.Name
+                                    </div>
+                                    <div style="float:right">
+                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Remove/Allergen?foodName=@Model.Name&ExpiryDate=@Model.ExpiryDate&allergenId=@allergen.AllergenId'" type="button">Remove</MatButton>
+                                    </div>
+                                </MatListItem>
+                            }
+                        </MatList>
+                    </MatExpansionPanelDetails>
+                </MatExpansionPanel>
+
+                <MatExpansionPanel>
+                    <MatExpansionPanelSummary>
+                        <MatExpansionPanelHeader>List of potential allergens</MatExpansionPanelHeader>
+                    </MatExpansionPanelSummary>
+                    <MatExpansionPanelDetails>
+                        <MatList>
+                            @foreach (var allergen in (IEnumerable<Allergen>)ViewData["Allergens"])
+                            {
+                                <MatListItem style=" display: inline-block; width: 100%;">
+                                    <div style="float:left; margin: 0">
+                                        @allergen.Name
+                                    </div>
+                                    <div style="float:right">
+                                        <MatButton Outlined="true" class="btn btn-primary" onclick="location.href = '/Products/Add/Allergen?foodName=@Model.Name&expiryDate=@Model.ExpiryDate&allergenId=@allergen.AllergenId'" type="button">Add</MatButton>
+                                    </div>
+                                </MatListItem>
+                            }
+                        </MatList>
+                    </MatExpansionPanelDetails>
+                </MatExpansionPanel>
+            </MatAcordion>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

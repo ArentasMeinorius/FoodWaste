@@ -11,7 +11,7 @@ namespace FoodWaste.Models
     public class Product
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime ExpiryDate { get; set; }
         public ProductState State { get; set; }
@@ -23,5 +23,7 @@ namespace FoodWaste.Models
         public int? UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser ApplicationUser { get; set; }
+        [NotMapped]
+        public List<Allergen> ProductAllergens { get; set; }
     }
 }

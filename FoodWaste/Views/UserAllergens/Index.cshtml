@@ -1,0 +1,57 @@
+﻿@model FoodWaste.Models.UserAllergenViewModel
+<h4>Allergen list</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <MatAcordion Multi="true">
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>List of potential allergens</MatExpansionPanelHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatList>
+                        @foreach (var allergen in Model.Allergens)
+                        {
+                            <MatListItem style=" display: inline-block; width: 100%;">
+                                <div style="float:left; margin: 0">
+                                    @allergen.Name
+                                </div>
+                                <div style="float:right">
+                                    <MatButton Id="AddAllergen" Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Add/@allergen.AllergenId'" type="button">Add</MatButton>
+                                </div>
+                            </MatListItem>
+                        }
+                    </MatList>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+            <MatExpansionPanel>
+                <MatExpansionPanelSummary>
+                    <MatExpansionPanelHeader>List your allergens</MatExpansionPanelHeader>
+                </MatExpansionPanelSummary>
+                <MatExpansionPanelDetails>
+                    <MatList>
+                        @foreach (var allergen in Model.UserAllergens)
+                        {
+                            <MatListItem style=" display: inline-block; width: 100%;">
+                                <div style="float:left; margin: 0">
+                                    @allergen.Name
+                                </div>
+                                <div style="float:right">
+                                    <MatButton Id = "RemoveAllergen" Outlined="true" class="btn btn-primary" onclick="location.href = '/UserAllergens/Remove/@allergen.AllergenId'" type="button">Remove</MatButton>
+                                </div>
+                            </MatListItem>
+                        }
+                    </MatList>
+                </MatExpansionPanelDetails>
+            </MatExpansionPanel>
+        </MatAcordion>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

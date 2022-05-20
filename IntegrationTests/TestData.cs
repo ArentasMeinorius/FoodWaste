@@ -32,7 +32,7 @@ namespace IntegrationTests
         {
             new Product
             {
-                Id = 11,
+                Id = Guid.NewGuid(),
                 Name = "Test",
                 ExpiryDate = new DateTime(),
                 State = ProductState.Listed,
@@ -41,7 +41,7 @@ namespace IntegrationTests
             },
             new Product
             {
-                Id = 12,
+                Id = Guid.NewGuid(),
                 Name = "TData",
                 ExpiryDate = new DateTime(),
                 State = ProductState.Listed,

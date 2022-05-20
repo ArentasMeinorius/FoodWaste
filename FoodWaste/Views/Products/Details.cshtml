@@ -47,6 +47,26 @@
             @Html.DisplayFor(model => model.Restaurant.PhoneNumber)
         </dd>
     </dl>
+    Allergens
+    @foreach (var allergen in Model.Product.ProductAllergens)
+    {
+        <div>
+            @allergen.Name
+            @{
+                var buttonValue = "I'm allergic to this";
+                if (User.Identity.IsAuthenticated)
+                {
+                    if (Model.Allergens.Any(p => p.AllergenId == allergen.AllergenId))
+                    {
+                        buttonValue = "This is dangerous";
+                    }
+                    <a href="Modify/@Model.Product.Id/@allergen.AllergenId">
+                        @buttonValue
+                    </a>
+                }
+            }
+        </div>
+    }
 </div>
 <div>
     @*<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |*@

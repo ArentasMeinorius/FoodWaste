@@ -3,15 +3,17 @@ using System;
 using FoodWaste.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FoodWaste.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220516053736_product-temp-tables")]
+    partial class producttemptables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,7 +33,12 @@ namespace FoodWaste.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
+                    b.Property<Guid?>("ProductId")
+                        .HasColumnType("uuid");
+
                     b.HasKey("AllergenId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Allergens");
                 });
@@ -120,11 +127,13 @@ namespace FoodWaste.Migrations
 
             modelBuilder.Entity("FoodWaste.Models.UserCreatedAllergens", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
                     b.Property<Guid>("AllergenId")
                         .HasColumnType("uuid");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Details")
                         .HasColumnType("text");
@@ -132,31 +141,35 @@ namespace FoodWaste.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.HasKey("AllergenId", "UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("CreatedAllergens");
+                    b.ToTable("UserCreatedAllergens");
                 });
 
             modelBuilder.Entity("FoodWaste.Models.UserSelectedAllergens", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
                     b.Property<Guid>("AllergenId")
                         .HasColumnType("uuid");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.HasKey("AllergenId", "UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("SelectedAllergens");
+                    b.ToTable("UserSelectedAllergens");
                 });
 
             modelBuilder.Entity("FoodWaste.Models.UserTemporaryProduct", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("timestamp without time zone");
@@ -167,9 +180,9 @@ namespace FoodWaste.Migrations
                     b.Property<int>("State")
                         .HasColumnType("integer");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("TemporaryProducts");
+                    b.ToTable("UserTemporaryProducts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -384,6 +397,13 @@ namespace FoodWaste.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("FoodWaste.Models.Allergen", b =>
+                {
+                    b.HasOne("FoodWaste.Models.Product", null)
+                        .WithMany("ProductAllergens")
+                        .HasForeignKey("ProductId");
+                });
+
             modelBuilder.Entity("FoodWaste.Models.Product", b =>
                 {
                     b.HasOne("FoodWaste.Models.Restaurant", "Restaurants")
@@ -459,6 +479,11 @@ namespace FoodWaste.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FoodWaste.Models.Product", b =>
+                {
+                    b.Navigation("ProductAllergens");
                 });
 
             modelBuilder.Entity("FoodWaste.Data.ApplicationDbContext+ApplicationUser", b =>

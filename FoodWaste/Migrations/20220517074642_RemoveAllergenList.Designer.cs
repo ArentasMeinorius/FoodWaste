@@ -3,15 +3,17 @@ using System;
 using FoodWaste.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace FoodWaste.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220517074642_RemoveAllergenList")]
+    partial class RemoveAllergenList
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,11 +122,13 @@ namespace FoodWaste.Migrations
 
             modelBuilder.Entity("FoodWaste.Models.UserCreatedAllergens", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
                     b.Property<Guid>("AllergenId")
                         .HasColumnType("uuid");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Details")
                         .HasColumnType("text");
@@ -132,31 +136,35 @@ namespace FoodWaste.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.HasKey("AllergenId", "UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("CreatedAllergens");
+                    b.ToTable("UserCreatedAllergens");
                 });
 
             modelBuilder.Entity("FoodWaste.Models.UserSelectedAllergens", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
+
                     b.Property<Guid>("AllergenId")
                         .HasColumnType("uuid");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.HasKey("AllergenId", "UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("SelectedAllergens");
+                    b.ToTable("UserSelectedAllergens");
                 });
 
             modelBuilder.Entity("FoodWaste.Models.UserTemporaryProduct", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .UseIdentityByDefaultColumn();
 
                     b.Property<DateTime>("ExpiryDate")
                         .HasColumnType("timestamp without time zone");
@@ -167,9 +175,9 @@ namespace FoodWaste.Migrations
                     b.Property<int>("State")
                         .HasColumnType("integer");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
-                    b.ToTable("TemporaryProducts");
+                    b.ToTable("UserTemporaryProducts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/main.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="_content/MatBlazor/dist/matBlazor.js"></script>
+    <link href="_content/MatBlazor/dist/matBlazor.css" rel="stylesheet" />
 </head>
 <body style="background-color:#FCF8F2">
     <header>
@@ -45,7 +47,7 @@
         </main>
     </div>
     <hr>
-    <div class="layout">    
+    <div class="layout">
         <div class="all-cols footer-section">
             <div class="faq">
                 <a href="/Products" target="_blank" rel="noopener" class="link-block">
@@ -67,16 +69,16 @@
                     <h3 style="font-weight:bold">Additional Infomartion:</h3>
                     <p>Work Hours: I-IV 8:00-17:00</p>
                 </div>
-                
+
             </div>
             <div class="faq" style="padding-top: 35px">
-                <a target="_blank" rel="noopener" class="link-block" asp-area="Identity" asp-page="/Account/ContactUs"> <h3 style="font-weight:bold">Contact Us</h3></a>    
+                <a target="_blank" rel="noopener" class="link-block" asp-area="Identity" asp-page="/Account/ContactUs"> <h3 style="font-weight:bold">Contact Us</h3></a>
+                <p></p>
+                </a>
+                <a href="https://labas.lt" target="_blank" rel="noopener" class="link-block">
+                    <h3 style="font-weight:bold">Leave Feedback</h3>
                     <p></p>
                 </a>
-                    <a href="https://labas.lt" target="_blank" rel="noopener" class="link-block">
-                        <h3 style="font-weight:bold">Leave Feedback</h3>
-                        <p></p>
-                    </a>
             </div>
         </div>
     </div>
@@ -88,14 +90,14 @@
             </p>
             <div class="contacts-logos">
                 <img src="/logo/VU-logotype.png" alt="Vilniaus Universitetas" width="125px" height="125px">
-                <img src="~/logo/mainlogo-removebg-preview.png"  alt="FoodWaste" width="100px" height="100px">
+                <img src="~/logo/mainlogo-removebg-preview.png" alt="FoodWaste" width="100px" height="100px">
             </div>
         </div>
     </div>
- 
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
-    </html>
+</html>
