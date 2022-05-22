@@ -86,6 +86,42 @@ header-includes:
 
 ## Concurrency viewpoint
 
+### Task Structure
+
+![Concurency Diagram](Assets/lab4/ConcurencyDiagram.jpg)
+
+As an online shop we need to be able to handle several orders at once.
+
+### Interprocess Communication
+
+Since we need to handle several users at once and our website is running on one machine (server) we can make use of processor threads and let the machine work asynchronously
+
+### State Management
+
+Instead of holding current order states we are going to capture events that change the state. It will make the transaction process a bit slower but in case of emergency or data loss we'll be able to easily recover. Currently slower transactions won't cause problems because transactions in most cases are pretty short and several threads will handle them fast enough. 
+
+### Synchronization and Integrity
+
+Each order event will have to be immediately updated to database to prevent people from ordering the same product if it's out of stock.
+
+### Supporting Scalability
+
+Currently our system in on a really small scale, therefore scalability is not an issue. Majority of functions can be easily reused and extended with need.
+
+### Startup and Shutdown Procedures
+
+Since we are using event based state management, there are no specific precautions when shutting down the system. Starting the system is as simple as loading up the data from the database
+
+### Task Failure Modes
+
+Again, event based state management lets us track any events that happend or may have caused issues making it easy to solve problems and quickly restore previous states.
+
+### Reentrancy
+
+Ordering process should be re-entrant if the system breaks during payment. Our event help with this functionality
+
+### Requirement specifics 
+
 Not applicable. Allergens are properties, not processes that could happen concurrently.
 
 ## Development viewpoint
@@ -119,7 +155,7 @@ Since we are using .NET core we are going to use available libraries to make our
 
 ### Technology Compatibility
 
-Due to .NET core used libraries should be backwards compatible but in case there are runtime error, we have provided version in previous segment
+Due to .NET core used libraries should be backwards compatible but in case there are runtime error, we have provided versions in previous segment
 
 ### Network Requirements
 
