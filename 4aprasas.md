@@ -76,6 +76,7 @@ Every food Product has an allergens list. The list can be changed when the produ
  + User have their own allergens in their profile.\
  + Tests for the new functionality.
 
+\clearpage
 # Viewpoints
 
 ## Context viewpoint
@@ -123,7 +124,7 @@ FoodWaste uses single point of truth: the database. Data is inserted via transac
 The system update:
 Not applicable.
 
-
+\clearpage
 ## Functional viewpoint
 
 ### Functional capabilities:
@@ -158,6 +159,7 @@ FoodWaste aims to reduce food waste while helping individuals. This is a non pro
 The system update:
 Allergen functionality aims to provide all the tools for the individuals to choose foods that do not harm them.
 
+\clearpage
 ## Information viewpoint
 
 ### Information Structure and Content
@@ -256,6 +258,7 @@ There is no useful information in our system that should be archived after it is
 The system update:
 Allergen information shouldn’t really be deleted or archived, so no changes from the text above.
 
+\clearpage
 ## Concurrency viewpoint
 
 ### Task Structure
@@ -296,12 +299,12 @@ Ordering process should be re-entrant if the system breaks during payment. Our e
 
 Not applicable. Allergens are properties, not processes that could happen concurrently.
 
+\clearpage
 ## Development viewpoint
 
 Because there are no future plans of expanding or working on the system in any ways, this viewpoint was not considered.
 
 \clearpage
-
 ## Deployment viewpoint
 
 ### Runtime Platform Required
@@ -346,6 +349,7 @@ We might want to expand with this later, to have a remote server in case of emer
 
 Allergens are properties, not major components that change the program environment or its execution. Deployment will not differ from other feature deployments (A/B testing in production environment for part of the users and if there are no incidents - major release).
 
+\clearpage
 ## Operational viewpoint
 
 ### Instalation and Upgrade
@@ -460,6 +464,7 @@ Not applicable. Accessibility support is only front end.
 The whole system:
 Not applicable. Processes do not change.
 
+\clearpage
 ## Availability and Resilience perspective
 
 ### On Concurrency view
@@ -493,8 +498,10 @@ As was written before, we do not use a local database. We should use two databas
 The whole system:
 In case of a system hardware failure or database storage supplier going down, the system should be ready to make a swift diagnostic of what services are unavailable and what course of action should be taken. The entire process must be tested beforehand.
 
+\clearpage
 ## Development Resource perspective
 
+\clearpage
 ## Evolution perspective
 
 ### On Concurrency view
@@ -529,6 +536,7 @@ As FoodWaste will become bigger project and more users will depend on it - more 
 
 ## Internalization perspective
 
+\clearpage
 ## Location perspective
 
 ### On Concurrency view
@@ -559,8 +567,10 @@ Not applicable, functional view is presented independently of real-world locatio
 The whole system:
 Not applicable, development in the system is planned to be done in a single location.
 
+\clearpage
 ## Performance and Scalability perspective
 
+\clearpage
 ## Regulaiton perspective
 ### On Context view
 The whole system:
@@ -593,8 +603,10 @@ Not applicable, this perspective has little or no impact on the Deployment view,
 The whole system:
 We need to be able to automatically give out SLAs to our users to be able to provide our services. This includes basic services, cookie usage, etc.
 
+\clearpage
 ## Security perspective
 
+\clearpage
 ## Usability perspective
 
 ### On Concurrency view
