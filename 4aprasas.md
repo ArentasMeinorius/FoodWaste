@@ -40,7 +40,7 @@ header-includes:
 
 
 # Summary {.unlisted .unnumbered}
-&nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the second laboratory assignment is to design the system and required changes. While in the first laboratory work we analysed business and all its processes, this time the attention on existing system and the changes. \
+&nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the fourth laboratory assignment is to define the architecture of the system. This time we will write about the viewpoints and perspective of the system for what the system is and what we added to it. \
 
 **The main tasks of this iteration:** \
    1. Allergens feature \
@@ -54,6 +54,28 @@ header-includes:
 \clearpage
 
 \clearpage
+# Context
+For a system to be successful, it must be developed with the intention of solving a real-world problem, which, in our case, is reducing food waste in restaurants and shops. The software is useless if it does not solve required problem. In this part we analyse our problem and how it is intended to be solved. 
+
+## Goal of the system
+Reduce food waste by distributing it.
+
+### The problem
+Not all food products are sold before spoiling, sometimes restaurants do not use all the food they have bought.
+
+### Solution
+Prepare a plaftorm that would stand as a middle man helping people sell excess food while  allowing others to buy it cheaper.
+
+## Planned changes
+To further develop and increase the functionality of the existing system we want to realise a new functionality:
+
+Every food Product has an allergens list. The list can be changed when the product is added or modified.
+
+### Change list
+ + Allergens tags on food products.\
+ + User have their own allergens in their profile.\
+ + Tests for the new functionality.
+
 # Viewpoints
 
 ## Context viewpoint
