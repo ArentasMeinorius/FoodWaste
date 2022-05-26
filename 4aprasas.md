@@ -40,7 +40,7 @@ header-includes:
 
 
 # Summary {.unlisted .unnumbered}
-&nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the second laboratory assignment is to design the system and required changes. While in the first laboratory work we analysed business and all its processes, this time the attention on existing system and the changes. \
+&nbsp;&nbsp;&nbsp;&nbsp;The primary objective of the fourth laboratory assignment is to define the architecture of the system. This time we will write about the viewpoints and perspective of the system for what the system is and what we added to it. \
 
 **The main tasks of this iteration:** \
    1. Allergens feature \
@@ -52,6 +52,29 @@ header-includes:
 \clearpage
 \tableofcontents
 \clearpage
+
+\clearpage
+# Context
+For a system to be successful, it must be developed with the intention of solving a real-world problem, which, in our case, is reducing food waste in restaurants and shops. The software is useless if it does not solve required problem. In this part we analyse our problem and how it is intended to be solved. 
+
+## Goal of the system
+Reduce food waste by distributing it.
+
+### The problem
+Not all food products are sold before spoiling, sometimes restaurants do not use all the food they have bought.
+
+### Solution
+Prepare a plaftorm that would stand as a middle man helping people sell excess food while  allowing others to buy it cheaper.
+
+## Planned changes
+To further develop and increase the functionality of the existing system we want to realise a new functionality:
+
+Every food Product has an allergens list. The list can be changed when the product is added or modified.
+
+### Change list
+ + Allergens tags on food products.\
+ + User have their own allergens in their profile.\
+ + Tests for the new functionality.
 
 \clearpage
 # Viewpoints
@@ -101,7 +124,7 @@ FoodWaste uses single point of truth: the database. Data is inserted via transac
 The system update:
 Not applicable.
 
-
+\clearpage
 ## Functional viewpoint
 
 ### Functional capabilities:
@@ -136,6 +159,7 @@ FoodWaste aims to reduce food waste while helping individuals. This is a non pro
 The system update:
 Allergen functionality aims to provide all the tools for the individuals to choose foods that do not harm them.
 
+\clearpage
 ## Information viewpoint
 
 ### Information Structure and Content
@@ -145,6 +169,8 @@ The main information that our system manipulates is user data, restaurant inform
 
 The system update:
 The update added a new Allergen class to the system. It carries the name and description information of an allergen. It is used by the User and FoodProduct classes. For user it records what the user is allergic to, and for FoodProduct it records what kind of allergens it has.
+
+![Class Diagram](Assets/lab3/ClassDiagram.png "class diagram")
 
 ### Information Purpose and Usage
 
@@ -234,6 +260,7 @@ There is no useful information in our system that should be archived after it is
 The system update:
 Allergen information shouldn’t really be deleted or archived, so no changes from the text above.
 
+\clearpage
 ## Concurrency viewpoint
 
 ### Task Structure
@@ -274,12 +301,15 @@ Ordering process should be re-entrant if the system breaks during payment. Our e
 
 Not applicable. Allergens are properties, not processes that could happen concurrently.
 
+\clearpage
 ## Development viewpoint
 
+Because there are no future plans of expanding or working on the system in any ways, this viewpoint was only minimally considered.
+
+The system update:
 Allergen in FoodWaste system is not a major architectural component. Allergen lists are attached to major components such as product and user, however, they do not interfere with current usage of these entities and their functionality (except for the alert if trying to reserve allergic foods). In the future, it should be easy to implement allergen filtering on main page (for better user experience).
 
 \clearpage
-
 ## Deployment viewpoint
 
 ### Runtime Platform Required
@@ -325,6 +355,7 @@ We might want to expand with this later, to have a remote server in case of emer
 
 Allergens are properties, not major components that change the program environment or its execution. Deployment will not differ from other feature deployments (A/B testing in production environment for part of the users and if there are no incidents - major release).
 
+\clearpage
 ## Operational viewpoint
 
 ### Instalation and Upgrade
@@ -439,21 +470,16 @@ Not applicable. Accessibility support is only front end.
 The whole system:
 Not applicable. Processes do not change.
 
+\clearpage
 ## Availability and Resilience perspective
 
 ### On Concurrency view
 The whole system:
 The system should have redundant hardware in case of the used one failing. Not being able to sell our food products would mean that a lot of them would go to waste and we, as well as our partners, would lose out on profits.  Because we do not have a local database we should look into having multiple providers to host our data in case one of them would fail to provide their services. Our system should also have an automated failover in case the hardware fails. Best case scenario would be that the emergency system could take over the work of the failed system.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Deployment view
 The whole system:
 The redundant hardware should always be ready for deployment and up to date. During the deployment the system should be autonomous enough to know which database is ready to use and in what state were the users left when the system failed.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Context view
 The whole system:
@@ -466,23 +492,19 @@ As allergens are important to the health and wellbeing of our users, therefore i
 The whole system:
 Unfortunately, due to the nature of our system, having a network connection and a working system is essential if users want to use our system as it was intended. If the system would totally collapse or the user would lose internet connection for a long period of time the user would be left without any way to interact with the system. If we were to allow some accessibility to the user when they are offline to, for example, look through their profile or order history, it would be a violation of user data security and should not be allowed.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
+### On Development view
+The whole system:
+Not applicable, the system would restart fully if a failover would happen on the system hardware or it would wait until connection to the backup database would be established if database storage provider would go offline.
 
 ### On Information view
 The whole system:
 As was written before, we do not use a local database. We should use two database storage providers in case the provider goes offline for whatever reason. The system should be constantly communicating with the database so that it could tell when the database is inaccessible as soon as possible. In theory, transitioning to the other database should not take too much time. The backup database should be updated every night when there are minimal number of users using the system, as the process should be lengthy.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Operational view
 The whole system:
 In case of a system hardware failure or database storage supplier going down, the system should be ready to make a swift diagnostic of what services are unavailable and what course of action should be taken. The entire process must be tested beforehand.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
+\clearpage
 ## Development Resource perspective
 
 ### On Concurrency view
@@ -524,6 +546,8 @@ We need a large staff of specialists to prepare sophisticated information models
 The whole system:
 We need people to operate the system and administere it. Install or upgrade it
 
+\clearpage
+
 ## Evolution perspective
 
 ### On Concurrency view
@@ -558,60 +582,47 @@ As FoodWaste will become bigger project and more users will depend on it - more 
 
 ## Internalization perspective
 
+\clearpage
 ## Location perspective
 
 ### On Concurrency view
 The whole system:
 Because our database is accessed remotely, the latency can be slightly higher than normal. Knowing that the same record from it won’t be accessible to multiple users combined with the latency can result in long query times. Therefore, the system should be able to determine on its own how many products it can sell to the user before noting the change in stock in the database when the needed record is not occupied. This means that the system should always have a limit on the quantity of a single product that the user can purchase at a given timeframe.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Deployment view
 The whole system:
 Because the only separate part of our system is the database, the disparity is not a big issue. We should take into consideration to have our queries and their results as short as possible, as the database is going to be used constantly.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Context view
 The whole system:
 The database storage providers should be based in Europe, as it would ensure we have minimal latency and reliable availability
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Information view
 The whole system:
 The main database should be used to update the backup database. The update would take place every night when the system experiences minimal user activity. If a provider were to go offline the system should be able to swiftly diagnose the disconnect and start using the backup database. Of course, if the disconnect takes places in the evening, the data will be inaccurate. The system should have access to some statistical measurements of how fast certain food products are bought on what times of day and roughly assess how much food products should be left in stock and could be sold while keeping tabs of current transactions to update the main database when it comes back online. It is certain that separate providers will be able to synchronize the database information on their own, so during the night the system should compare the stock of main database to the stock of the backup one and issue update commands on its own.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Operational view
 The whole system:
 Because we are using a provider that specializes in database hosting, we believe that they can be trusted to deliver their best efforts to keep their services running. If any unforeseen event occurs, we trust that they will recover within a couple of hours.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
+### On Functional view
+The whole system:
+Not applicable, functional view is presented independently of real-world location concerns.
 
-## Performance and Scalability perspective
+### On Development view
+The whole system:
+Not applicable, development in the system is planned to be done in a single location.
 
-## Regulation perspective
+\clearpage
+## Regulaiton perspective
 
 ### On Context view
 The whole system:
 Our system should be able to generate monthly reports to an accounting company so that they could work on salary calculations, audit reports, etc.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Functional view
 The whole system:
 Because we are dealing with food that is near its expiration, we should take we partner with companies that can ensure, that their provided food products comply with “Lietuvos Respublikos maisto įstatymas”, document number VIII-1608.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Information view
 The whole system:
@@ -620,13 +631,23 @@ Because we operate in Europe, we have to be able to give a  request to our users
 The system update:
 We will have to ask for a permission to collect and manage data about user allergies. Allergens will be deleted on request of the user or on user profile termination.
 
+### On Concurrency view
+The whole system:
+Not applicable, this perspective has little or no impact on the Concurrency view.
+
+### On Development view
+The whole system:
+Not applicable, this perspective has little or no impact on the Development view.
+
+### On Deployment view
+The whole system:
+Not applicable, this perspective has little or no impact on the Deployment view, as we do not have any sort of health or safety hazards because of our used hardware.
+
 ### On Operational view
 The whole system:
 We need to be able to automatically give out SLAs to our users to be able to provide our services. This includes basic services, cookie usage, etc.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
+\clearpage
 ## Security perspective
 
 To review our systems security we will be using OWASP model
@@ -671,6 +692,8 @@ We use almost no external APIs, there is always a risk that some security flaw w
 
 We use event sourcing which helps us to monitor and log everything that happens within the program
 
+\clearpage
+
 ## Usability perspective
 
 ### On Concurrency view
@@ -699,6 +722,15 @@ Efficient use of data enables FoodWaste to operate quickly - all users are impac
 ### On Operational view
 The whole system:
 Not applicable. Processes do not change.
+
+\clearpage
+
+# Architectural styles
+## Data-centred
+First and foremost, it’s hard to deny that our main architectural style is data-centred. Because we sell food products the main goal of our system is to manage the data about them and allow the users to conveniently look it up and for the food product providers to conveniently update information about the food products. There fore the database is the heart of our system, accessed continuously thorough the functioning of our operations. If our database is for some reason inaccessible the entire system cannot work, no matter how much processes can be executed independently by the client components. This leads us to our second 
+
+## Component-based
+Because our system expects multiple kinds of users to use our system in different, but similar ways, our architectural style is also component-based. A lot of processes require their unique components, like payments, accounting, monitoring, food product update, profile update, etc. Therefore, we had to utilize component-based architecture to create a system that would be able to fulfil these varied requirements while allowing to reuse some code.
 
 \clearpage
 
@@ -738,3 +770,25 @@ Test case steps:
 * User allergen adding/removing
 
 * Warning messages when allergens are in the product. 
+
+\clearpage
+# Traceability
+
+## Requirements
+
+* R1 Allergens tags on food products \
+* R2 Remove reservation \
+* R3 Restaurant might have multiple addresses \
+* R4 Notifications for selected restaurants \
+
+## Viewpoints
+
+* V1 Context viewpoint \
+* V2 Functional viewpoint \
+* V3 Information viewpoint \
+* V4 Concurrency viewpoint \
+* V5 Development viewpoint \
+* V6 Deployment viewpoint \
+* V7 Operational viewpoint
+
+![Traceability matrix](Assets/lab4/TraceabilityLab4.PNG)
