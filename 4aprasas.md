@@ -461,7 +461,7 @@ Because the update added an extra functionality, the same points apply to it as 
 \clearpage
 
 # Testability
-For this iteration one of the requirements to be implemented is the ability to use allergens in the system. After implementing the system changes, we will have to test it to make sure that it is working properly. The test case should cover changes in the system, both fronted and backend, as well as changes in the database. For this an UI test case written using Cypress framework in typescript will be used. 
+For this iteration one of the requirements to be implemented is the ability to use allergens in the system. After implementing the system changes, we will have to test it to make sure that it is working properly. The test case should cover changes in the system, both frontend and backend, as well as changes in the database. For this an UI test case written using Cypress framework in typescript will be used. 
 
 Test case steps:
 
@@ -479,7 +479,7 @@ Test case steps:
 
 ![Cypress UI test case](Assets/lab4/UITest.png)
 
-## Aspects tested from the front-end:
+## Aspects tested from the frontend:
 
 * Create product form with allergens
 
@@ -489,7 +489,7 @@ Test case steps:
 
 * Product details page with allergens information and warning when user is allergic to allergens 
 
-## Aspects tested from the back-end:
+## Aspects tested from the backend:
 
 * Product creation/deletion with allergens
 
