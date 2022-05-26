@@ -481,6 +481,10 @@ As allergens are important to the health and wellbeing of our users, therefore i
 The whole system:
 Unfortunately, due to the nature of our system, having a network connection and a working system is essential if users want to use our system as it was intended. If the system would totally collapse or the user would lose internet connection for a long period of time the user would be left without any way to interact with the system. If we were to allow some accessibility to the user when they are offline to, for example, look through their profile or order history, it would be a violation of user data security and should not be allowed.
 
+### On Development view
+The whole system:
+Not applicable, the system would restart fully if a failover would happen on the system hardware or it would wait until connection to the backup database would be established if database storage provider would go offline.
+
 ### On Information view
 The whole system:
 As was written before, we do not use a local database. We should use two database storage providers in case the provider goes offline for whatever reason. The system should be constantly communicating with the database so that it could tell when the database is inaccessible as soon as possible. In theory, transitioning to the other database should not take too much time. The backup database should be updated every night when there are minimal number of users using the system, as the process should be lengthy.
@@ -547,6 +551,14 @@ The main database should be used to update the backup database. The update would
 The whole system:
 Because we are using a provider that specializes in database hosting, we believe that they can be trusted to deliver their best efforts to keep their services running. If any unforeseen event occurs, we trust that they will recover within a couple of hours.
 
+### On Functional view
+The whole system:
+Not applicable, functional view is presented independently of real-world location concerns.
+
+### On Development view
+The whole system:
+Not applicable, development in the system is planned to be done in a single location.
+
 ## Performance and Scalability perspective
 
 ## Regulaiton perspective
@@ -564,6 +576,18 @@ Because we operate in Europe, we have to be able to give a  request to our users
 
 The system update:
 We will have to ask for a permission to collect and manage data about user allergies. Allergens will be deleted on request of the user or on user profile termination.
+
+### On Concurrency view
+The whole system:
+Not applicable, this perspective has little or no impact on the Concurrency view.
+
+### On Development view
+The whole system:
+Not applicable, this perspective has little or no impact on the Development view.
+
+### On Deployment view
+The whole system:
+Not applicable, this perspective has little or no impact on the Deployment view, as we do not have any sort of health or safety hazards because of our used hardware.
 
 ### On Operational view
 The whole system:
