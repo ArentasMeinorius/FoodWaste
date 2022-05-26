@@ -236,6 +236,42 @@ Allergen information shouldn’t really be deleted or archived, so no changes fr
 
 ## Concurrency viewpoint
 
+### Task Structure
+
+![Concurency Diagram](Assets/lab4/ConcurencyDiagram.jpg)
+
+As an online shop we need to be able to handle several orders at once.
+
+### Interprocess Communication
+
+Since we need to handle several users at once and our website is running on one machine (server) we can make use of processor threads and let the machine work asynchronously
+
+### State Management
+
+Instead of holding current order states we are going to capture events that change the state. It will make the transaction process a bit slower but in case of emergency or data loss we'll be able to easily recover. Currently slower transactions won't cause problems because transactions in most cases are pretty short and several threads will handle them fast enough. 
+
+### Synchronization and Integrity
+
+Each order event will have to be immediately updated to database to prevent people from ordering the same product if it's out of stock.
+
+### Supporting Scalability
+
+Currently our system in on a really small scale, therefore scalability is not an issue. Majority of functions can be easily reused and extended with need.
+
+### Startup and Shutdown Procedures
+
+Since we are using event based state management, there are no specific precautions when shutting down the system. Starting the system is as simple as loading up the data from the database
+
+### Task Failure Modes
+
+Again, event based state management lets us track any events that happend or may have caused issues making it easy to solve problems and quickly restore previous states.
+
+### Reentrancy
+
+Ordering process should be re-entrant if the system breaks during payment. Our event help with this functionality
+
+### Requirement specifics 
+
 Not applicable. Allergens are properties, not processes that could happen concurrently.
 
 ## Development viewpoint
@@ -245,6 +281,46 @@ Allergen in FoodWaste system is not a major architectural component. Allergen li
 \clearpage
 
 ## Deployment viewpoint
+
+### Runtime Platform Required
+
+![Deployment diagram](Assets/lab4/DeploymentDiagram.jpg)
+
+There are no system requirements for end users, because we are developing a web application. Since we used .NET Razor Pages framework, it is highly recommended to use Windows operating system in execution environment. 
+
+### Specifications and Quantity of Hardware or Hosting Required
+
+Due to our type of service we are going to need a server to host the website with sufficient amount of storage to store all the data locally. Server specifications are currently unknown we need a consultation from more knowledgeable hardware specialist. We are also going to leave some headroom for the hardware specifications to deal with heavy loads and future growth. We are getting Azure cloud service to backup our local data to protect against possible physical damage to server or in case of power outage
+
+- Server components - TBD
+- Server Memory - TBD
+
+### Third-Party Software Requirements
+
+Since we are using .NET core we are going to use available libraries to make our work easier
+- Xunit 2.4.1
+- PostgreSQL 5.0.0-rc2
+- MatBlazor 2.8.0
+- Coverlet.Collector 3.0.2
+
+### Technology Compatibility
+
+Due to .NET core used libraries should be backwards compatible but in case there are runtime error, we have provided versions in previous segment
+
+### Network Requirements
+
+We are primarily going to use our local DB server to store data but we will want to backup the said data to Azure cloud, regular ISP speeds of 1 gigabit should be sufficient for the startup but we will want to upgrade down the road to support heavier client traffic.
+
+### Network Capacity Required
+
+Based on the recommendations for our local database server Azure cloud should be capable to handle the same amount of data (TBD)
+
+### Physical Constraints
+
+We don't have much physical constraints, we are going to need a small server and we are using cloud service for backup, so no need to rent remote area for backup database.
+We might want to expand with this later, to have a remote server in case of emergency, to keep our services always running.
+
+### Requirement specifics 
 
 Allergens are properties, not major components that change the program environment or its execution. Deployment will not differ from other feature deployments (A/B testing in production environment for part of the users and if there are no incidents - major release).
 
@@ -336,6 +412,32 @@ The update has not added any new third party environments nor removed any old on
 
 ## Accessibility perspective
 
+Currently FoodWaste does not support accessabillity standarts that it would enjoy giving to users. Here are the plans:
+
+### On Concurrency view
+The whole system:
+Not applicable. Concurrency is internal and end user does not know anything about it.
+
+### On Deployment view
+The whole system:
+Not applicable. Deployment process does not change.
+
+### On Context view
+The whole system:
+Team plans to support versions that help people with different disabilities to use the FoodWaste.
+
+### On Functional view
+The whole system:
+Buttons/voice commands will be used to enter accessibility mode. There the most basic features will be available with the potential to include all features.
+
+### On Information view
+The whole system:
+Not applicable. Accessibility support is only front end.
+
+### On Operational view
+The whole system:
+Not applicable. Processes do not change.
+
 ## Availability and Resilience perspective
 
 ### On Concurrency view
@@ -383,6 +485,36 @@ Because the update added an extra functionality, the same points apply to it as 
 ## Development Resource perspective
 
 ## Evolution perspective
+
+### On Concurrency view
+The whole system:
+FoodWaste does not have any special implementations that prohibit use of more in depth use of concurrency than the default one that .NET provides.
+
+### On Deployment view
+The whole system:
+Currently CI does not have all of the important features that it will in the future, however, there are no roadblocks to improve it.
+
+### On Context view
+The whole system:
+Currently FoodWaste does not provide courier services. This is probably biggest feature that is going to be made if the idea proves to be successful.
+
+The system update:
+Allergen functionality helps FoodWaste to become more user friendly - it is a step to increase user base.
+
+### On Functional view
+The whole system:
+Many features of current FoodWaste may change in the future. Developers try to follow many of the best practices to make new and changing features easy to implement in the future.
+
+The system update:
+There will be more allergen features that are planned. However, the team does not see this component needing more of the development power in the near future.
+
+### On Information view
+The whole system:
+FoodWaste tries to keep everything simple, however with new features it is obvious that changes will have to be made. Being able to switch tiers/products in Azure/AWS is going to be beneficial.
+
+### On Operational view
+The whole system:
+As FoodWaste will become bigger project and more users will depend on it - more rigorous systems for operations will be implemented.
 
 ## Internalization perspective
 
@@ -457,6 +589,33 @@ Because the update added an extra functionality, the same points apply to it as 
 ## Security perspective
 
 ## Usability perspective
+
+### On Concurrency view
+The whole system:
+Not applicable. Concurrency is internal and end user does not know anything about it.
+
+### On Deployment view
+The whole system:
+Not applicable. Deployment process does not change.
+
+### On Context view
+The whole system:
+FoodWaste looks forward to implement system that enables users to easily achieve the functionality provided. Usability is highly strived for in the process of developing FoodWaste.
+
+The system update:
+Allergen functionality will improve the usability of FoodWaste tremendously for people with allergies.
+
+### On Functional view
+The whole system:
+FoodWaste will use A/B testing to determine which features are the best according to users.
+
+### On Information view
+The whole system:
+Efficient use of data enables FoodWaste to operate quickly - all users are impacted by this.
+
+### On Operational view
+The whole system:
+Not applicable. Processes do not change.
 
 \clearpage
 
