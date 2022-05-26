@@ -170,6 +170,8 @@ The main information that our system manipulates is user data, restaurant inform
 The system update:
 The update added a new Allergen class to the system. It carries the name and description information of an allergen. It is used by the User and FoodProduct classes. For user it records what the user is allergic to, and for FoodProduct it records what kind of allergens it has.
 
+![Class Diagram](Assets/lab3/ClassDiagram.png "class diagram")
+
 ### Information Purpose and Usage
 
 The whole system:
