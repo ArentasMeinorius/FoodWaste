@@ -304,7 +304,10 @@ Not applicable. Allergens are properties, not processes that could happen concur
 \clearpage
 ## Development viewpoint
 
-Because there are no future plans of expanding or working on the system in any ways, this viewpoint was not considered.
+Because there are no future plans of expanding or working on the system in any ways, this viewpoint was only minimally considered.
+
+The system update:
+Allergen in FoodWaste system is not a major architectural component. Allergen lists are attached to major components such as product and user, however, they do not interfere with current usage of these entities and their functionality (except for the alert if trying to reserve allergic foods). In the future, it should be easy to implement allergen filtering on main page (for better user experience).
 
 \clearpage
 ## Deployment viewpoint
@@ -676,3 +679,25 @@ Test case steps:
 * User allergen adding/removing
 
 * Warning messages when allergens are in the product. 
+
+\clearpage
+# Traceability
+
+## Requirements
+
+* R1 Allergens tags on food products \
+* R2 Remove reservation \
+* R3 Restaurant might have multiple addresses \
+* R4 Notifications for selected restaurants \
+
+## Viewpoints
+
+* V1 Context viewpoint \
+* V2 Functional viewpoint \
+* V3 Information viewpoint \
+* V4 Concurrency viewpoint \
+* V5 Development viewpoint \
+* V6 Deployment viewpoint \
+* V7 Operational viewpoint
+
+![Traceability matrix](Assets/lab4/TraceabilityLab4.PNG)
