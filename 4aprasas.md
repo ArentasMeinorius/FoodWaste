@@ -466,15 +466,9 @@ Not applicable. Processes do not change.
 The whole system:
 The system should have redundant hardware in case of the used one failing. Not being able to sell our food products would mean that a lot of them would go to waste and we, as well as our partners, would lose out on profits.  Because we do not have a local database we should look into having multiple providers to host our data in case one of them would fail to provide their services. Our system should also have an automated failover in case the hardware fails. Best case scenario would be that the emergency system could take over the work of the failed system.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Deployment view
 The whole system:
 The redundant hardware should always be ready for deployment and up to date. During the deployment the system should be autonomous enough to know which database is ready to use and in what state were the users left when the system failed.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Context view
 The whole system:
@@ -487,22 +481,13 @@ As allergens are important to the health and wellbeing of our users, therefore i
 The whole system:
 Unfortunately, due to the nature of our system, having a network connection and a working system is essential if users want to use our system as it was intended. If the system would totally collapse or the user would lose internet connection for a long period of time the user would be left without any way to interact with the system. If we were to allow some accessibility to the user when they are offline to, for example, look through their profile or order history, it would be a violation of user data security and should not be allowed.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Information view
 The whole system:
 As was written before, we do not use a local database. We should use two database storage providers in case the provider goes offline for whatever reason. The system should be constantly communicating with the database so that it could tell when the database is inaccessible as soon as possible. In theory, transitioning to the other database should not take too much time. The backup database should be updated every night when there are minimal number of users using the system, as the process should be lengthy.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Operational view
 The whole system:
 In case of a system hardware failure or database storage supplier going down, the system should be ready to make a swift diagnostic of what services are unavailable and what course of action should be taken. The entire process must be tested beforehand.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ## Development Resource perspective
 
@@ -546,36 +531,21 @@ As FoodWaste will become bigger project and more users will depend on it - more 
 The whole system:
 Because our database is accessed remotely, the latency can be slightly higher than normal. Knowing that the same record from it won’t be accessible to multiple users combined with the latency can result in long query times. Therefore, the system should be able to determine on its own how many products it can sell to the user before noting the change in stock in the database when the needed record is not occupied. This means that the system should always have a limit on the quantity of a single product that the user can purchase at a given timeframe.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Deployment view
 The whole system:
 Because the only separate part of our system is the database, the disparity is not a big issue. We should take into consideration to have our queries and their results as short as possible, as the database is going to be used constantly.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Context view
 The whole system:
 The database storage providers should be based in Europe, as it would ensure we have minimal latency and reliable availability
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Information view
 The whole system:
 The main database should be used to update the backup database. The update would take place every night when the system experiences minimal user activity. If a provider were to go offline the system should be able to swiftly diagnose the disconnect and start using the backup database. Of course, if the disconnect takes places in the evening, the data will be inaccurate. The system should have access to some statistical measurements of how fast certain food products are bought on what times of day and roughly assess how much food products should be left in stock and could be sold while keeping tabs of current transactions to update the main database when it comes back online. It is certain that separate providers will be able to synchronize the database information on their own, so during the night the system should compare the stock of main database to the stock of the backup one and issue update commands on its own.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Operational view
 The whole system:
 Because we are using a provider that specializes in database hosting, we believe that they can be trusted to deliver their best efforts to keep their services running. If any unforeseen event occurs, we trust that they will recover within a couple of hours.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ## Performance and Scalability perspective
 
@@ -584,15 +554,9 @@ Because the update added an extra functionality, the same points apply to it as 
 The whole system:
 Our system should be able to generate monthly reports to an accounting company so that they could work on salary calculations, audit reports, etc.
 
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
-
 ### On Functional view
 The whole system:
 Because we are dealing with food that is near its expiration, we should take we partner with companies that can ensure, that their provided food products comply with “Lietuvos Respublikos maisto įstatymas”, document number VIII-1608.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ### On Information view
 The whole system:
@@ -604,9 +568,6 @@ We will have to ask for a permission to collect and manage data about user aller
 ### On Operational view
 The whole system:
 We need to be able to automatically give out SLAs to our users to be able to provide our services. This includes basic services, cookie usage, etc.
-
-The system update:
-Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ## Security perspective
 
