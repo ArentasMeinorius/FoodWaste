@@ -298,6 +298,7 @@ Due to our type of service we are going to need a server to host the website wit
 ### Third-Party Software Requirements
 
 Since we are using .NET core we are going to use available libraries to make our work easier
+
 - Xunit 2.4.1
 - PostgreSQL 5.0.0-rc2
 - MatBlazor 2.8.0
@@ -484,6 +485,45 @@ Because the update added an extra functionality, the same points apply to it as 
 
 ## Development Resource perspective
 
+### On Concurrency view
+
+The whole system:
+Concurrency is hard to manage therefore we might need additional people to test and implement properly working system
+
+The system update:
+Not applicable, allergens are immediately updated on users profiles, no need to concurrently handle it - no additional resources required
+
+### On Deployment view
+
+The whole system:
+We need people that understand and can handle server hardware. We are not qualified enough to select equipment that would handle our needs meaning additional specialists are required to sort out the hardware and networking
+
+The system update:
+No need for additional resources, system admin will be able to deploy the update as soon as its ready
+
+### On Context view
+
+The whole system:
+we need time to prepare correct relationships and dependencies for the system and its environment
+
+The system update:
+we need time and people to prepare new relationships
+
+### On Functional view
+
+The whole system:
+No need to additional resources
+
+### On Information view
+
+The whole system:
+We need a large staff of specialists to prepare sophisticated information models and maintain them
+
+### On Operational view
+
+The whole system:
+We need people to operate the system and administere it. Install or upgrade it
+
 ## Evolution perspective
 
 ### On Concurrency view
@@ -557,7 +597,8 @@ Because the update added an extra functionality, the same points apply to it as 
 
 ## Performance and Scalability perspective
 
-## Regulaiton perspective
+## Regulation perspective
+
 ### On Context view
 The whole system:
 Our system should be able to generate monthly reports to an accounting company so that they could work on salary calculations, audit reports, etc.
@@ -587,6 +628,48 @@ The system update:
 Because the update added an extra functionality, the same points apply to it as they do for the whole system.
 
 ## Security perspective
+
+To review our systems security we will be using OWASP model
+
+### Injection
+
+Injections are not concerning us due to our program structure. Data quaries are deep in the backend code hidden behind controllers and are protected by our data validation.
+
+### Broken Authentication
+
+Each input field is validated before it's accepted.
+
+### Sensitive Data Exposure
+
+Our system is currently on a really small scale, therefore we use almost no external APIs which reduces the risk of exploiting insecure data transmissions
+
+### XML External Entities
+
+Our system does not allow to upload any files because there is no need for it, we simply do not have this functionality therefore this type of attack is irrelevant
+
+### Broken Access Control
+
+Our automated UI tests did not show any access control flaws or configuration errors. Regular users have no acces to sensitive files, systems or admin settings.
+
+### Security Misconfiguration
+
+All integration tests have passed therefore and currently no misconfiguration is apparent
+
+### Cross-Site Scripting
+
+We use almost no external APIs, use data encryptions and validate inputs to minimize the risk of attacks
+
+### Insecure Deserialization
+
+System saves files to a database with quaries, we have no need to serialize / deserialize data. Not applicable
+
+### Using Components with Known Vulnerabilities
+
+We use almost no external APIs, there is always a risk that some security flaw was missed, as far as we are aware we do not have APIs with known vulnerabilities
+
+### Insufficient Logging and Monitoring
+
+We use event sourcing which helps us to monitor and log everything that happens within the program
 
 ## Usability perspective
 
