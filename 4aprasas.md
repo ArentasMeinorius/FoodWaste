@@ -336,6 +336,32 @@ The update has not added any new third party environments nor removed any old on
 
 ##Accessibility perspective
 
+Currently FoodWaste does not support accessabillity standarts that it would enjoy giving to users. Here are the plans:
+
+###On Concurrency view
+The whole system:
+Not applicable. Concurrency is internal and end user does not know anything about it.
+
+###On Deployment view
+The whole system:
+Not applicable. Deployment process does not change.
+
+###On Context view
+The whole system:
+Team plans to support versions that help people with different disabilities to use the FoodWaste.
+
+###On Functional view
+The whole system:
+Buttons/voice commands will be used to enter accessibility mode. There the most basic features will be available with the potential to include all features.
+
+###On Information view
+The whole system:
+Not applicable. Accessibility support is only front end.
+
+###On Operational view
+The whole system:
+Not applicable. Processes do not change.
+
 ##Availability and Resilience perspective
 
 ###On Concurrency view
@@ -383,6 +409,36 @@ Because the update added an extra functionality, the same points apply to it as 
 ##Development Resource perspective
 
 ##Evolution perspective
+
+###On Concurrency view
+The whole system:
+FoodWaste does not have any special implementations that prohibit use of more in depth use of concurrency than the default one that .NET provides.
+
+###On Deployment view
+The whole system:
+Currently CI does not have all of the important features that it will in the future, however, there are no roadblocks to improve it.
+
+###On Context view
+The whole system:
+Currently FoodWaste does not provide courier services. This is probably biggest feature that is going to be made if the idea proves to be successful.
+
+The system update:
+Allergen functionality helps FoodWaste to become more user friendly - it is a step to increase user base.
+
+###On Functional view
+The whole system:
+Many features of current FoodWaste may change in the future. Developers try to follow many of the best practices to make new and changing features easy to implement in the future.
+
+The system update:
+There will be more allergen features that are planned. However, the team does not see this component needing more of the development power in the near future.
+
+###On Information view
+The whole system:
+FoodWaste tries to keep everything simple, however with new features it is obvious that changes will have to be made. Being able to switch tiers/products in Azure/AWS is going to be beneficial.
+
+###On Operational view
+The whole system:
+As FoodWaste will become bigger project and more users will depend on it - more rigorous systems for operations will be implemented.
 
 ##Internalization perspective
 
@@ -457,3 +513,30 @@ Because the update added an extra functionality, the same points apply to it as 
 ##Security perspective
 
 ##Usability perspective
+
+###On Concurrency view
+The whole system:
+Not applicable. Concurrency is internal and end user does not know anything about it.
+
+###On Deployment view
+The whole system:
+Not applicable. Deployment process does not change.
+
+###On Context view
+The whole system:
+FoodWaste looks forward to implement system that enables users to easily achieve the functionality provided. Usability is highly strived for in the process of developing FoodWaste.
+
+The system update:
+Allergen functionality will improve the usability of FoodWaste tremendously for people with allergies.
+
+###On Functional view
+The whole system:
+FoodWaste will use A/B testing to determine which features are the best according to users.
+
+###On Information view
+The whole system:
+Efficient use of data enables FoodWaste to operate quickly - all users are impacted by this.
+
+###On Operational view
+The whole system:
+Not applicable. Processes do not change.
