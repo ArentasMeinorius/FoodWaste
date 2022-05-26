@@ -643,6 +643,15 @@ Not applicable. Processes do not change.
 
 \clearpage
 
+# Architectural styles
+## Data-centred
+First and foremost, it’s hard to deny that our main architectural style is data-centred. Because we sell food products the main goal of our system is to manage the data about them and allow the users to conveniently look it up and for the food product providers to conveniently update information about the food products. There fore the database is the heart of our system, accessed continuously thorough the functioning of our operations. If our database is for some reason inaccessible the entire system cannot work, no matter how much processes can be executed independently by the client components. This leads us to our second 
+
+## Component-based
+Because our system expects multiple kinds of users to use our system in different, but similar ways, our architectural style is also component-based. A lot of processes require their unique components, like payments, accounting, monitoring, food product update, profile update, etc. Therefore, we had to utilize component-based architecture to create a system that would be able to fulfil these varied requirements while allowing to reuse some code.
+
+\clearpage
+
 # Testability
 For this iteration one of the requirements to be implemented is the ability to use allergens in the system. After implementing the system changes, we will have to test it to make sure that it is working properly. The test case should cover changes in the system, both frontend and backend, as well as changes in the database. For this an UI test case written using Cypress framework in typescript will be used. 
 
