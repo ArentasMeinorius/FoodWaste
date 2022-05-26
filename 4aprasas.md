@@ -298,7 +298,7 @@ Not applicable. Allergens are properties, not processes that could happen concur
 
 ## Development viewpoint
 
-Allergen in FoodWaste system is not a major architectural component. Allergen lists are attached to major components such as product and user, however, they do not interfere with current usage of these entities and their functionality (except for the alert if trying to reserve allergic foods). In the future, it should be easy to implement allergen filtering on main page (for better user experience).
+Because there are no future plans of expanding or working on the system in any ways, this viewpoint was not considered.
 
 \clearpage
 
