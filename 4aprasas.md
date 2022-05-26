@@ -580,8 +580,6 @@ FoodWaste tries to keep everything simple, however with new features it is obvio
 The whole system:
 As FoodWaste will become bigger project and more users will depend on it - more rigorous systems for operations will be implemented.
 
-## Internalization perspective
-
 \clearpage
 ## Location perspective
 
